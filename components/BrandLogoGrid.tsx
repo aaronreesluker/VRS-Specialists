@@ -34,23 +34,17 @@ function SpecialBadgeWithShine({ brandName }: { brandName: string }) {
       onMouseLeave={() => setIsHovered(false)}
       style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
     >
-      {/* Base + symbol - always visible */}
+      {/* + symbol - white when not hovered, red shine when hovered */}
       <span
-        className="text-white text-5xl font-light opacity-70 group-hover:opacity-100 transition-opacity relative z-10"
+        className={`text-5xl font-light transition-all relative z-10 ${
+          isHovered 
+            ? 'brand-logo-shine-special-text' 
+            : 'text-white opacity-70 group-hover:opacity-100'
+        }`}
         style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
       >
         +
       </span>
-      
-      {/* Red shine overlay - only visible on hover, clipped to the + shape */}
-      {isHovered && (
-        <span
-          className="brand-logo-shine-special-text absolute inset-0 flex items-center justify-center pointer-events-none"
-          style={{ zIndex: 11 }}
-        >
-          +
-        </span>
-      )}
     </div>
   );
 }

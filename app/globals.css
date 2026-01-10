@@ -279,11 +279,7 @@
   opacity: 1;
 }
 
-/* Animate Specials shine when hovered - faster animation */
-.brand-logo-wrap:hover .brand-logo-shine-special,
-.brand-logo-item:hover .brand-logo-wrap .brand-logo-shine-special {
-  animation: brandLogoShine 1.5s linear infinite;
-}
+/* Animation is applied directly to .brand-logo-shine-special-text via CSS above */
 
 
 /* Keep the logo above page background but below shine */
