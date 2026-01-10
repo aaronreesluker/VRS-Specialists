@@ -405,8 +405,8 @@ export function InstagramGallery({
 
         {/* Main Content - Video Player + Service Details */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 max-w-7xl mx-auto">
-          {/* Left: Media Player - Video or Images - More space */}
-          <div className="relative lg:col-span-7 flex flex-col items-center">
+          {/* Left: Media Player - Video or Images - 50% */}
+          <div className="relative lg:col-span-6 flex flex-col items-center">
             <div className="relative w-full max-w-full bg-black rounded-2xl overflow-hidden shadow-2xl flex justify-center items-center group">
               {/* Video or Image */}
               {currentPost?.video ? (
@@ -591,8 +591,8 @@ export function InstagramGallery({
             })()}
           </div>
 
-          {/* Right: Service Details - Less space, smaller text */}
-          <div className="flex flex-col justify-center lg:col-span-5">
+          {/* Right: Service Details - 50% */}
+          <div className="flex flex-col justify-center lg:col-span-6">
             <div className="flex items-start justify-between mb-3 gap-3">
               <h3 
                 className="text-xl md:text-2xl lg:text-2xl font-bold text-white leading-tight"
