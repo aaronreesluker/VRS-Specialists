@@ -50,6 +50,19 @@ function getUsedMediaFiles(): Set<string> {
 
 export async function GET() {
   try {
+    // On Vercel, public files are static and not accessible via filesystem
+    // This route only works in local development
+    // For production/pitch site, return empty result
+    if (process.env.VERCEL || process.env.NODE_ENV === "production") {
+      return NextResponse.json({
+        success: true,
+        files: [],
+        total: 0,
+        used: getUsedMediaFiles().size,
+        message: "Media scanning only available in local development",
+      });
+    }
+
     const instagramDir = join(process.cwd(), "public", "videos", "instagram");
     const files = await readdir(instagramDir);
     
