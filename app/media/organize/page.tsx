@@ -63,6 +63,14 @@ export default function MediaOrganizePage() {
     try {
       setLoading(true);
       const response = await fetch("/api/media/scan");
+      
+      if (!response.ok) {
+        // API route disabled in production - return empty for pitch site
+        setAvailableFiles([]);
+        setError("Media scanning API is not available in production. This feature is for local development only.");
+        return;
+      }
+      
       const data = await response.json();
       
       if (data.success) {
@@ -71,7 +79,9 @@ export default function MediaOrganizePage() {
         setError(data.error || "Failed to load media files");
       }
     } catch (err: any) {
-      setError(err.message || "Failed to load media files");
+      // API route disabled in production - return empty for pitch site
+      setAvailableFiles([]);
+      setError("Media scanning API is not available in production. This feature is for local development only.");
     } finally {
       setLoading(false);
     }
