@@ -389,23 +389,27 @@ export function BrandGallery({
                   </button>
                   <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]"></div>
                 </div>
-              ) : currentPost?.images && currentPost.images.length > 0 ? (
-                <div 
-                  className="relative w-full flex justify-center cursor-pointer"
-                  onClick={() => {
-                    const currentImageSrc = currentPost.images[Math.min(selectedImageIndex, currentPost.images.length - 1)] || currentPost.images[0];
-                    openLightbox("image", currentImageSrc, selectedImageIndex);
-                  }}
-                >
-                  <img
-                    key={`${selectedBrandIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
-                    src={currentPost.images[Math.min(selectedImageIndex, currentPost.images.length - 1)] || currentPost.images[0]}
-                    alt={`${currentPost.title || 'Project'} - Image ${selectedImageIndex + 1} of ${currentPost.images.length}`}
-                    className="w-auto h-auto max-w-full max-h-[400px] object-contain"
-                  />
-                  <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]"></div>
-                </div>
-              ) : null}
+              ) : (() => {
+                const images = currentPost?.images;
+                if (!images || images.length === 0) return null;
+                const imageSrc = images[Math.min(selectedImageIndex, images.length - 1)] || images[0];
+                return (
+                  <div 
+                    className="relative w-full flex justify-center cursor-pointer"
+                    onClick={() => {
+                      openLightbox("image", imageSrc, selectedImageIndex);
+                    }}
+                  >
+                    <img
+                      key={`${selectedBrandIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
+                      src={imageSrc}
+                      alt={`${currentPost?.title || 'Project'} - Image ${selectedImageIndex + 1} of ${images.length}`}
+                      className="w-auto h-auto max-w-full max-h-[400px] object-contain"
+                    />
+                    <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]"></div>
+                  </div>
+                );
+              })()}
             </div>
             
             {/* Smaller pagination for images within project */}
