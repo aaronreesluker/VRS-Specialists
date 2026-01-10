@@ -627,8 +627,11 @@ export function BrandGallery({
               {currentPost?.galleryUrl && (
                 <Link
                   href={currentPost.galleryUrl}
-                  className={`${isLight ? "bg-brand-red text-white hover:bg-red-700" : "bg-white text-black hover:bg-gray-100"} px-6 py-3 rounded-full font-semibold text-center transition-colors uppercase tracking-wider`}
-                  style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                  className={`${isLight ? "text-white hover:opacity-90" : "bg-white text-black hover:bg-gray-100"} px-6 py-3 rounded-full font-semibold text-center transition-colors uppercase tracking-wider`}
+                  style={{ 
+                    fontFamily: "var(--font-outfit), sans-serif",
+                    ...(isLight ? { backgroundColor: "var(--color-brand-red)" } : {})
+                  }}
                 >
                   View job gallery
                 </Link>
@@ -636,8 +639,26 @@ export function BrandGallery({
               {currentPost?.bookingUrl && (
                 <Link
                   href={currentPost.bookingUrl}
-                  className={`border-2 ${isLight ? "border-brand-red text-brand-red hover:bg-brand-red hover:text-white" : "border-white text-white hover:bg-white/10"} px-6 py-3 rounded-full font-semibold text-center transition-colors uppercase tracking-wider`}
-                  style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                  className={`border-2 ${isLight ? "text-brand-red hover:text-white" : "border-white text-white hover:bg-white/10"} px-6 py-3 rounded-full font-semibold text-center transition-colors uppercase tracking-wider`}
+                  style={{ 
+                    fontFamily: "var(--font-outfit), sans-serif",
+                    ...(isLight ? { 
+                      borderColor: "var(--color-brand-red)",
+                      ...({} as any) // TypeScript workaround
+                    } : {})
+                  }}
+                  onMouseEnter={(e) => {
+                    if (isLight) {
+                      e.currentTarget.style.backgroundColor = "var(--color-brand-red)";
+                      e.currentTarget.style.color = "white";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (isLight) {
+                      e.currentTarget.style.backgroundColor = "transparent";
+                      e.currentTarget.style.color = "var(--color-brand-red)";
+                    }
+                  }}
                 >
                   Book this package
                 </Link>
