@@ -187,20 +187,37 @@ function generateServiceDetails(serviceName: string, projectName: string): {
 
 // Transform JSON data to InstagramGallery format
 export function getServicesData(): ServiceGroup[] {
-  const services: Service[] = mediaData.services.filter(
-    (s) => s.id !== "service-1767918261314" && 
+  // Filter and transform services to ensure type safety
+  // Cast mediaData.services as any first, then transform to proper types
+  const rawServices = (mediaData as any).services.filter(
+    (s: any) => s.id !== "service-1767918261314" && 
            s.id !== "service-1767918423587" && 
            s.id !== "service-1767918499965"
-  );
+  ) as any[];
+
+  const services: Service[] = rawServices.map((service: any) => ({
+    id: service.id,
+    name: service.name,
+    projectIds: service.projectIds || [],
+    projects: (service.projects || []).map((project: any) => ({
+      id: project.id,
+      name: project.name,
+      description: project.description,
+      location: project.location,
+      mediaIds: project.mediaIds || [],
+      media: (project.media || []).map((m: any) => ({
+        id: m.id,
+        src: m.src,
+        alt: m.alt || "",
+        type: (m.type === "video" ? "video" : "image") as "image" | "video"
+      }))
+    }))
+  }));
 
   return services.map((service) => {
     const examples: InstagramPost[] = service.projects.map((project) => {
       // Get the first video or first image as primary media
-      // Cast media type to ensure it matches MediaItem interface
-      const mediaItems: MediaItem[] = project.media.map(m => ({
-        ...m,
-        type: (m.type === "video" ? "video" : "image") as "image" | "video"
-      }));
+      const mediaItems: MediaItem[] = project.media;
       const firstVideo = mediaItems.find((m) => m.type === "video");
       const firstImage = mediaItems.find((m) => m.type === "image");
       const allImages = mediaItems.filter((m) => m.type === "image").map((m) => m.src);
