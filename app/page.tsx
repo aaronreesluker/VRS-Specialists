@@ -204,7 +204,6 @@ export default function Home() {
           >
             ✓ Insured ✓ Certified ✓ Premium Products
           </p>
-        </div>
       </section>
       
       <ServiceOverview />
