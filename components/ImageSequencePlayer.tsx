@@ -59,24 +59,32 @@ export function ImageSequencePlayer({
     return fullPath;
   };
 
-  // Calculate frame index from progress - optimized for performance
+  // Calculate frame index from progress - optimized for maximum smoothness
   // progress 0.0 → frame 1, progress 1.0 → frame frameCount
   const frameUpdateRef = useRef<number | null>(null);
+  const lastFrameRef = useRef<number>(1);
   
   useEffect(() => {
     const clamped = Math.max(0, Math.min(1, progress));
-    // Use floor for more stable frame display, prevents flickering
+    // Use Math.round for smoother interpolation between frames
+    // This provides better frame accuracy for smooth animation
     const exactFrame = clamped * (frameCount - 1) + 1;
-    const frameIndex = Math.floor(exactFrame);
+    const frameIndex = Math.round(exactFrame);
     const finalIndex = Math.max(1, Math.min(frameCount, frameIndex));
+    
+    // Only update if frame actually changed (reduces unnecessary re-renders)
+    if (finalIndex === lastFrameRef.current) {
+      return;
+    }
     
     // Cancel any pending frame update
     if (frameUpdateRef.current !== null) {
       cancelAnimationFrame(frameUpdateRef.current);
     }
     
-    // Use requestAnimationFrame for smoother updates, but batch them
+    // Use requestAnimationFrame for smooth, synchronized frame updates
     frameUpdateRef.current = requestAnimationFrame(() => {
+      lastFrameRef.current = finalIndex;
       setCurrentFrameIndex(finalIndex);
       frameUpdateRef.current = null;
     });
@@ -185,11 +193,14 @@ export function ImageSequencePlayer({
             maxWidth: "90vw",
             maxHeight: "80vh",
             opacity: isLoaded ? 1 : 0.3,
-            transition: "opacity 0.05s ease-out",
-            imageRendering: "auto",
+            transition: "opacity 0.03s linear",
+            imageRendering: "crisp-edges",
             willChange: "contents",
             backfaceVisibility: "hidden",
             transform: "translateZ(0)",
+            WebkitTransform: "translateZ(0)",
+            WebkitBackfaceVisibility: "hidden",
+            isolation: "isolate",
           }}
           loading="eager"
           draggable={false}

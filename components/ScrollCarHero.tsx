@@ -52,13 +52,14 @@ export function ScrollCarHero({
   const carOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1], { clamp: true });
 
   // Car animation: Linear mapping for consistent frame progression
-  // Linear ensures frames advance evenly with scroll
+  // Using easeOut for smoother start, linear for consistent mid-scroll, easeIn for smooth end
   const carAnimationProgress = useTransform(
     scrollYProgress,
-    [0, 1],
-    [0, 1],
+    [0, 0.05, 0.95, 1],
+    [0, 0.05, 0.95, 1],
     { 
-      clamp: true
+      clamp: true,
+      ease: [0.25, 0.1, 0.25, 1] // Custom cubic bezier for ultra-smooth transitions
     }
   );
 
@@ -78,19 +79,28 @@ export function ScrollCarHero({
   // Update progress for ImageSequencePlayer
   const effectiveProgress = reducedMotion ? reducedMotionProgress : carAnimationProgress;
   
-  // Throttle progress updates for smoother frame transitions
+  // Ultra-smooth progress updates synchronized with browser paint cycles
   const progressUpdateRef = useRef<number | null>(null);
+  const lastProgressRef = useRef<number>(0);
   
   useMotionValueEvent(effectiveProgress, "change", (latest) => {
+    // Only update if progress changed significantly (reduces micro-updates)
+    if (Math.abs(latest - lastProgressRef.current) < 0.001) {
+      return;
+    }
+    
     // Cancel any pending update
     if (progressUpdateRef.current !== null) {
       cancelAnimationFrame(progressUpdateRef.current);
     }
     
-    // Use requestAnimationFrame to sync with browser paint cycles
+    // Use double requestAnimationFrame for ultra-smooth rendering (next paint cycle)
     progressUpdateRef.current = requestAnimationFrame(() => {
-      setCurrentProgress(latest);
-      progressUpdateRef.current = null;
+      requestAnimationFrame(() => {
+        lastProgressRef.current = latest;
+        setCurrentProgress(latest);
+        progressUpdateRef.current = null;
+      });
     });
   });
 
@@ -150,6 +160,10 @@ export function ScrollCarHero({
               transformOrigin: "center center",
               willChange: "transform, opacity",
               backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              transform: "translateZ(0)",
+              WebkitTransform: "translateZ(0)",
+              isolation: "isolate",
             }}
           >
             <ImageSequencePlayer

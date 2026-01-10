@@ -6,7 +6,7 @@ import ProcessSection from "@/components/home/ProcessSection";
 import TestimonialsPreview from "@/components/home/TestimonialsPreview";
 import CoverageArea from "@/components/home/CoverageArea";
 import FAQPreview from "@/components/home/FAQPreview";
-import BlogSection from "@/components/BlogSection";
+// import BlogSection from "@/components/BlogSection"; // Removed - Blog pages not ready yet
 import { ScrollCarHero } from "@/components/ScrollCarHero";
 import { ScrollNav } from "@/components/ScrollNav";
 import { InstagramGallery } from "@/components/InstagramGallery";
@@ -165,7 +165,8 @@ export default function Home() {
             Meticulous detailing, paint correction, and protection services in
             Brighton and across Sussex. Studio workshop or mobile service.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+          {/* CTA Button removed - Contact page not ready yet for pitch/portfolio site */}
+          {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
             <Link 
               href="/contact" 
               className="bg-white text-brand-red hover:bg-white/90 text-lg px-8 py-4 rounded-full font-semibold transition-colors duration-200 uppercase tracking-wider"
@@ -173,6 +174,7 @@ export default function Home() {
             >
               Request a Quote
             </Link>
+          </div> */}
             <div className="flex gap-4">
               <a
                 href="tel:08000029083"
@@ -241,7 +243,8 @@ export default function Home() {
       
       {/* Brand Logo Grid - Stationary logos linking to brands page */}
       <BrandLogoGrid />
-      <BlogSection />
+      {/* BlogSection removed - Blog pages not ready yet for pitch/portfolio site */}
+      {/* <BlogSection /> */}
     </>
   );
 }

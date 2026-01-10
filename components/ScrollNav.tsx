@@ -18,11 +18,12 @@ interface ScrollNavProps {
 }
 
 export function ScrollNav({ 
+  // Navigation items removed - sections not ready yet for pitch/portfolio site
   items = [
-    { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    // { name: "Services", href: "#services" },
+    // { name: "Portfolio", href: "#portfolio" },
+    // { name: "About", href: "#about" },
+    // { name: "Contact", href: "#contact" },
   ]
 }: ScrollNavProps) {
   const [isVisible, setIsVisible] = useState(false);

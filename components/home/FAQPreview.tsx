@@ -130,15 +130,7 @@ export default function FAQPreview() {
           </div>
         </div>
 
-        <div className="text-center">
-          <Link 
-            href="/faq" 
-            className="border-2 border-white text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-white/10 transition-colors uppercase tracking-wider inline-block"
-            style={{ fontFamily: "var(--font-outfit), sans-serif" }}
-          >
-            View All FAQs
-          </Link>
-        </div>
+        {/* "View All FAQs" button removed - FAQ page not ready yet for pitch/portfolio site */}
       </div>
     </section>
   );
