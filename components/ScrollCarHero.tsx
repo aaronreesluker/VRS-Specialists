@@ -28,15 +28,29 @@ export function ScrollCarHero({
   const containerRef = useRef<HTMLDivElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [currentProgress, setCurrentProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Check for reduced motion
+  // Check for reduced motion and mobile device
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mediaQuery.matches);
-    const handleChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
+    
+    // Check for reduced motion
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(motionQuery.matches);
+    const handleMotionChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    motionQuery.addEventListener("change", handleMotionChange);
+    
+    // Check for mobile device
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => {
+      motionQuery.removeEventListener("change", handleMotionChange);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   // Scroll progress: maps container scroll [0, 1]
@@ -63,11 +77,23 @@ export function ScrollCarHero({
   );
 
   // Car position: moves from left to center, then slightly right for headlight
-  const carX = useTransform(scrollYProgress, [0, 0.5, 1.0], [-20, 0, 30], { clamp: true });
+  // Adjusted for mobile - less movement to keep car in viewport
+  const carX = useTransform(
+    scrollYProgress, 
+    [0, 0.5, 1.0], 
+    isMobile ? [-10, 0, 15] : [-20, 0, 30], 
+    { clamp: true }
+  );
 
   // Car scale: grows smoothly, CLAMPED to prevent overshoot
-  // Start at 0.9 so car is visible immediately, grow to 2.2 for close-up
-  const carScale = useTransform(scrollYProgress, [0, 1.0], [0.9, 2.2], { clamp: true });
+  // Mobile: smaller scale range to ensure car stays visible
+  // Desktop: Start at 0.9 so car is visible immediately, grow to 2.2 for close-up
+  const carScale = useTransform(
+    scrollYProgress, 
+    [0, 1.0], 
+    isMobile ? [0.8, 1.3] : [0.9, 2.2], 
+    { clamp: true }
+  );
 
   // Flash overlay
   const flashOpacity = useTransform(scrollYProgress, [0.9, 1.0], [0, 1], { clamp: true });
@@ -103,20 +129,23 @@ export function ScrollCarHero({
     });
   });
 
+  // Adjust hero height for mobile - shorter on mobile for better UX
+  const adjustedHeroHeight = isMobile ? Math.min(heroHeight, 200) : heroHeight;
+
   return (
     <div
       ref={containerRef}
       className={`relative ${backgroundColor}`}
-      style={{ height: `${heroHeight}vh` }}
+      style={{ height: `${adjustedHeroHeight}vh` }}
     >
       <div className="sticky top-0 h-screen w-full" style={{ overflow: "hidden" }}>
         {/* Title */}
         <motion.div
-          className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none"
+          className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4"
           style={{ opacity: titleOpacity }}
         >
           <h1 
-            className="text-7xl md:text-9xl text-white mb-6"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-white mb-3 md:mb-6 text-center"
             style={{
               fontFamily: "var(--font-space-grotesk), sans-serif",
               fontWeight: 700,
@@ -127,7 +156,7 @@ export function ScrollCarHero({
             {titleMain}
           </h1>
           <p 
-            className="text-xl md:text-3xl text-white/80"
+            className="text-base sm:text-lg md:text-xl lg:text-3xl text-white/80 text-center px-4"
             style={{
               fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 300,
@@ -148,7 +177,7 @@ export function ScrollCarHero({
             justifyContent: "center",
             width: "100%",
             height: "100%",
-            paddingTop: "20vh", // Push car down more
+            paddingTop: isMobile ? "10vh" : "20vh", // Less padding on mobile
           }}
         >
           <motion.div

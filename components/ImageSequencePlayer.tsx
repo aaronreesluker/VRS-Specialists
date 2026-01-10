@@ -190,8 +190,10 @@ export function ImageSequencePlayer({
             display: "block",
             width: "auto",
             height: "auto",
-            maxWidth: "90vw",
-            maxHeight: "80vh",
+            maxWidth: "95vw",
+            maxHeight: "85vh",
+            minWidth: "280px", // Ensure car is visible on mobile
+            minHeight: "180px", // Minimum height for visibility
             opacity: isLoaded ? 1 : 0.3,
             transition: "opacity 0.03s linear",
             imageRendering: "crisp-edges",
@@ -201,6 +203,7 @@ export function ImageSequencePlayer({
             WebkitTransform: "translateZ(0)",
             WebkitBackfaceVisibility: "hidden",
             isolation: "isolate",
+            objectFit: "contain", // Ensure entire car is visible
           }}
           loading="eager"
           draggable={false}

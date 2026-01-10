@@ -113,7 +113,7 @@ export default function Home() {
       */}
       <ScrollCarHero
         frameCount={160}
-        heroHeight={300}
+        heroHeight={300} // Adjusted for mobile in component (max 200vh on mobile)
         titleMain="V.R.S"
         titleSub="Vehicle Rejuvenation Specialists"
         flashColor="#929292" // Matches next section background
@@ -125,12 +125,12 @@ export default function Home() {
       {/* Next section - revealed through flash transition */}
       {/* IMPORTANT: Background color should match flashColor prop above */}
       <section 
-        className="relative w-full min-h-screen py-24 flex items-center justify-center"
+        className="relative w-full min-h-screen py-12 sm:py-16 md:py-24 flex items-center justify-center"
         style={{ backgroundColor: "#929292" }} // Matches last frame of car animation
       >
         <div className="container mx-auto px-4 text-center text-white">
           <h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-balance"
             style={{ 
               fontFamily: "var(--font-space-grotesk), sans-serif",
               color: "#FFFFFF",
@@ -155,7 +155,7 @@ export default function Home() {
             </span>
           </h1>
           <p 
-            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-2xl mx-auto px-2"
             style={{ 
               color: "#FFFFFF",
               fontFamily: "var(--font-outfit), sans-serif",
@@ -165,37 +165,26 @@ export default function Home() {
             Meticulous detailing, paint correction, and protection services in
             Brighton and across Sussex. Studio workshop or mobile service.
           </p>
-          {/* CTA Button removed - Contact page not ready yet for pitch/portfolio site */}
-          {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-            <Link 
-              href="/contact" 
-              className="bg-white text-brand-red hover:bg-white/90 text-lg px-8 py-4 rounded-full font-semibold transition-colors duration-200 uppercase tracking-wider"
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-4 sm:mb-6">
+            <a
+              href="tel:08000029083"
+              className="border-2 border-white text-white hover:bg-white/10 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-colors duration-200 uppercase tracking-wider w-full sm:w-auto text-center"
               style={{ fontFamily: "var(--font-outfit), sans-serif" }}
             >
-              Request a Quote
-            </Link>
-          </div> */}
-            <div className="flex gap-4">
-              <a
-                href="tel:08000029083"
-                className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4 rounded-full font-semibold transition-colors duration-200 uppercase tracking-wider"
-                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
-              >
-                Call Now
-              </a>
-              <a
-                href="https://wa.me/447926136965"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4 rounded-full font-semibold transition-colors duration-200 uppercase tracking-wider"
-                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
-              >
-                WhatsApp
-              </a>
-            </div>
+              Call Now
+            </a>
+            <a
+              href="https://wa.me/447926136965"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white hover:bg-white/10 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-colors duration-200 uppercase tracking-wider w-full sm:w-auto text-center"
+              style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+            >
+              WhatsApp
+            </a>
           </div>
           <p 
-            className="text-sm uppercase tracking-wider"
+            className="text-xs sm:text-sm uppercase tracking-wider px-2"
             style={{ 
               color: "#FFFFFF",
               fontFamily: "var(--font-outfit), sans-serif",
@@ -204,6 +193,7 @@ export default function Home() {
           >
             ✓ Insured ✓ Certified ✓ Premium Products
           </p>
+        </div>
       </section>
       
       <ServiceOverview />
