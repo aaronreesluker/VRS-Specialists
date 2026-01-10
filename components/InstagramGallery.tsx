@@ -404,10 +404,10 @@ export function InstagramGallery({
         />
 
         {/* Main Content - Video Player + Service Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 max-w-6xl mx-auto">
-          {/* Left: Media Player - Video or Images */}
-          <div className="relative lg:col-span-4 flex flex-col items-center">
-            <div className="relative w-full max-w-[300px] bg-black rounded-2xl overflow-hidden shadow-2xl flex justify-center items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 max-w-7xl mx-auto">
+          {/* Left: Media Player - Video or Images - More space */}
+          <div className="relative lg:col-span-7 flex flex-col items-center">
+            <div className="relative w-full max-w-full bg-black rounded-2xl overflow-hidden shadow-2xl flex justify-center items-center">
               {/* Video or Image */}
               {currentPost?.video ? (
                 <div 
@@ -418,7 +418,7 @@ export function InstagramGallery({
                     ref={videoRef}
                     key={`${selectedServiceIndex}-${selectedExampleIndex}`}
                     src={currentPost.video}
-                    className="w-auto h-auto max-w-full max-h-[400px] object-contain"
+                    className="w-full h-auto max-h-[600px] md:max-h-[700px] lg:max-h-[800px] object-contain"
                     controls
                     playsInline
                     autoPlay
@@ -472,7 +472,7 @@ export function InstagramGallery({
                         key={`${selectedServiceIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
                         src={imageSrc}
                         alt={`${currentPost?.title || 'Project'} - Image ${selectedImageIndex + 1} of ${images.length}`}
-                        className="w-auto h-auto max-w-full max-h-[400px] object-contain"
+                        className="w-full h-auto max-h-[600px] md:max-h-[700px] lg:max-h-[800px] object-contain"
                       />
                       {/* 10% Black Overlay */}
                       <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
@@ -558,17 +558,17 @@ export function InstagramGallery({
                           </div>
           </div>
 
-          {/* Right: Service Details - More space */}
-          <div className="flex flex-col justify-center lg:col-span-8">
-            <div className="flex items-start justify-between mb-4">
+          {/* Right: Service Details - Less space, smaller text */}
+          <div className="flex flex-col justify-center lg:col-span-5">
+            <div className="flex items-start justify-between mb-3 gap-3">
               <h3 
-                className="text-3xl md:text-4xl font-bold text-white"
+                className="text-xl md:text-2xl lg:text-2xl font-bold text-white leading-tight"
                 style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
               >
                 {currentPost?.title || "Full Correction & Coating"}
               </h3>
               <span 
-                className="bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap ml-4"
+                className="bg-green-500 text-white text-[10px] md:text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap flex-shrink-0"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 From Instagram
@@ -577,7 +577,7 @@ export function InstagramGallery({
 
             {currentPost?.location && (
               <p 
-                className="text-gray-300 mb-4 text-sm uppercase tracking-wider"
+                className="text-gray-300 mb-3 text-xs uppercase tracking-wider"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 {currentPost.location}
@@ -585,12 +585,12 @@ export function InstagramGallery({
             )}
 
             {currentPost?.duration && (
-              <div className="flex items-center gap-2 mb-4">
-                <svg className="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center gap-2 mb-3">
+                <svg className="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span 
-                  className="text-white text-sm font-semibold"
+                  className="text-white text-xs font-semibold"
                   style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                 >
                   Duration: {currentPost.duration}
@@ -600,7 +600,7 @@ export function InstagramGallery({
 
             {currentPost?.description && (
               <p 
-                className="text-white mb-4 text-lg font-semibold leading-relaxed"
+                className="text-white mb-3 text-sm font-medium leading-relaxed"
                 style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
               >
                 {currentPost.description}
@@ -609,7 +609,7 @@ export function InstagramGallery({
 
             {currentPost?.detailedDescription && (
               <p 
-                className="text-gray-300 mb-6 text-base leading-relaxed"
+                className="text-gray-300 mb-5 text-xs leading-relaxed"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 {currentPost.detailedDescription}
@@ -618,24 +618,24 @@ export function InstagramGallery({
 
             {/* Techniques Used & Results Achieved - Side by Side */}
             {(currentPost?.techniques && currentPost.techniques.length > 0) || (currentPost?.results && currentPost.results.length > 0) ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                 {/* Techniques Used */}
                 {currentPost?.techniques && currentPost.techniques.length > 0 && (
                   <div>
                     <h4 
-                      className="text-white text-sm font-semibold uppercase tracking-wider mb-3"
+                      className="text-white text-xs font-semibold uppercase tracking-wider mb-2"
                       style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
                     >
                       Techniques Used
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5">
                       {currentPost.techniques.map((technique, index) => (
                         <li key={index} className="flex items-start gap-2">
-                          <svg className="w-4 h-4 text-brand-red mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-3.5 h-3.5 text-brand-red mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           <span 
-                            className="text-gray-300 text-sm"
+                            className="text-gray-300 text-xs leading-relaxed"
                             style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                           >
                             {technique}
@@ -650,19 +650,19 @@ export function InstagramGallery({
                 {currentPost?.results && currentPost.results.length > 0 && (
                   <div>
                     <h4 
-                      className="text-white text-sm font-semibold uppercase tracking-wider mb-3"
+                      className="text-white text-xs font-semibold uppercase tracking-wider mb-2"
                       style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
                     >
                       Results Achieved
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5">
                       {currentPost.results.map((result, index) => (
                         <li key={index} className="flex items-start gap-2">
-                          <svg className="w-4 h-4 text-brand-red mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-3.5 h-3.5 text-brand-red mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                           <span 
-                            className="text-gray-300 text-sm"
+                            className="text-gray-300 text-xs leading-relaxed"
                             style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                           >
                             {result}
@@ -677,11 +677,11 @@ export function InstagramGallery({
 
             {/* Tags */}
             {currentPost?.tags && currentPost.tags.length > 0 && (
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {currentPost.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="border border-white/30 text-white px-4 py-2 rounded-full text-sm"
+                    className="border border-white/30 text-white px-3 py-1 rounded-full text-xs"
                     style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                   >
                     {tag}
@@ -691,11 +691,11 @@ export function InstagramGallery({
                         )}
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               {currentPost?.galleryUrl && (
                 <Link
                   href={currentPost.galleryUrl}
-                  className="bg-white text-black px-6 py-3 rounded-full font-semibold text-center hover:bg-gray-100 transition-colors uppercase tracking-wider"
+                  className="bg-white text-black px-4 py-2 rounded-full font-semibold text-center hover:bg-gray-100 transition-colors uppercase tracking-wider text-xs sm:text-sm"
                             style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                           >
                   View job gallery
@@ -704,7 +704,7 @@ export function InstagramGallery({
               {currentPost?.bookingUrl && (
                 <Link
                   href={currentPost.bookingUrl}
-                  className="border-2 border-white text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-white/10 transition-colors uppercase tracking-wider"
+                  className="border-2 border-white text-white px-4 py-2 rounded-full font-semibold text-center hover:bg-white/10 transition-colors uppercase tracking-wider text-xs sm:text-sm"
                   style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                 >
                   Book this package
