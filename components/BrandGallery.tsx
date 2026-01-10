@@ -413,16 +413,18 @@ export function BrandGallery({
             </div>
             
             {/* Smaller pagination for images within project */}
-            {currentPost?.images && currentPost.images.length > 1 && (
-              <div className="flex justify-center items-center gap-2 mt-3">
-                <button
-                  onClick={() => {
-                    if (imageRotationIntervalRef.current) {
-                      clearInterval(imageRotationIntervalRef.current);
-                      imageRotationIntervalRef.current = null;
-                    }
-                    setSelectedImageIndex(selectedImageIndex > 0 ? selectedImageIndex - 1 : currentPost.images.length - 1);
-                  }}
+            {currentPost?.images && currentPost.images.length > 1 && (() => {
+              const images = currentPost.images;
+              return (
+                <div className="flex justify-center items-center gap-2 mt-3">
+                  <button
+                    onClick={() => {
+                      if (imageRotationIntervalRef.current) {
+                        clearInterval(imageRotationIntervalRef.current);
+                        imageRotationIntervalRef.current = null;
+                      }
+                      setSelectedImageIndex(selectedImageIndex > 0 ? selectedImageIndex - 1 : images.length - 1);
+                    }}
                   className={`${textColor} hover:opacity-70 transition-colors`}
                   aria-label="Previous image"
                 >
@@ -431,8 +433,8 @@ export function BrandGallery({
                   </svg>
                 </button>
                 
-                <div className="flex gap-1.5 items-center">
-                  {currentPost.images.map((_, index) => {
+                  <div className="flex gap-1.5 items-center">
+                    {images.map((_, index) => {
                     const isActive = selectedImageIndex === index;
                     const isBeforeActive = index < selectedImageIndex;
                     const isAfterActive = index > selectedImageIndex;
@@ -471,17 +473,18 @@ export function BrandGallery({
                       clearInterval(imageRotationIntervalRef.current);
                       imageRotationIntervalRef.current = null;
                     }
-                    setSelectedImageIndex(selectedImageIndex < currentPost.images.length - 1 ? selectedImageIndex + 1 : 0);
-                  }}
-                  className={`${textColor} hover:opacity-70 transition-colors`}
-                  aria-label="Next image"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            )}
+                      setSelectedImageIndex(selectedImageIndex < images.length - 1 ? selectedImageIndex + 1 : 0);
+                    }}
+                    className={`${textColor} hover:opacity-70 transition-colors`}
+                    aria-label="Next image"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              );
+            })()}
           </div>
 
           {/* Right: Project Details */}
