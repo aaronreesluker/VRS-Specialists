@@ -34,10 +34,10 @@ function AnimatedSectionHeader({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const textColor = isLight ? "text-dark-900" : "text-white";
-  const textColorSecondary = isLight ? "text-dark-700" : "text-gray-300";
-  const pillBgActive = isLight ? "bg-dark-900 text-white" : "bg-white text-black";
-  const pillBgInactive = isLight ? "bg-dark-100 text-dark-900 border border-dark-300 hover:bg-dark-200" : "bg-white/10 text-white border border-white/20 hover:bg-white/20";
+  const textColor = isLight ? "text-black" : "text-white";
+  const textColorSecondary = isLight ? "text-gray-700" : "text-gray-300";
+  const pillBgActive = isLight ? "bg-brand-red text-white" : "bg-white text-black";
+  const pillBgInactive = isLight ? "bg-white text-black border-2 border-black hover:border-brand-red hover:text-brand-red" : "bg-white/10 text-white border border-white/20 hover:bg-white/20";
 
   return (
     <div className="text-center mb-12" ref={ref}>
@@ -68,7 +68,10 @@ function AnimatedSectionHeader({
                   ? pillBgActive
                   : pillBgInactive
               }`}
-              style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+              style={{ 
+                fontFamily: "var(--font-outfit), sans-serif",
+                ...(isLight && selectedBrandIndex === index ? { backgroundColor: "var(--color-brand-red)" } : {})
+              }}
             >
               {brandName}
             </button>
@@ -101,13 +104,15 @@ export function BrandGallery({
   variant = "dark",
 }: BrandGalleryProps) {
   const isLight = variant === "light";
+  // White background with black text and red accents
   const bgColor = isLight ? "bg-white" : "bg-black";
-  const textColor = isLight ? "text-dark-900" : "text-white";
-  const textColorSecondary = isLight ? "text-dark-700" : "text-gray-300";
-  const borderColor = isLight ? "border-dark-200" : "border-white/20";
-  const pillBgActive = isLight ? "bg-dark-900 text-white" : "bg-white text-black";
-  const pillBgInactive = isLight ? "bg-dark-100 text-dark-900 border border-dark-300" : "bg-white/10 text-white border border-white/20";
-  const pillHover = isLight ? "hover:bg-dark-200" : "hover:bg-white/20";
+  const textColor = isLight ? "text-black" : "text-white";
+  const textColorSecondary = isLight ? "text-gray-700" : "text-gray-300";
+  const borderColor = isLight ? "border-gray-300" : "border-white/20";
+  // Red accent for active pills
+  const pillBgActive = isLight ? "bg-brand-red text-white" : "bg-white text-black";
+  const pillBgInactive = isLight ? "bg-white text-black border-2 border-black hover:border-brand-red hover:text-brand-red" : "bg-white/10 text-white border border-white/20 hover:bg-white/20";
+  const pillHover = isLight ? "hover:border-brand-red hover:text-brand-red" : "hover:bg-white/20";
   const [selectedBrandIndex, setSelectedBrandIndex] = useState<number>(initialBrandIndex);
   
   // Use allBrands for navigation if provided, otherwise use brands
@@ -459,7 +464,7 @@ export function BrandGallery({
                           setSelectedImageIndex(index);
                         }}
                         className={`transition-all ${
-                          isActive ? (isLight ? "bg-dark-900 h-0.5 w-6" : "bg-white h-0.5 w-6") : (isLight ? "bg-dark-300 h-0.5 w-4" : "bg-white/30 h-0.5 w-4")
+                          isActive ? (isLight ? "bg-brand-red h-0.5 w-6" : "bg-white h-0.5 w-6") : (isLight ? "bg-gray-300 h-0.5 w-4" : "bg-white/30 h-0.5 w-4")
                         }`}
                         style={{ clipPath }}
                       />
@@ -497,8 +502,11 @@ export function BrandGallery({
                 {currentPost?.title || "Project"}
               </h3>
               <span 
-                className="bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap ml-4"
-                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                className="text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap ml-4"
+                style={{ 
+                  fontFamily: "var(--font-outfit), sans-serif",
+                  backgroundColor: "var(--color-brand-red)"
+                }}
               >
                 {currentBrand.brandName}
               </span>
@@ -606,7 +614,7 @@ export function BrandGallery({
                 {currentPost.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className={`${isLight ? "border-dark-300 text-dark-900" : "border-white/30 text-white"} px-4 py-2 rounded-full text-sm`}
+                    className={`${isLight ? "border-black text-black hover:border-brand-red hover:text-brand-red" : "border-white/30 text-white"} px-4 py-2 rounded-full text-sm transition-colors`}
                     style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                   >
                     {tag}
@@ -619,7 +627,7 @@ export function BrandGallery({
               {currentPost?.galleryUrl && (
                 <Link
                   href={currentPost.galleryUrl}
-                  className={`${isLight ? "bg-dark-900 text-white hover:bg-dark-800" : "bg-white text-black hover:bg-gray-100"} px-6 py-3 rounded-full font-semibold text-center transition-colors uppercase tracking-wider`}
+                  className={`${isLight ? "bg-brand-red text-white hover:bg-red-700" : "bg-white text-black hover:bg-gray-100"} px-6 py-3 rounded-full font-semibold text-center transition-colors uppercase tracking-wider`}
                   style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                 >
                   View job gallery
@@ -628,7 +636,7 @@ export function BrandGallery({
               {currentPost?.bookingUrl && (
                 <Link
                   href={currentPost.bookingUrl}
-                  className={`border-2 ${isLight ? "border-dark-900 text-dark-900 hover:bg-dark-50" : "border-white text-white hover:bg-white/10"} px-6 py-3 rounded-full font-semibold text-center transition-colors uppercase tracking-wider`}
+                  className={`border-2 ${isLight ? "border-brand-red text-brand-red hover:bg-brand-red hover:text-white" : "border-white text-white hover:bg-white/10"} px-6 py-3 rounded-full font-semibold text-center transition-colors uppercase tracking-wider`}
                   style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                 >
                   Book this package
@@ -671,7 +679,7 @@ export function BrandGallery({
                     key={index}
                     onClick={() => setSelectedExampleIndex(index)}
                         className={`transition-all ${
-                          isActive ? (isLight ? "bg-dark-900 h-1 w-8" : "bg-white h-1 w-8") : (isLight ? "bg-dark-300 h-1 w-6" : "bg-white/30 h-1 w-6")
+                          isActive ? (isLight ? "bg-brand-red h-1 w-8" : "bg-white h-1 w-8") : (isLight ? "bg-gray-300 h-1 w-6" : "bg-white/30 h-1 w-6")
                         }`}
                     style={{ clipPath }}
                   />
