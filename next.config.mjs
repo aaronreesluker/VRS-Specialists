@@ -16,20 +16,28 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, webpack }) => {
     if (isServer) {
-      // Exclude public/videos directory from serverless function bundles
-      // This prevents the large media files from being included in the function
+      // Prevent Next.js from analyzing static paths in API routes
+      // This prevents large directories from being bundled into serverless functions
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^\.\/public\/videos\/instagram/,
+        })
+      );
+      
+      // Exclude fs/promises and path from being analyzed for static imports
       config.externals = config.externals || [];
-      config.externals.push({
-        'fs/promises': 'commonjs fs/promises',
-        'path': 'commonjs path',
-      });
+      if (Array.isArray(config.externals)) {
+        config.externals.push({
+          'fs/promises': 'commonjs fs/promises',
+          'path': 'commonjs path',
+        });
+      }
     }
     return config;
   },
-  // Exclude the media scan route from being analyzed during build
-  // Since it reads from public directory which won't work in Vercel serverless anyway
+  // Exclude filesystem packages from server component analysis
   experimental: {
     serverComponentsExternalPackages: ['fs/promises'],
   },
