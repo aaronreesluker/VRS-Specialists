@@ -7,9 +7,20 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
 
-  // Footer links removed - pages not ready yet for pitch/portfolio site
-  const serviceLinks: Array<{ href: string; label: string }> = [];
-  const quickLinks: Array<{ href: string; label: string }> = [];
+  // Footer links
+  const serviceLinks: Array<{ href: string; label: string }> = [
+    { href: "/services", label: "Car Detailing" },
+    { href: "/services", label: "Paint Correction" },
+    { href: "/services", label: "Ceramic Coating" },
+    { href: "/services", label: "PPF Protection" },
+  ];
+  const quickLinks: Array<{ href: string; label: string }> = [
+    { href: "/about", label: "About Us" },
+    { href: "/services", label: "Services" },
+    { href: "/faq", label: "FAQ" },
+    { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact" },
+  ];
 
   return (
     <footer className="bg-white text-dark-900">
@@ -93,55 +104,51 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services - Hidden for pitch/portfolio site until pages are ready */}
-          {serviceLinks.length > 0 && (
-            <div>
-              <h4 
-                className="text-lg font-semibold mb-3 text-dark-900"
-                style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
-              >
-                Services
-              </h4>
-              <ul className="space-y-2">
-                {serviceLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-dark-700 hover:text-primary-600 transition-colors"
-                      style={{ fontFamily: "var(--font-outfit), sans-serif" }}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          {/* Services */}
+          <div>
+            <h4 
+              className="text-lg font-semibold mb-3 text-dark-900"
+              style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+            >
+              Services
+            </h4>
+            <ul className="space-y-2">
+              {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-dark-700 hover:text-primary-600 transition-colors"
+                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Quick Links - Hidden for pitch/portfolio site until pages are ready */}
-          {quickLinks.length > 0 && (
-            <div>
-              <h4 
-                className="text-lg font-semibold mb-3 text-dark-900"
-                style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
-              >
-                Quick Links
-              </h4>
-              <ul className="space-y-2">
-                {quickLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-dark-700 hover:text-primary-600 transition-colors"
-                      style={{ fontFamily: "var(--font-outfit), sans-serif" }}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          {/* Quick Links */}
+          <div>
+            <h4 
+              className="text-lg font-semibold mb-3 text-dark-900"
+              style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+            >
+              Quick Links
+            </h4>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-dark-700 hover:text-primary-600 transition-colors"
+                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Contact */}
           <div>
