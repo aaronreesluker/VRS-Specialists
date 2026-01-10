@@ -407,7 +407,7 @@ export function InstagramGallery({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 max-w-7xl mx-auto">
           {/* Left: Media Player - Video or Images - More space */}
           <div className="relative lg:col-span-7 flex flex-col items-center">
-            <div className="relative w-full max-w-full bg-black rounded-2xl overflow-hidden shadow-2xl flex justify-center items-center">
+            <div className="relative w-full max-w-full bg-black rounded-2xl overflow-hidden shadow-2xl flex justify-center items-center group">
               {/* Video or Image */}
               {currentPost?.video ? (
                 <div 
@@ -432,6 +432,17 @@ export function InstagramGallery({
                   </video>
                   {/* 10% Black Overlay */}
                   <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
+                  
+                  {/* Subtle Click to Expand Prompt */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 flex items-center gap-2"
+                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                    Click to expand
+                  </div>
+                  
                   {/* Mute/Unmute Toggle Button */}
                   <button
                     onClick={(e) => {
@@ -461,101 +472,123 @@ export function InstagramGallery({
                 if (!images || images.length === 0) return null;
                 const imageSrc = images[Math.min(selectedImageIndex, images.length - 1)] || images[0];
                 return (
-                  <>
-                    <div 
-                      className="relative w-full flex justify-center cursor-pointer"
-                      onClick={() => {
-                        openLightbox("image", imageSrc, selectedImageIndex);
-                      }}
-                    >
-                      <img
-                        key={`${selectedServiceIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
-                        src={imageSrc}
-                        alt={`${currentPost?.title || 'Project'} - Image ${selectedImageIndex + 1} of ${images.length}`}
-                        className="w-full h-auto max-h-[600px] md:max-h-[700px] lg:max-h-[800px] object-contain"
-                      />
-                      {/* 10% Black Overlay */}
-                      <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
-                    </div>
+                  <div 
+                    className="relative w-full flex justify-center cursor-pointer"
+                    onClick={() => {
+                      openLightbox("image", imageSrc, selectedImageIndex);
+                    }}
+                  >
+                    <img
+                      key={`${selectedServiceIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
+                      src={imageSrc}
+                      alt={`${currentPost?.title || 'Project'} - Image ${selectedImageIndex + 1} of ${images.length}`}
+                      className="w-full h-auto max-h-[600px] md:max-h-[700px] lg:max-h-[800px] object-contain"
+                    />
+                    {/* 10% Black Overlay */}
+                    <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
                     
-                    {/* Smaller pagination for images within project */}
-                    {images.length > 1 && (
-                      <div className="flex justify-center items-center gap-2 mt-3">
-                        <button
-                          onClick={() => {
-                            // Pause auto-rotation when user manually navigates
-                            if (imageRotationIntervalRef.current) {
-                              clearInterval(imageRotationIntervalRef.current);
-                              imageRotationIntervalRef.current = null;
-                            }
-                            setSelectedImageIndex(selectedImageIndex > 0 ? selectedImageIndex - 1 : images.length - 1);
-                          }}
-                          className="text-white hover:text-gray-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                          aria-label="Previous image"
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                          </svg>
-                        </button>
-                        
-                        <div className="flex gap-1.5 items-center">
-                          {images.map((_, index) => {
-                            const isActive = selectedImageIndex === index;
-                            const isBeforeActive = index < selectedImageIndex;
-                            const isAfterActive = index > selectedImageIndex;
-                            
-                            let clipPath = "none";
-                            if (isActive) {
-                              clipPath = "none";
-                            } else if (isBeforeActive) {
-                              clipPath = "polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)";
-                            } else if (isAfterActive) {
-                              clipPath = "polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%)";
-                            }
-                            
-                            return (
-                              <button
-                                key={index}
-                                onClick={() => {
-                                  // Pause auto-rotation when user manually navigates
-                                  if (imageRotationIntervalRef.current) {
-                                    clearInterval(imageRotationIntervalRef.current);
-                                    imageRotationIntervalRef.current = null;
-                                  }
-                                  setSelectedImageIndex(index);
-                                }}
-                                className={`transition-all ${
-                                  isActive ? "bg-white h-0.5 w-6" : "bg-white/30 h-0.5 w-4"
-                                }`}
-                                aria-label={`View image ${index + 1} of ${images.length}`}
-                                style={{ clipPath }}
-                              />
-                            );
-                          })}
-                        </div>
-                        
-                        <button
-                          onClick={() => {
-                            // Pause auto-rotation when user manually navigates
-                            if (imageRotationIntervalRef.current) {
-                              clearInterval(imageRotationIntervalRef.current);
-                              imageRotationIntervalRef.current = null;
-                            }
-                            setSelectedImageIndex(selectedImageIndex < images.length - 1 ? selectedImageIndex + 1 : 0);
-                          }}
-                          className="text-white hover:text-gray-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                          aria-label="Next image"
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </button>
-                      </div>
-                    )}
-                  </>
+                    {/* Subtle Click to Expand Prompt */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-full text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 flex items-center gap-2"
+                      style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
+                      Click to expand
+                    </div>
+                  </div>
                 );
               })()}
-                          </div>
+            </div>
+            
+            {/* Pagination beneath media - for images only */}
+            {(() => {
+              const images = currentPost?.images;
+              if (!images || images.length <= 1) return null;
+              return (
+                <div className="flex justify-center items-center gap-3 mt-4">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // Pause auto-rotation when user manually navigates
+                      if (imageRotationIntervalRef.current) {
+                        clearInterval(imageRotationIntervalRef.current);
+                        imageRotationIntervalRef.current = null;
+                      }
+                      setSelectedImageIndex(selectedImageIndex > 0 ? selectedImageIndex - 1 : images.length - 1);
+                    }}
+                    className="text-white/70 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                    aria-label="Previous image"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  
+                  <div className="flex gap-2 items-center">
+                    {images.map((_, index) => {
+                      const isActive = selectedImageIndex === index;
+                      const isBeforeActive = index < selectedImageIndex;
+                      const isAfterActive = index > selectedImageIndex;
+                      
+                      let clipPath = "none";
+                      if (isActive) {
+                        clipPath = "none";
+                      } else if (isBeforeActive) {
+                        clipPath = "polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)";
+                      } else if (isAfterActive) {
+                        clipPath = "polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%)";
+                      }
+                      
+                      return (
+                        <button
+                          key={index}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            // Pause auto-rotation when user manually navigates
+                            if (imageRotationIntervalRef.current) {
+                              clearInterval(imageRotationIntervalRef.current);
+                              imageRotationIntervalRef.current = null;
+                            }
+                            setSelectedImageIndex(index);
+                          }}
+                          className={`transition-all ${
+                            isActive ? "bg-white h-1 w-8" : "bg-white/40 h-1 w-5"
+                          } rounded-full hover:bg-white/60`}
+                          aria-label={`View image ${index + 1} of ${images.length}`}
+                          style={{ clipPath }}
+                        />
+                      );
+                    })}
+                  </div>
+                  
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // Pause auto-rotation when user manually navigates
+                      if (imageRotationIntervalRef.current) {
+                        clearInterval(imageRotationIntervalRef.current);
+                        imageRotationIntervalRef.current = null;
+                      }
+                      setSelectedImageIndex(selectedImageIndex < images.length - 1 ? selectedImageIndex + 1 : 0);
+                    }}
+                    className="text-white/70 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                    aria-label="Next image"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Image counter */}
+                  <span className="text-white/60 text-xs ml-2"
+                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                  >
+                    {selectedImageIndex + 1} / {images.length}
+                  </span>
+                </div>
+              );
+            })()}
           </div>
 
           {/* Right: Service Details - Less space, smaller text */}
