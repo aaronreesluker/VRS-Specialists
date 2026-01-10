@@ -81,6 +81,11 @@ export function ScrollNav({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // Don't render if no navigation items
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
     <AnimatePresence>
       {isVisible && (
