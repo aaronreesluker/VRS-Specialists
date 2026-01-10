@@ -51,7 +51,7 @@ export default function CarSVG({ progress, className = "" }: CarSVGProps) {
                      0 0 ${brightness} 0 0
                      0 0 0 ${contrast} 0`}
           />
-          <feColorMatrix type="saturate" values={saturation} />
+          <feColorMatrix type="saturate" values={String(saturation)} />
         </filter>
 
         {/* Realistic dirt particles - subtle and professional */}
