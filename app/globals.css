@@ -1,0 +1,305 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  
+  /* Brand Colors */
+  --color-brand-red: #E11C22;
+  --color-brand-silver: #A8A9A9;
+  --color-brand-dark-grey: #6C6C6B;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-dark-900 antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-primary-600 text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes led-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shiny-text {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.shiny-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Star-border style effect for coverage cards */
+
+/* Animate a custom angle to drive the conic gradient */
+@property --coverage-border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes coverage-border-rotate {
+  from {
+    --coverage-border-angle: 0deg;
+  }
+  to {
+    --coverage-border-angle: 360deg;
+  }
+}
+
+.coverage-card {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Rotating conic gradient border behind the inner card */
+.coverage-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 0.5rem;
+  padding: 2px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+
+  background:
+    conic-gradient(
+      from var(--coverage-border-angle),
+      transparent 0deg,
+      transparent 40deg,
+      #E11C22 60deg,
+      transparent 80deg,
+      transparent 120deg,
+      #E11C22 140deg,
+      transparent 160deg,
+      transparent 200deg,
+      #E11C22 220deg,
+      transparent 240deg,
+      transparent 280deg,
+      #E11C22 300deg,
+      transparent 320deg,
+      transparent 360deg
+    );
+
+  /* Hollow center so only the border glows, like StarBorder */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  animation: coverage-border-rotate 7s linear infinite;
+  filter:
+    drop-shadow(0 0 6px #E11C22)
+    drop-shadow(0 0 12px rgba(225, 28, 34, 0.7));
+}
+
+/* Show and intensify glow on hover */
+.coverage-card:hover::before {
+  opacity: 1;
+  filter:
+    drop-shadow(0 0 8px #E11C22)
+    drop-shadow(0 0 18px rgba(225, 28, 34, 0.9));
+}
+
+/* Make sure the inner card tracks the same radius as the border */
+.coverage-card-inner {
+  border-radius: 0.5rem;
+}
+
+@keyframes brandLogoShine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Wrapper must be the mask "scope" and the positioning context */
+.brand-logo-wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  isolation: isolate;
+  width: 120px;
+  height: 80px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* The masked overlay layer */
+.brand-logo-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* opacity controlled by React state - no CSS default */
+  z-index: 10; /* Ensure it's on top of the logo */
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 0, 0, 0.6) 20%,
+    rgba(255, 50, 50, 0.9) 30%,
+    rgba(255, 100, 100, 1) 40%,
+    rgba(255, 0, 0, 1) 50%,
+    rgba(255, 100, 100, 1) 60%,
+    rgba(255, 50, 50, 0.9) 70%,
+    rgba(255, 0, 0, 0.6) 80%,
+    transparent 100%
+  );
+
+  background-size: 200% 100%;
+  background-position: -200% center;
+  /* Normal blend mode for red shine on white logos */
+  mix-blend-mode: normal;
+
+  /* Mask properties - mask-image will be set via JavaScript */
+  /* Default to none, will be overridden by JS - no !important so JS can override */
+  -webkit-mask-image: none;
+  mask-image: none;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-origin: border-box;
+  mask-origin: border-box;
+  
+  /* Alpha mode for transparency-based masking */
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}
+
+/* Animation - opacity controlled by React state */
+.brand-logo-wrap:hover .brand-logo-shine,
+.brand-logo-item:hover .brand-logo-wrap .brand-logo-shine,
+.brand-logo-item:hover .brand-logo-shine,
+.group:hover .brand-logo-wrap .brand-logo-shine {
+  /* Only animation, opacity handled by React */
+  animation: brandLogoShine 2.2s linear infinite;
+}
+
+/* More prominent shine effect for Specials badge - clipped to the + text */
+.brand-logo-shine-special-text {
+  /* Red gradient background clipped to text shape */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 0, 0, 0.9) 15%,
+    rgba(255, 50, 50, 1) 25%,
+    rgba(255, 100, 100, 1) 35%,
+    rgba(255, 0, 0, 1) 45%,
+    rgba(255, 68, 68, 1) 50%,
+    rgba(255, 0, 0, 1) 55%,
+    rgba(255, 100, 100, 1) 65%,
+    rgba(255, 50, 50, 1) 75%,
+    rgba(255, 0, 0, 0.9) 85%,
+    transparent 100%
+  );
+  
+  /* Stronger animation - faster and more visible for Specials */
+  background-size: 250% 100%;
+  background-position: -250% center;
+  animation: brandLogoShine 1.5s linear infinite;
+  
+  /* Match the + symbol font properties exactly */
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 3rem; /* text-5xl = 48px */
+  font-weight: 300; /* font-light */
+  line-height: 1;
+  
+  /* Clip background to text shape - this makes shine only appear on the + symbol pixels */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  /* Position it exactly over the base + symbol */
+  opacity: 1;
+}
+
+/* Animate Specials shine when hovered - faster animation */
+.brand-logo-wrap:hover .brand-logo-shine-special,
+.brand-logo-item:hover .brand-logo-wrap .brand-logo-shine-special {
+  animation: brandLogoShine 1.5s linear infinite;
+}
+
+
+/* Keep the logo above page background but below shine */
+.brand-logo-img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none; /* Ensure clicks pass through to parent */
+}
+
+/* Debug mode: uncomment to see container boundaries */
+/*
+.brand-logo-wrap {
+  background: rgba(0, 255, 0, 0.2);
+}
+*/

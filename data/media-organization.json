@@ -1,0 +1,2867 @@
+{
+  "services": [
+    {
+      "id": "detailing",
+      "name": "Car Detailing",
+      "projectIds": [
+        "project-1767916234424",
+        "project-1767916314081",
+        "project-1767918372872",
+        "project-1767918439874",
+        "project-1767918716762",
+        "project-1768000344853-lvu1uqi4l",
+        "project-1768000344854-pkd9gcx6w"
+      ],
+      "projects": [
+        {
+          "id": "project-1767916234424",
+          "name": "BMW M3 Touring Pre Delivery Detail",
+          "mediaIds": [
+            "bmw1",
+            "bmw2",
+            "bmw3",
+            "bmw4",
+            "bmw5",
+            "bmw6",
+            "bmw7"
+          ],
+          "media": [
+            {
+              "id": "bmw1",
+              "src": "/videos/instagram/bmw1.jpg",
+              "alt": "BMW",
+              "type": "image"
+            },
+            {
+              "id": "bmw2",
+              "src": "/videos/instagram/bmw2.jpg",
+              "alt": "BMW",
+              "type": "image"
+            },
+            {
+              "id": "bmw3",
+              "src": "/videos/instagram/bmw3.jpg",
+              "alt": "BMW",
+              "type": "image"
+            },
+            {
+              "id": "bmw4",
+              "src": "/videos/instagram/bmw4.jpg",
+              "alt": "BMW",
+              "type": "image"
+            },
+            {
+              "id": "bmw5",
+              "src": "/videos/instagram/bmw5.jpg",
+              "alt": "BMW",
+              "type": "image"
+            },
+            {
+              "id": "bmw6",
+              "src": "/videos/instagram/bmw6.jpg",
+              "alt": "BMW",
+              "type": "image"
+            },
+            {
+              "id": "bmw7",
+              "src": "/videos/instagram/bmw7.jpg",
+              "alt": "BMW",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1767916314081",
+          "name": "BMW M3 Competition Exterior Detail",
+          "mediaIds": [
+            "Crlsa-Zgvs7"
+          ],
+          "media": [
+            {
+              "id": "Crlsa-Zgvs7",
+              "src": "/videos/instagram/Crlsa-Zgvs7.mp4",
+              "alt": "Video",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1767918372872",
+          "name": "Range Rover Sport Full Detail",
+          "mediaIds": [
+            "range1",
+            "range2",
+            "range3",
+            "range4",
+            "range5",
+            "range6",
+            "range7"
+          ],
+          "media": [
+            {
+              "id": "range1",
+              "src": "/videos/instagram/Range1.jpg",
+              "alt": "Range Rover",
+              "type": "image"
+            },
+            {
+              "id": "range2",
+              "src": "/videos/instagram/Range2.jpg",
+              "alt": "Range Rover",
+              "type": "image"
+            },
+            {
+              "id": "range3",
+              "src": "/videos/instagram/Range3.jpg",
+              "alt": "Range Rover",
+              "type": "image"
+            },
+            {
+              "id": "range4",
+              "src": "/videos/instagram/Range4.jpg",
+              "alt": "Range Rover",
+              "type": "image"
+            },
+            {
+              "id": "range5",
+              "src": "/videos/instagram/Range5.jpg",
+              "alt": "Range Rover",
+              "type": "image"
+            },
+            {
+              "id": "range6",
+              "src": "/videos/instagram/Range6.jpg",
+              "alt": "Range Rover",
+              "type": "image"
+            },
+            {
+              "id": "range7",
+              "src": "/videos/instagram/Range7.jpg",
+              "alt": "Range Rover",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1767918439874",
+          "name": "Event Ready rolls royce ghost",
+          "mediaIds": [
+            "DGl4dsHMoHG"
+          ],
+          "media": [
+            {
+              "id": "DGl4dsHMoHG",
+              "src": "/videos/instagram/DGl4dsHMoHG.mp4",
+              "alt": "Video",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1767918716762",
+          "name": "Lamborghini STO Signature Deep Clean & Preparation",
+          "mediaIds": [
+            "CsYzIoxAx2g"
+          ],
+          "media": [
+            {
+              "id": "CsYzIoxAx2g",
+              "src": "/videos/instagram/CsYzIoxAx2g.mp4",
+              "alt": "Video",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-lvu1uqi4l",
+          "name": "Porsche 90 Pre-Delivery Detailing",
+          "description": "Premium pre-delivery preparation ensuring your new vehicle arrives in showroom condition.",
+          "mediaIds": [
+            "90P1",
+            "90P2",
+            "90P3"
+          ],
+          "media": [
+            {
+              "id": "90P1",
+              "src": "/videos/instagram/90P1.jpg",
+              "alt": "Porsche Porsche 90 Pre-Delivery Detailing",
+              "type": "image"
+            },
+            {
+              "id": "90P2",
+              "src": "/videos/instagram/90P2.jpg",
+              "alt": "Porsche Porsche 90 Pre-Delivery Detailing",
+              "type": "image"
+            },
+            {
+              "id": "90P3",
+              "src": "/videos/instagram/90P3.jpg",
+              "alt": "Porsche Porsche 90 Pre-Delivery Detailing",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344854-pkd9gcx6w",
+          "name": "Mclaren 600LT Maintenance Detailing",
+          "description": "Regular maintenance detailing to keep your vehicle in pristine condition between full details.",
+          "mediaIds": [
+            "600LT1",
+            "600LT2"
+          ],
+          "media": [
+            {
+              "id": "600LT1",
+              "src": "/videos/instagram/600LT1.jpg",
+              "alt": "McLaren Mclaren 600LT Maintenance Detailing",
+              "type": "image"
+            },
+            {
+              "id": "600LT2",
+              "src": "/videos/instagram/600LT2.jpg",
+              "alt": "McLaren Mclaren 600LT Maintenance Detailing",
+              "type": "image"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "correction",
+      "name": "Paint Correction",
+      "projectIds": [
+        "project-1767916673370",
+        "project-1767918803657",
+        "project-1767918875898"
+      ],
+      "projects": [
+        {
+          "id": "project-1767916673370",
+          "name": "Porsche Cayman Bodywork Restoration",
+          "mediaIds": [
+            "cayman1",
+            "cayman2",
+            "cayman3",
+            "cayman4",
+            "cayman5"
+          ],
+          "media": [
+            {
+              "id": "cayman1",
+              "src": "/videos/instagram/Cayman1.jpg",
+              "alt": "Porsche Cayman",
+              "type": "image"
+            },
+            {
+              "id": "cayman2",
+              "src": "/videos/instagram/Cayman2.jpg",
+              "alt": "Porsche Cayman",
+              "type": "image"
+            },
+            {
+              "id": "cayman3",
+              "src": "/videos/instagram/Cayman3.jpg",
+              "alt": "Porsche Cayman",
+              "type": "image"
+            },
+            {
+              "id": "cayman4",
+              "src": "/videos/instagram/Cayman4.jpg",
+              "alt": "Porsche Cayman",
+              "type": "image"
+            },
+            {
+              "id": "cayman5",
+              "src": "/videos/instagram/Cayman5.jpg",
+              "alt": "Porsche Cayman",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1767918803657",
+          "name": "Rolls Royce Phantom Surface Refinement & Gloss Enhancement",
+          "mediaIds": [
+            "DGg0JjtsA3q"
+          ],
+          "media": [
+            {
+              "id": "DGg0JjtsA3q",
+              "src": "/videos/instagram/DGg0JjtsA3q.mp4",
+              "alt": "Video",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1767918875898",
+          "name": "Audi Q3 New Car Prep & Protection Package",
+          "mediaIds": [
+            "audi1",
+            "audi2",
+            "audi3",
+            "audi4",
+            "audi5",
+            "audi6",
+            "audi7",
+            "audi8"
+          ],
+          "media": [
+            {
+              "id": "audi1",
+              "src": "/videos/instagram/Audi1.jpg",
+              "alt": "Audi",
+              "type": "image"
+            },
+            {
+              "id": "audi2",
+              "src": "/videos/instagram/Audi2.jpg",
+              "alt": "Audi",
+              "type": "image"
+            },
+            {
+              "id": "audi3",
+              "src": "/videos/instagram/Audi3.jpg",
+              "alt": "Audi",
+              "type": "image"
+            },
+            {
+              "id": "audi4",
+              "src": "/videos/instagram/Audi4.jpg",
+              "alt": "Audi",
+              "type": "image"
+            },
+            {
+              "id": "audi5",
+              "src": "/videos/instagram/Audi5.jpg",
+              "alt": "Audi",
+              "type": "image"
+            },
+            {
+              "id": "audi6",
+              "src": "/videos/instagram/Audi6.jpg",
+              "alt": "Audi",
+              "type": "image"
+            },
+            {
+              "id": "audi7",
+              "src": "/videos/instagram/Audi7.jpg",
+              "alt": "Audi",
+              "type": "image"
+            },
+            {
+              "id": "audi8",
+              "src": "/videos/instagram/Audi8.jpg",
+              "alt": "Audi",
+              "type": "image"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coating",
+      "name": "Ceramic Coating",
+      "projectIds": [
+        "project-1767918270826",
+        "project-1767918539711",
+        "project-1768000344853-hvnc80lyt"
+      ],
+      "projects": [
+        {
+          "id": "project-1767918270826",
+          "name": "Audi A7 Ceramic Shield Application",
+          "mediaIds": [
+            "audiA71",
+            "audiA72",
+            "audiA73",
+            "audiA74",
+            "audiA75",
+            "audiA76",
+            "audiA77",
+            "audiA78"
+          ],
+          "media": [
+            {
+              "id": "audiA71",
+              "src": "/videos/instagram/AudiA71.jpg",
+              "alt": "Audi A7",
+              "type": "image"
+            },
+            {
+              "id": "audiA72",
+              "src": "/videos/instagram/AudiA72.jpg",
+              "alt": "Audi A7",
+              "type": "image"
+            },
+            {
+              "id": "audiA73",
+              "src": "/videos/instagram/AudiA73.jpg",
+              "alt": "Audi A7",
+              "type": "image"
+            },
+            {
+              "id": "audiA74",
+              "src": "/videos/instagram/AudiA74.jpg",
+              "alt": "Audi A7",
+              "type": "image"
+            },
+            {
+              "id": "audiA75",
+              "src": "/videos/instagram/AudiA75.jpg",
+              "alt": "Audi A7",
+              "type": "image"
+            },
+            {
+              "id": "audiA76",
+              "src": "/videos/instagram/AudiA76.jpg",
+              "alt": "Audi A7",
+              "type": "image"
+            },
+            {
+              "id": "audiA77",
+              "src": "/videos/instagram/AudiA77.jpg",
+              "alt": "Audi A7",
+              "type": "image"
+            },
+            {
+              "id": "audiA78",
+              "src": "/videos/instagram/AudiA78.jpg",
+              "alt": "Audi A7",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1767918539711",
+          "name": "Aston Martin DBX System X Military Grade Coating",
+          "mediaIds": [
+            "C_0E2wnNcKf"
+          ],
+          "media": [
+            {
+              "id": "C_0E2wnNcKf",
+              "src": "/videos/instagram/C_0E2wnNcKf.mp4",
+              "alt": "Video",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-hvnc80lyt",
+          "name": "Mclaren 675ltspider Hydrophobic coating",
+          "description": "Advanced hydrophobic coating application providing exceptional water-repelling properties and long-lasting protection.",
+          "mediaIds": [
+            "675lt1",
+            "675lt2",
+            "675lt3",
+            "675lt4",
+            "675LTS1",
+            "675LTS2",
+            "675LTS3"
+          ],
+          "media": [
+            {
+              "id": "675lt1",
+              "src": "/videos/instagram/675lt1.jpg",
+              "alt": "McLaren Mclaren 675ltspider Hydrophobic coating",
+              "type": "image"
+            },
+            {
+              "id": "675lt2",
+              "src": "/videos/instagram/675lt2.jpg",
+              "alt": "McLaren Mclaren 675ltspider Hydrophobic coating",
+              "type": "image"
+            },
+            {
+              "id": "675lt3",
+              "src": "/videos/instagram/675lt3.mp4",
+              "alt": "McLaren Mclaren 675ltspider Hydrophobic coating",
+              "type": "video"
+            },
+            {
+              "id": "675lt4",
+              "src": "/videos/instagram/675lt4.jpg",
+              "alt": "McLaren Mclaren 675ltspider Hydrophobic coating",
+              "type": "image"
+            },
+            {
+              "id": "675LTS1",
+              "src": "/videos/instagram/675LTS1.jpg",
+              "alt": "McLaren Mclaren 675ltspider Hydrophobic coating",
+              "type": "image"
+            },
+            {
+              "id": "675LTS2",
+              "src": "/videos/instagram/675LTS2.jpg",
+              "alt": "McLaren Mclaren 675ltspider Hydrophobic coating",
+              "type": "image"
+            },
+            {
+              "id": "675LTS3",
+              "src": "/videos/instagram/675LTS3.jpg",
+              "alt": "McLaren Mclaren 675ltspider Hydrophobic coating",
+              "type": "image"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ppf",
+      "name": "PPF Protection",
+      "projectIds": [
+        "project-1767919044339",
+        "project-1768000344854-dbbi3gmd2"
+      ],
+      "projects": [
+        {
+          "id": "project-1767919044339",
+          "name": "Porsche GT3 RS Track-Ready PPF Protection",
+          "mediaIds": [
+            "gt3rs1",
+            "gt3rs2",
+            "gt3rs3",
+            "gt3rs4",
+            "gt3rs5",
+            "gt3rs6",
+            "gt3rs7"
+          ],
+          "media": [
+            {
+              "id": "gt3rs1",
+              "src": "/videos/instagram/gt3rs1.jpg",
+              "alt": "Porsche GT3 RS",
+              "type": "image"
+            },
+            {
+              "id": "gt3rs2",
+              "src": "/videos/instagram/gt3rs2.jpg",
+              "alt": "Porsche GT3 RS",
+              "type": "image"
+            },
+            {
+              "id": "gt3rs3",
+              "src": "/videos/instagram/gt3rs3.jpg",
+              "alt": "Porsche GT3 RS",
+              "type": "image"
+            },
+            {
+              "id": "gt3rs4",
+              "src": "/videos/instagram/gt3rs4.jpg",
+              "alt": "Porsche GT3 RS",
+              "type": "image"
+            },
+            {
+              "id": "gt3rs5",
+              "src": "/videos/instagram/gt3rs5.jpg",
+              "alt": "Porsche GT3 RS",
+              "type": "image"
+            },
+            {
+              "id": "gt3rs6",
+              "src": "/videos/instagram/gt3rs6.jpg",
+              "alt": "Porsche GT3 RS",
+              "type": "image"
+            },
+            {
+              "id": "gt3rs7",
+              "src": "/videos/instagram/gt3rs7.jpg",
+              "alt": "Porsche GT3 RS",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344854-dbbi3gmd2",
+          "name": "Bmw z4 140i PPF protection",
+          "description": "Premium paint protection film installation providing invisible protection against road hazards.",
+          "mediaIds": [
+            "m140i1",
+            "m140i2",
+            "m140i3",
+            "m140i4",
+            "m140i5",
+            "m140i6",
+            "m140i7",
+            "m140i8",
+            "MK2J1",
+            "MK2J2",
+            "MK2J3",
+            "MK2J4",
+            "MK2J5",
+            "MK2J6",
+            "MK2J7"
+          ],
+          "media": [
+            {
+              "id": "m140i1",
+              "src": "/videos/instagram/m140i1.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "m140i2",
+              "src": "/videos/instagram/m140i2.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "m140i3",
+              "src": "/videos/instagram/m140i3.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "m140i4",
+              "src": "/videos/instagram/m140i4.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "m140i5",
+              "src": "/videos/instagram/m140i5.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "m140i6",
+              "src": "/videos/instagram/m140i6.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "m140i7",
+              "src": "/videos/instagram/m140i7.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "m140i8",
+              "src": "/videos/instagram/m140i8.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "MK2J1",
+              "src": "/videos/instagram/MK2J1.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "MK2J2",
+              "src": "/videos/instagram/MK2J2.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "MK2J3",
+              "src": "/videos/instagram/MK2J3.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "MK2J4",
+              "src": "/videos/instagram/MK2J4.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "MK2J5",
+              "src": "/videos/instagram/MK2J5.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "MK2J6",
+              "src": "/videos/instagram/MK2J6.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            },
+            {
+              "id": "MK2J7",
+              "src": "/videos/instagram/MK2J7.jpg",
+              "alt": "BMW Bmw z4 140i PPF protection",
+              "type": "image"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "specials",
+      "name": "Specials",
+      "projectIds": [
+        "project-1767919186016",
+        "project-1767919298860",
+        "project-1767919352935",
+        "project-1767919551301",
+        "project-1767919643094",
+        "project-1768000344851-l7kn670j5",
+        "project-1768000344853-7f2fiz2e9",
+        "project-1768000344853-mmyg8xh8s",
+        "project-1768000344853-rerg0b0kg",
+        "project-1768000344853-b9sgyogfq",
+        "project-1768000344853-xg63o1r1o",
+        "project-1768000344853-n6ben1brt",
+        "project-1768000344853-mjq43a9n7",
+        "project-1768000344853-jhxjy0wmr",
+        "project-1768000344853-7osumpbcb",
+        "project-1768000344853-416o5ahq9",
+        "project-1768000344853-eba0uxuwu",
+        "project-1768000344853-wvf85m41o",
+        "project-1768000344853-b0fnmqz3r",
+        "project-1768000344853-8ogw2cyo0",
+        "project-1768000344853-xua7pafp2",
+        "project-1768000344853-ezeb6lxcb",
+        "project-1768000344853-16wsfs1ag",
+        "project-1768000344853-rarfuutoi",
+        "project-1768000344854-tehatyuog",
+        "project-1768000344854-jwqzf0k8b",
+        "project-1768000344854-vr0aijt5r",
+        "project-1768000344854-6o7zzpqe8",
+        "project-1768000344854-u16ufe3ik",
+        "project-1768000344854-xbhg4yw6q",
+        "project-1768000344854-u98mcwkrj",
+        "project-1768000344854-eom6cwi69",
+        "project-1768000344854-7cwgq15ol",
+        "project-1768000344854-bh07pobhm",
+        "project-1768000344854-hagop38xe",
+        "project-1768000344854-e6j248fl3",
+        "project-1768000344854-02ycqq39f",
+        "project-1768000344854-p0xtamykb",
+        "project-1768000344853-0667rq7rm",
+        "project-1768000344854-n8hrxxmch"
+      ],
+      "projects": [
+        {
+          "id": "project-1767919186016",
+          "name": "Full Restoration - Complete Vehicle Transformation",
+          "mediaIds": [
+            "CvZjDpwtMvX"
+          ],
+          "media": [
+            {
+              "id": "CvZjDpwtMvX",
+              "src": "/videos/instagram/CvZjDpwtMvX.mp4",
+              "alt": "Video",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1767919298860",
+          "name": "Full Cabin Decontamination with Seat Removal",
+          "mediaIds": [
+            "C4YqyP1NnD6"
+          ],
+          "media": [
+            {
+              "id": "C4YqyP1NnD6",
+              "src": "/videos/instagram/C4YqyP1NnD6.mp4",
+              "alt": "Video",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1767919352935",
+          "name": "Convertible Roof - Clean, Prep & Protection",
+          "mediaIds": [
+            "DA6GUNoNa_k"
+          ],
+          "media": [
+            {
+              "id": "DA6GUNoNa_k",
+              "src": "/videos/instagram/DA6GUNoNa_k.mp4",
+              "alt": "Video",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1767919551301",
+          "name": "Baltic Cruiser Marine Protection & Coating Package",
+          "mediaIds": [
+            "DIf0ZCPMFgM"
+          ],
+          "media": [
+            {
+              "id": "DIf0ZCPMFgM",
+              "src": "/videos/instagram/DIf0ZCPMFgM.mp4",
+              "alt": "Video",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1767919643094",
+          "name": "Dry Ice Restoration & Decontamination Program",
+          "mediaIds": [
+            "CynpF_ZtjXI"
+          ],
+          "media": [
+            {
+              "id": "CynpF_ZtjXI",
+              "src": "/videos/instagram/CynpF_ZtjXI.mp4",
+              "alt": "Video",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344851-l7kn670j5",
+          "name": "M340i",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "340i1",
+            "340i2",
+            "340i3",
+            "340i4",
+            "340i5",
+            "340i6",
+            "340i7"
+          ],
+          "media": [
+            {
+              "id": "340i1",
+              "src": "/videos/instagram/340i1.jpg",
+              "alt": "BMW M340i",
+              "type": "image"
+            },
+            {
+              "id": "340i2",
+              "src": "/videos/instagram/340i2.jpg",
+              "alt": "BMW M340i",
+              "type": "image"
+            },
+            {
+              "id": "340i3",
+              "src": "/videos/instagram/340i3.jpg",
+              "alt": "BMW M340i",
+              "type": "image"
+            },
+            {
+              "id": "340i4",
+              "src": "/videos/instagram/340i4.jpg",
+              "alt": "BMW M340i",
+              "type": "image"
+            },
+            {
+              "id": "340i5",
+              "src": "/videos/instagram/340i5.jpg",
+              "alt": "BMW M340i",
+              "type": "image"
+            },
+            {
+              "id": "340i6",
+              "src": "/videos/instagram/340i6.jpg",
+              "alt": "BMW M340i",
+              "type": "image"
+            },
+            {
+              "id": "340i7",
+              "src": "/videos/instagram/340i7.jpg",
+              "alt": "BMW M340i",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-7f2fiz2e9",
+          "name": "Ferrari 599 GTB Fiorano",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "599gtb1",
+            "599gtb2",
+            "599gtb3",
+            "599gtb4",
+            "599gtb5",
+            "599gtb6",
+            "599gtb7",
+            "599gtb8"
+          ],
+          "media": [
+            {
+              "id": "599gtb1",
+              "src": "/videos/instagram/599gtb1.jpg",
+              "alt": "Ferrari Ferrari 599 GTB Fiorano",
+              "type": "image"
+            },
+            {
+              "id": "599gtb2",
+              "src": "/videos/instagram/599gtb2.jpg",
+              "alt": "Ferrari Ferrari 599 GTB Fiorano",
+              "type": "image"
+            },
+            {
+              "id": "599gtb3",
+              "src": "/videos/instagram/599gtb3.jpg",
+              "alt": "Ferrari Ferrari 599 GTB Fiorano",
+              "type": "image"
+            },
+            {
+              "id": "599gtb4",
+              "src": "/videos/instagram/599gtb4.mp4",
+              "alt": "Ferrari Ferrari 599 GTB Fiorano",
+              "type": "video"
+            },
+            {
+              "id": "599gtb5",
+              "src": "/videos/instagram/599gtb5.jpg",
+              "alt": "Ferrari Ferrari 599 GTB Fiorano",
+              "type": "image"
+            },
+            {
+              "id": "599gtb6",
+              "src": "/videos/instagram/599gtb6.mp4",
+              "alt": "Ferrari Ferrari 599 GTB Fiorano",
+              "type": "video"
+            },
+            {
+              "id": "599gtb7",
+              "src": "/videos/instagram/599gtb7.jpg",
+              "alt": "Ferrari Ferrari 599 GTB Fiorano",
+              "type": "image"
+            },
+            {
+              "id": "599gtb8",
+              "src": "/videos/instagram/599gtb8.jpg",
+              "alt": "Ferrari Ferrari 599 GTB Fiorano",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-mmyg8xh8s",
+          "name": "Mclaren 650s ",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "650s1",
+            "650s2",
+            "650s3",
+            "650s4",
+            "650s5",
+            "650s6",
+            "650s7",
+            "650s8",
+            "650s9"
+          ],
+          "media": [
+            {
+              "id": "650s1",
+              "src": "/videos/instagram/650s1.jpg",
+              "alt": "McLaren Mclaren 650s ",
+              "type": "image"
+            },
+            {
+              "id": "650s2",
+              "src": "/videos/instagram/650s2.jpg",
+              "alt": "McLaren Mclaren 650s ",
+              "type": "image"
+            },
+            {
+              "id": "650s3",
+              "src": "/videos/instagram/650s3.jpg",
+              "alt": "McLaren Mclaren 650s ",
+              "type": "image"
+            },
+            {
+              "id": "650s4",
+              "src": "/videos/instagram/650s4.jpg",
+              "alt": "McLaren Mclaren 650s ",
+              "type": "image"
+            },
+            {
+              "id": "650s5",
+              "src": "/videos/instagram/650s5.jpg",
+              "alt": "McLaren Mclaren 650s ",
+              "type": "image"
+            },
+            {
+              "id": "650s6",
+              "src": "/videos/instagram/650s6.jpg",
+              "alt": "McLaren Mclaren 650s ",
+              "type": "image"
+            },
+            {
+              "id": "650s7",
+              "src": "/videos/instagram/650s7.jpg",
+              "alt": "McLaren Mclaren 650s ",
+              "type": "image"
+            },
+            {
+              "id": "650s8",
+              "src": "/videos/instagram/650s8.jpg",
+              "alt": "McLaren Mclaren 650s ",
+              "type": "image"
+            },
+            {
+              "id": "650s9",
+              "src": "/videos/instagram/650s9.jpg",
+              "alt": "McLaren Mclaren 650s ",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-rerg0b0kg",
+          "name": "Aston Martin Vantage",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "AMV1",
+            "AMV2",
+            "AMV3",
+            "AMV4",
+            "AMV5",
+            "AMV6"
+          ],
+          "media": [
+            {
+              "id": "AMV1",
+              "src": "/videos/instagram/AMV1.jpg",
+              "alt": "Aston Martin Aston Martin Vantage",
+              "type": "image"
+            },
+            {
+              "id": "AMV2",
+              "src": "/videos/instagram/AMV2.jpg",
+              "alt": "Aston Martin Aston Martin Vantage",
+              "type": "image"
+            },
+            {
+              "id": "AMV3",
+              "src": "/videos/instagram/AMV3.jpg",
+              "alt": "Aston Martin Aston Martin Vantage",
+              "type": "image"
+            },
+            {
+              "id": "AMV4",
+              "src": "/videos/instagram/AMV4.jpg",
+              "alt": "Aston Martin Aston Martin Vantage",
+              "type": "image"
+            },
+            {
+              "id": "AMV5",
+              "src": "/videos/instagram/AMV5.jpg",
+              "alt": "Aston Martin Aston Martin Vantage",
+              "type": "image"
+            },
+            {
+              "id": "AMV6",
+              "src": "/videos/instagram/AMV6.jpg",
+              "alt": "Aston Martin Aston Martin Vantage",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-b9sgyogfq",
+          "name": "Audi R8 Matte grey",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "BCGT1",
+            "BCGT2",
+            "BCGT3",
+            "BCGT4",
+            "BCGT5",
+            "AudiR8",
+            "R81",
+            "R82",
+            "R83",
+            "R8S1",
+            "R8S2",
+            "R8S3",
+            "R8S4",
+            "R8S5"
+          ],
+          "media": [
+            {
+              "id": "BCGT1",
+              "src": "/videos/instagram/BCGT1.jpg",
+              "alt": "Specials Audi R8 Matte grey",
+              "type": "image"
+            },
+            {
+              "id": "BCGT2",
+              "src": "/videos/instagram/BCGT2.jpg",
+              "alt": "Specials Audi R8 Matte grey",
+              "type": "image"
+            },
+            {
+              "id": "BCGT3",
+              "src": "/videos/instagram/BCGT3.jpg",
+              "alt": "Specials Audi R8 Matte grey",
+              "type": "image"
+            },
+            {
+              "id": "BCGT4",
+              "src": "/videos/instagram/BCGT4.jpg",
+              "alt": "Specials Audi R8 Matte grey",
+              "type": "image"
+            },
+            {
+              "id": "BCGT5",
+              "src": "/videos/instagram/BCGT5.jpg",
+              "alt": "Specials Audi R8 Matte grey",
+              "type": "image"
+            },
+            {
+              "id": "AudiR8",
+              "src": "/videos/instagram/AudiR8.mp4",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "video"
+            },
+            {
+              "id": "R81",
+              "src": "/videos/instagram/R81.jpg",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "image"
+            },
+            {
+              "id": "R82",
+              "src": "/videos/instagram/R82.jpg",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "image"
+            },
+            {
+              "id": "R83",
+              "src": "/videos/instagram/R83.jpg",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "image"
+            },
+            {
+              "id": "R8S1",
+              "src": "/videos/instagram/R8S1.mp4",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "video"
+            },
+            {
+              "id": "R8S2",
+              "src": "/videos/instagram/R8S2.mp4",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "video"
+            },
+            {
+              "id": "R8S3",
+              "src": "/videos/instagram/R8S3.jpg",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "image"
+            },
+            {
+              "id": "R8S4",
+              "src": "/videos/instagram/R8S4.jpg",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "image"
+            },
+            {
+              "id": "R8S5",
+              "src": "/videos/instagram/R8S5.jpg",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-xg63o1r1o",
+          "name": "1997 porsche911carreras ",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "CarreraS1",
+            "CarreraS2",
+            "CarreraS3",
+            "CarreraS4",
+            "CarreraS5",
+            "CarreraS6"
+          ],
+          "media": [
+            {
+              "id": "CarreraS1",
+              "src": "/videos/instagram/CarreraS1.jpg",
+              "alt": "Porsche 1997 porsche911carreras ",
+              "type": "image"
+            },
+            {
+              "id": "CarreraS2",
+              "src": "/videos/instagram/CarreraS2.jpg",
+              "alt": "Porsche 1997 porsche911carreras ",
+              "type": "image"
+            },
+            {
+              "id": "CarreraS3",
+              "src": "/videos/instagram/CarreraS3.jpg",
+              "alt": "Porsche 1997 porsche911carreras ",
+              "type": "image"
+            },
+            {
+              "id": "CarreraS4",
+              "src": "/videos/instagram/CarreraS4.jpg",
+              "alt": "Porsche 1997 porsche911carreras ",
+              "type": "image"
+            },
+            {
+              "id": "CarreraS5",
+              "src": "/videos/instagram/CarreraS5.jpg",
+              "alt": "Porsche 1997 porsche911carreras ",
+              "type": "image"
+            },
+            {
+              "id": "CarreraS6",
+              "src": "/videos/instagram/CarreraS6.jpg",
+              "alt": "Porsche 1997 porsche911carreras ",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-n6ben1brt",
+          "name": "Cobra Dax",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "Cobra1",
+            "Cobra2",
+            "Cobra3",
+            "Cobra4",
+            "Cobra5"
+          ],
+          "media": [
+            {
+              "id": "Cobra1",
+              "src": "/videos/instagram/Cobra1.jpg",
+              "alt": "Specials Cobra Dax",
+              "type": "image"
+            },
+            {
+              "id": "Cobra2",
+              "src": "/videos/instagram/Cobra2.jpg",
+              "alt": "Specials Cobra Dax",
+              "type": "image"
+            },
+            {
+              "id": "Cobra3",
+              "src": "/videos/instagram/Cobra3.jpg",
+              "alt": "Specials Cobra Dax",
+              "type": "image"
+            },
+            {
+              "id": "Cobra4",
+              "src": "/videos/instagram/Cobra4.jpg",
+              "alt": "Specials Cobra Dax",
+              "type": "image"
+            },
+            {
+              "id": "Cobra5",
+              "src": "/videos/instagram/Cobra5.mp4",
+              "alt": "Specials Cobra Dax",
+              "type": "video"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-mjq43a9n7",
+          "name": "BMW M4 CS ",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "CS1",
+            "cs2",
+            "cs3",
+            "cs4",
+            "cs5",
+            "cs6",
+            "cs7",
+            "cs8",
+            "cs9"
+          ],
+          "media": [
+            {
+              "id": "CS1",
+              "src": "/videos/instagram/CS1.mp4",
+              "alt": "BMW BMW M4 CS ",
+              "type": "video"
+            },
+            {
+              "id": "cs2",
+              "src": "/videos/instagram/cs2.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs3",
+              "src": "/videos/instagram/cs3.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs4",
+              "src": "/videos/instagram/cs4.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs5",
+              "src": "/videos/instagram/cs5.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs6",
+              "src": "/videos/instagram/cs6.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs7",
+              "src": "/videos/instagram/cs7.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs8",
+              "src": "/videos/instagram/cs8.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs9",
+              "src": "/videos/instagram/cs9.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-jhxjy0wmr",
+          "name": "Ferrari fv12 ",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "f12V1",
+            "f12V2",
+            "f12V3",
+            "f12V4",
+            "f12V5"
+          ],
+          "media": [
+            {
+              "id": "f12V1",
+              "src": "/videos/instagram/f12V1.jpg",
+              "alt": "Ferrari Ferrari fv12 ",
+              "type": "image"
+            },
+            {
+              "id": "f12V2",
+              "src": "/videos/instagram/f12V2.jpg",
+              "alt": "Ferrari Ferrari fv12 ",
+              "type": "image"
+            },
+            {
+              "id": "f12V3",
+              "src": "/videos/instagram/f12V3.jpg",
+              "alt": "Ferrari Ferrari fv12 ",
+              "type": "image"
+            },
+            {
+              "id": "f12V4",
+              "src": "/videos/instagram/f12V4.jpg",
+              "alt": "Ferrari Ferrari fv12 ",
+              "type": "image"
+            },
+            {
+              "id": "f12V5",
+              "src": "/videos/instagram/f12V5.jpg",
+              "alt": "Ferrari Ferrari fv12 ",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-7osumpbcb",
+          "name": "Ferrari f430",
+          "mediaIds": [
+            "f430f1",
+            "f430f2",
+            "f430f3",
+            "f430f4",
+            "f430f5"
+          ],
+          "media": [
+            {
+              "id": "f430f1",
+              "src": "/videos/instagram/f430f1.mp4",
+              "alt": "Ferrari Ferrari f430",
+              "type": "video"
+            },
+            {
+              "id": "f430f2",
+              "src": "/videos/instagram/f430f2.jpg",
+              "alt": "Ferrari Ferrari f430",
+              "type": "image"
+            },
+            {
+              "id": "f430f3",
+              "src": "/videos/instagram/f430f3.jpg",
+              "alt": "Ferrari Ferrari f430",
+              "type": "image"
+            },
+            {
+              "id": "f430f4",
+              "src": "/videos/instagram/f430f4.jpg",
+              "alt": "Ferrari Ferrari f430",
+              "type": "image"
+            },
+            {
+              "id": "f430f5",
+              "src": "/videos/instagram/f430f5.jpg",
+              "alt": "Ferrari Ferrari f430",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344853-416o5ahq9",
+          "name": "Ferrari F8 ",
+          "mediaIds": [
+            "F8F1",
+            "F8F2",
+            "F8F3",
+            "F8F4",
+            "F8F5",
+            "F8F6",
+            "F8F7"
+          ],
+          "media": [
+            {
+              "id": "F8F1",
+              "src": "/videos/instagram/F8F1.jpg",
+              "alt": "Ferrari Ferrari F8 ",
+              "type": "image"
+            },
+            {
+              "id": "F8F2",
+              "src": "/videos/instagram/F8F2.jpg",
+              "alt": "Ferrari Ferrari F8 ",
+              "type": "image"
+            },
+            {
+              "id": "F8F3",
+              "src": "/videos/instagram/F8F3.jpg",
+              "alt": "Ferrari Ferrari F8 ",
+              "type": "image"
+            },
+            {
+              "id": "F8F4",
+              "src": "/videos/instagram/F8F4.jpg",
+              "alt": "Ferrari Ferrari F8 ",
+              "type": "image"
+            },
+            {
+              "id": "F8F5",
+              "src": "/videos/instagram/F8F5.jpg",
+              "alt": "Ferrari Ferrari F8 ",
+              "type": "image"
+            },
+            {
+              "id": "F8F6",
+              "src": "/videos/instagram/F8F6.jpg",
+              "alt": "Ferrari Ferrari F8 ",
+              "type": "image"
+            },
+            {
+              "id": "F8F7",
+              "src": "/videos/instagram/F8F7.jpg",
+              "alt": "Ferrari Ferrari F8 ",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344853-eba0uxuwu",
+          "name": "Jaguar F Type",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "FT1",
+            "FT2",
+            "FT3",
+            "Ft4"
+          ],
+          "media": [
+            {
+              "id": "FT1",
+              "src": "/videos/instagram/FT1.jpg",
+              "alt": "Jaguar Jaguar F Type",
+              "type": "image"
+            },
+            {
+              "id": "FT2",
+              "src": "/videos/instagram/FT2.jpg",
+              "alt": "Jaguar Jaguar F Type",
+              "type": "image"
+            },
+            {
+              "id": "FT3",
+              "src": "/videos/instagram/FT3.jpg",
+              "alt": "Jaguar Jaguar F Type",
+              "type": "image"
+            },
+            {
+              "id": "Ft4",
+              "src": "/videos/instagram/Ft4.jpg",
+              "alt": "Jaguar Jaguar F Type",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344853-wvf85m41o",
+          "name": "Harley Davidsons",
+          "mediaIds": [
+            "HD1",
+            "HD10",
+            "HD2",
+            "HD3",
+            "HD4",
+            "HD5",
+            "HD6",
+            "HD7",
+            "HD8",
+            "HD9"
+          ],
+          "media": [
+            {
+              "id": "HD1",
+              "src": "/videos/instagram/HD1.jpg",
+              "alt": "Specials Harley Davidsons",
+              "type": "image"
+            },
+            {
+              "id": "HD10",
+              "src": "/videos/instagram/HD10.jpg",
+              "alt": "Specials Harley Davidsons",
+              "type": "image"
+            },
+            {
+              "id": "HD2",
+              "src": "/videos/instagram/HD2.jpg",
+              "alt": "Specials Harley Davidsons",
+              "type": "image"
+            },
+            {
+              "id": "HD3",
+              "src": "/videos/instagram/HD3.jpg",
+              "alt": "Specials Harley Davidsons",
+              "type": "image"
+            },
+            {
+              "id": "HD4",
+              "src": "/videos/instagram/HD4.jpg",
+              "alt": "Specials Harley Davidsons",
+              "type": "image"
+            },
+            {
+              "id": "HD5",
+              "src": "/videos/instagram/HD5.jpg",
+              "alt": "Specials Harley Davidsons",
+              "type": "image"
+            },
+            {
+              "id": "HD6",
+              "src": "/videos/instagram/HD6.jpg",
+              "alt": "Specials Harley Davidsons",
+              "type": "image"
+            },
+            {
+              "id": "HD7",
+              "src": "/videos/instagram/HD7.jpg",
+              "alt": "Specials Harley Davidsons",
+              "type": "image"
+            },
+            {
+              "id": "HD8",
+              "src": "/videos/instagram/HD8.mp4",
+              "alt": "Specials Harley Davidsons",
+              "type": "video"
+            },
+            {
+              "id": "HD9",
+              "src": "/videos/instagram/HD9.jpg",
+              "alt": "Specials Harley Davidsons",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344853-b0fnmqz3r",
+          "name": "Lamborghini Huracan Performante",
+          "mediaIds": [
+            "HP1",
+            "HP2",
+            "HP3",
+            "HP4",
+            "HP5",
+            "HP6"
+          ],
+          "media": [
+            {
+              "id": "HP1",
+              "src": "/videos/instagram/HP1.jpg",
+              "alt": "Lamborghini Lamborghini Huracan Performante",
+              "type": "image"
+            },
+            {
+              "id": "HP2",
+              "src": "/videos/instagram/HP2.jpg",
+              "alt": "Lamborghini Lamborghini Huracan Performante",
+              "type": "image"
+            },
+            {
+              "id": "HP3",
+              "src": "/videos/instagram/HP3.jpg",
+              "alt": "Lamborghini Lamborghini Huracan Performante",
+              "type": "image"
+            },
+            {
+              "id": "HP4",
+              "src": "/videos/instagram/HP4.jpg",
+              "alt": "Lamborghini Lamborghini Huracan Performante",
+              "type": "image"
+            },
+            {
+              "id": "HP5",
+              "src": "/videos/instagram/HP5.jpg",
+              "alt": "Lamborghini Lamborghini Huracan Performante",
+              "type": "image"
+            },
+            {
+              "id": "HP6",
+              "src": "/videos/instagram/HP6.jpg",
+              "alt": "Lamborghini Lamborghini Huracan Performante",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344853-8ogw2cyo0",
+          "name": "Jaguar XKR ",
+          "mediaIds": [
+            "XKR1",
+            "XKR2",
+            "XKR3",
+            "XKR4",
+            "XKR5",
+            "XKR6"
+          ],
+          "media": [
+            {
+              "id": "XKR1",
+              "src": "/videos/instagram/XKR1.jpg",
+              "alt": "Jaguar Jaguar XKR ",
+              "type": "image"
+            },
+            {
+              "id": "XKR2",
+              "src": "/videos/instagram/XKR2.jpg",
+              "alt": "Jaguar Jaguar XKR ",
+              "type": "image"
+            },
+            {
+              "id": "XKR3",
+              "src": "/videos/instagram/XKR3.jpg",
+              "alt": "Jaguar Jaguar XKR ",
+              "type": "image"
+            },
+            {
+              "id": "XKR4",
+              "src": "/videos/instagram/XKR4.jpg",
+              "alt": "Jaguar Jaguar XKR ",
+              "type": "image"
+            },
+            {
+              "id": "XKR5",
+              "src": "/videos/instagram/XKR5.jpg",
+              "alt": "Jaguar Jaguar XKR ",
+              "type": "image"
+            },
+            {
+              "id": "XKR6",
+              "src": "/videos/instagram/XKR6.jpg",
+              "alt": "Jaguar Jaguar XKR ",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344853-xua7pafp2",
+          "name": "Audi S3",
+          "mediaIds": [
+            "S3A1",
+            "S3A2",
+            "S3A3",
+            "S3A4",
+            "S3A5",
+            "S3A6",
+            "S3A7",
+            "S3A8",
+            "S3A9"
+          ],
+          "media": [
+            {
+              "id": "S3A1",
+              "src": "/videos/instagram/S3A1.mp4",
+              "alt": "Audi Audi S3",
+              "type": "video"
+            },
+            {
+              "id": "S3A2",
+              "src": "/videos/instagram/S3A2.jpg",
+              "alt": "Audi Audi S3",
+              "type": "image"
+            },
+            {
+              "id": "S3A3",
+              "src": "/videos/instagram/S3A3.jpg",
+              "alt": "Audi Audi S3",
+              "type": "image"
+            },
+            {
+              "id": "S3A4",
+              "src": "/videos/instagram/S3A4.jpg",
+              "alt": "Audi Audi S3",
+              "type": "image"
+            },
+            {
+              "id": "S3A5",
+              "src": "/videos/instagram/S3A5.jpg",
+              "alt": "Audi Audi S3",
+              "type": "image"
+            },
+            {
+              "id": "S3A6",
+              "src": "/videos/instagram/S3A6.jpg",
+              "alt": "Audi Audi S3",
+              "type": "image"
+            },
+            {
+              "id": "S3A7",
+              "src": "/videos/instagram/S3A7.jpg",
+              "alt": "Audi Audi S3",
+              "type": "image"
+            },
+            {
+              "id": "S3A8",
+              "src": "/videos/instagram/S3A8.jpg",
+              "alt": "Audi Audi S3",
+              "type": "image"
+            },
+            {
+              "id": "S3A9",
+              "src": "/videos/instagram/S3A9.jpg",
+              "alt": "Audi Audi S3",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344853-ezeb6lxcb",
+          "name": "Lamborghini Urus",
+          "mediaIds": [
+            "Urus1",
+            "Urus2",
+            "Urus3",
+            "Urus4",
+            "Urus5",
+            "Urus6",
+            "Urus7",
+            "Urus8",
+            "Urus9",
+            "URUSM1",
+            "URUSM2",
+            "URUSM3"
+          ],
+          "media": [
+            {
+              "id": "Urus1",
+              "src": "/videos/instagram/Urus1.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus2",
+              "src": "/videos/instagram/Urus2.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus3",
+              "src": "/videos/instagram/Urus3.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus4",
+              "src": "/videos/instagram/Urus4.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus5",
+              "src": "/videos/instagram/Urus5.mp4",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "video"
+            },
+            {
+              "id": "Urus6",
+              "src": "/videos/instagram/Urus6.mp4",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "video"
+            },
+            {
+              "id": "Urus7",
+              "src": "/videos/instagram/Urus7.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus8",
+              "src": "/videos/instagram/Urus8.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus9",
+              "src": "/videos/instagram/Urus9.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "URUSM1",
+              "src": "/videos/instagram/URUSM1.jpg",
+              "alt": "Lamborghini Mobile Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "URUSM2",
+              "src": "/videos/instagram/URUSM2.jpg",
+              "alt": "Lamborghini Mobile Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "URUSM3",
+              "src": "/videos/instagram/URUSM3.jpg",
+              "alt": "Lamborghini Mobile Lamborghini Urus",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344853-16wsfs1ag",
+          "name": "Mobile Lamborghini Urus",
+          "mediaIds": [
+            "Urus1",
+            "Urus2",
+            "Urus3",
+            "Urus4",
+            "Urus5",
+            "Urus6",
+            "Urus7",
+            "Urus8",
+            "Urus9",
+            "URUSM1",
+            "URUSM2",
+            "URUSM3"
+          ],
+          "media": [
+            {
+              "id": "Urus1",
+              "src": "/videos/instagram/Urus1.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus2",
+              "src": "/videos/instagram/Urus2.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus3",
+              "src": "/videos/instagram/Urus3.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus4",
+              "src": "/videos/instagram/Urus4.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus5",
+              "src": "/videos/instagram/Urus5.mp4",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "video"
+            },
+            {
+              "id": "Urus6",
+              "src": "/videos/instagram/Urus6.mp4",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "video"
+            },
+            {
+              "id": "Urus7",
+              "src": "/videos/instagram/Urus7.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus8",
+              "src": "/videos/instagram/Urus8.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "Urus9",
+              "src": "/videos/instagram/Urus9.jpg",
+              "alt": "Lamborghini Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "URUSM1",
+              "src": "/videos/instagram/URUSM1.jpg",
+              "alt": "Lamborghini Mobile Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "URUSM2",
+              "src": "/videos/instagram/URUSM2.jpg",
+              "alt": "Lamborghini Mobile Lamborghini Urus",
+              "type": "image"
+            },
+            {
+              "id": "URUSM3",
+              "src": "/videos/instagram/URUSM3.jpg",
+              "alt": "Lamborghini Mobile Lamborghini Urus",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344853-rarfuutoi",
+          "name": "Jaguar XJS",
+          "mediaIds": [
+            "XJS1",
+            "XJS2",
+            "XJS3",
+            "XJS4",
+            "XJS5",
+            "XJS6"
+          ],
+          "media": [
+            {
+              "id": "XJS1",
+              "src": "/videos/instagram/XJS1.jpg",
+              "alt": "Jaguar Jaguar XJS",
+              "type": "image"
+            },
+            {
+              "id": "XJS2",
+              "src": "/videos/instagram/XJS2.jpg",
+              "alt": "Jaguar Jaguar XJS",
+              "type": "image"
+            },
+            {
+              "id": "XJS3",
+              "src": "/videos/instagram/XJS3.mp4",
+              "alt": "Jaguar Jaguar XJS",
+              "type": "video"
+            },
+            {
+              "id": "XJS4",
+              "src": "/videos/instagram/XJS4.jpg",
+              "alt": "Jaguar Jaguar XJS",
+              "type": "image"
+            },
+            {
+              "id": "XJS5",
+              "src": "/videos/instagram/XJS5.jpg",
+              "alt": "Jaguar Jaguar XJS",
+              "type": "image"
+            },
+            {
+              "id": "XJS6",
+              "src": "/videos/instagram/XJS6.jpg",
+              "alt": "Jaguar Jaguar XJS",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-tehatyuog",
+          "name": "Rolls Royce Ghost",
+          "mediaIds": [
+            "RHG1",
+            "RHG2",
+            "RHG3",
+            "RHG4",
+            "RHG5"
+          ],
+          "media": [
+            {
+              "id": "RHG1",
+              "src": "/videos/instagram/RHG1.jpg",
+              "alt": "Rolls Royce Rolls Royce Ghost",
+              "type": "image"
+            },
+            {
+              "id": "RHG2",
+              "src": "/videos/instagram/RHG2.jpg",
+              "alt": "Rolls Royce Rolls Royce Ghost",
+              "type": "image"
+            },
+            {
+              "id": "RHG3",
+              "src": "/videos/instagram/RHG3.jpg",
+              "alt": "Rolls Royce Rolls Royce Ghost",
+              "type": "image"
+            },
+            {
+              "id": "RHG4",
+              "src": "/videos/instagram/RHG4.jpg",
+              "alt": "Rolls Royce Rolls Royce Ghost",
+              "type": "image"
+            },
+            {
+              "id": "RHG5",
+              "src": "/videos/instagram/RHG5.mp4",
+              "alt": "Rolls Royce Rolls Royce Ghost",
+              "type": "video"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-jwqzf0k8b",
+          "name": "Audi TT S-Line",
+          "mediaIds": [
+            "TTS1",
+            "TTS2",
+            "TTS3",
+            "TTS4",
+            "TTS5"
+          ],
+          "media": [
+            {
+              "id": "TTS1",
+              "src": "/videos/instagram/TTS1.jpg",
+              "alt": "Audi Audi TT S-Line",
+              "type": "image"
+            },
+            {
+              "id": "TTS2",
+              "src": "/videos/instagram/TTS2.jpg",
+              "alt": "Audi Audi TT S-Line",
+              "type": "image"
+            },
+            {
+              "id": "TTS3",
+              "src": "/videos/instagram/TTS3.jpg",
+              "alt": "Audi Audi TT S-Line",
+              "type": "image"
+            },
+            {
+              "id": "TTS4",
+              "src": "/videos/instagram/TTS4.jpg",
+              "alt": "Audi Audi TT S-Line",
+              "type": "image"
+            },
+            {
+              "id": "TTS5",
+              "src": "/videos/instagram/TTS5.jpg",
+              "alt": "Audi Audi TT S-Line",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-vr0aijt5r",
+          "name": "Range Rover Autobiography",
+          "mediaIds": [
+            "RangeRAB1",
+            "RangeRAB10",
+            "RangeRAB2",
+            "RangeRAB3",
+            "RangeRAB4",
+            "RangeRAB5",
+            "RangeRAB6",
+            "RangeRAB7",
+            "RangeRAB8",
+            "RangeRAB9"
+          ],
+          "media": [
+            {
+              "id": "RangeRAB1",
+              "src": "/videos/instagram/RangeRAB1.jpg",
+              "alt": "Range Rover Range Rover Autobiography",
+              "type": "image"
+            },
+            {
+              "id": "RangeRAB10",
+              "src": "/videos/instagram/RangeRAB10.jpg",
+              "alt": "Range Rover Range Rover Autobiography",
+              "type": "image"
+            },
+            {
+              "id": "RangeRAB2",
+              "src": "/videos/instagram/RangeRAB2.jpg",
+              "alt": "Range Rover Range Rover Autobiography",
+              "type": "image"
+            },
+            {
+              "id": "RangeRAB3",
+              "src": "/videos/instagram/RangeRAB3.jpg",
+              "alt": "Range Rover Range Rover Autobiography",
+              "type": "image"
+            },
+            {
+              "id": "RangeRAB4",
+              "src": "/videos/instagram/RangeRAB4.jpg",
+              "alt": "Range Rover Range Rover Autobiography",
+              "type": "image"
+            },
+            {
+              "id": "RangeRAB5",
+              "src": "/videos/instagram/RangeRAB5.jpg",
+              "alt": "Range Rover Range Rover Autobiography",
+              "type": "image"
+            },
+            {
+              "id": "RangeRAB6",
+              "src": "/videos/instagram/RangeRAB6.jpg",
+              "alt": "Range Rover Range Rover Autobiography",
+              "type": "image"
+            },
+            {
+              "id": "RangeRAB7",
+              "src": "/videos/instagram/RangeRAB7.jpg",
+              "alt": "Range Rover Range Rover Autobiography",
+              "type": "image"
+            },
+            {
+              "id": "RangeRAB8",
+              "src": "/videos/instagram/RangeRAB8.jpg",
+              "alt": "Range Rover Range Rover Autobiography",
+              "type": "image"
+            },
+            {
+              "id": "RangeRAB9",
+              "src": "/videos/instagram/RangeRAB9.jpg",
+              "alt": "Range Rover Range Rover Autobiography",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-6o7zzpqe8",
+          "name": "Matte Grey Audi r8",
+          "mediaIds": [
+            "AudiR8",
+            "R81",
+            "R82",
+            "R83",
+            "R8S1",
+            "R8S2",
+            "R8S3",
+            "R8S4",
+            "R8S5"
+          ],
+          "media": [
+            {
+              "id": "AudiR8",
+              "src": "/videos/instagram/AudiR8.mp4",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "video"
+            },
+            {
+              "id": "R81",
+              "src": "/videos/instagram/R81.jpg",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "image"
+            },
+            {
+              "id": "R82",
+              "src": "/videos/instagram/R82.jpg",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "image"
+            },
+            {
+              "id": "R83",
+              "src": "/videos/instagram/R83.jpg",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "image"
+            },
+            {
+              "id": "R8S1",
+              "src": "/videos/instagram/R8S1.mp4",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "video"
+            },
+            {
+              "id": "R8S2",
+              "src": "/videos/instagram/R8S2.mp4",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "video"
+            },
+            {
+              "id": "R8S3",
+              "src": "/videos/instagram/R8S3.jpg",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "image"
+            },
+            {
+              "id": "R8S4",
+              "src": "/videos/instagram/R8S4.jpg",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "image"
+            },
+            {
+              "id": "R8S5",
+              "src": "/videos/instagram/R8S5.jpg",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-u16ufe3ik",
+          "name": "Audi R8 Spyder",
+          "mediaIds": [
+            "AudiR8",
+            "R81",
+            "R82",
+            "R83",
+            "R8S1",
+            "R8S2",
+            "R8S3",
+            "R8S4",
+            "R8S5"
+          ],
+          "media": [
+            {
+              "id": "AudiR8",
+              "src": "/videos/instagram/AudiR8.mp4",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "video"
+            },
+            {
+              "id": "R81",
+              "src": "/videos/instagram/R81.jpg",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "image"
+            },
+            {
+              "id": "R82",
+              "src": "/videos/instagram/R82.jpg",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "image"
+            },
+            {
+              "id": "R83",
+              "src": "/videos/instagram/R83.jpg",
+              "alt": "Audi Matte Grey Audi r8",
+              "type": "image"
+            },
+            {
+              "id": "R8S1",
+              "src": "/videos/instagram/R8S1.mp4",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "video"
+            },
+            {
+              "id": "R8S2",
+              "src": "/videos/instagram/R8S2.mp4",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "video"
+            },
+            {
+              "id": "R8S3",
+              "src": "/videos/instagram/R8S3.jpg",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "image"
+            },
+            {
+              "id": "R8S4",
+              "src": "/videos/instagram/R8S4.jpg",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "image"
+            },
+            {
+              "id": "R8S5",
+              "src": "/videos/instagram/R8S5.jpg",
+              "alt": "Audi Audi R8 Spyder",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-xbhg4yw6q",
+          "name": "Porsche Carrera 930",
+          "mediaIds": [
+            "OCarrera1",
+            "OCarrera2"
+          ],
+          "media": [
+            {
+              "id": "OCarrera1",
+              "src": "/videos/instagram/OCarrera1.jpg",
+              "alt": "Porsche Porsche Carrera 930",
+              "type": "image"
+            },
+            {
+              "id": "OCarrera2",
+              "src": "/videos/instagram/OCarrera2.jpg",
+              "alt": "Porsche Porsche Carrera 930",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-u98mcwkrj",
+          "name": "Lamborghini Perfomante Spyder",
+          "mediaIds": [
+            "PS1",
+            "PS2",
+            "PS3",
+            "PS4",
+            "PS5",
+            "PS6",
+            "PS7"
+          ],
+          "media": [
+            {
+              "id": "PS1",
+              "src": "/videos/instagram/PS1.jpg",
+              "alt": "Lamborghini Lamborghini Perfomante Spyder",
+              "type": "image"
+            },
+            {
+              "id": "PS2",
+              "src": "/videos/instagram/PS2.jpg",
+              "alt": "Lamborghini Lamborghini Perfomante Spyder",
+              "type": "image"
+            },
+            {
+              "id": "PS3",
+              "src": "/videos/instagram/PS3.jpg",
+              "alt": "Lamborghini Lamborghini Perfomante Spyder",
+              "type": "image"
+            },
+            {
+              "id": "PS4",
+              "src": "/videos/instagram/PS4.jpg",
+              "alt": "Lamborghini Lamborghini Perfomante Spyder",
+              "type": "image"
+            },
+            {
+              "id": "PS5",
+              "src": "/videos/instagram/PS5.jpg",
+              "alt": "Lamborghini Lamborghini Perfomante Spyder",
+              "type": "image"
+            },
+            {
+              "id": "PS6",
+              "src": "/videos/instagram/PS6.jpg",
+              "alt": "Lamborghini Lamborghini Perfomante Spyder",
+              "type": "image"
+            },
+            {
+              "id": "PS7",
+              "src": "/videos/instagram/PS7.jpg",
+              "alt": "Lamborghini Lamborghini Perfomante Spyder",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-eom6cwi69",
+          "name": "BMW M4 ",
+          "mediaIds": [
+            "CS1",
+            "cs2",
+            "cs3",
+            "cs4",
+            "cs5",
+            "cs6",
+            "cs7",
+            "cs8",
+            "cs9"
+          ],
+          "media": [
+            {
+              "id": "CS1",
+              "src": "/videos/instagram/CS1.mp4",
+              "alt": "BMW BMW M4 CS ",
+              "type": "video"
+            },
+            {
+              "id": "cs2",
+              "src": "/videos/instagram/cs2.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs3",
+              "src": "/videos/instagram/cs3.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs4",
+              "src": "/videos/instagram/cs4.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs5",
+              "src": "/videos/instagram/cs5.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs6",
+              "src": "/videos/instagram/cs6.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs7",
+              "src": "/videos/instagram/cs7.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs8",
+              "src": "/videos/instagram/cs8.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            },
+            {
+              "id": "cs9",
+              "src": "/videos/instagram/cs9.jpg",
+              "alt": "BMW BMW M4 CS ",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-7cwgq15ol",
+          "name": "BMW M3 Competition Touring",
+          "mediaIds": [
+            "M3CT1",
+            "M3CT2",
+            "M3CT3",
+            "M3CT4",
+            "M3CT5",
+            "M3CT6"
+          ],
+          "media": [
+            {
+              "id": "M3CT1",
+              "src": "/videos/instagram/M3CT1.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            },
+            {
+              "id": "M3CT2",
+              "src": "/videos/instagram/M3CT2.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            },
+            {
+              "id": "M3CT3",
+              "src": "/videos/instagram/M3CT3.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            },
+            {
+              "id": "M3CT4",
+              "src": "/videos/instagram/M3CT4.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            },
+            {
+              "id": "M3CT5",
+              "src": "/videos/instagram/M3CT5.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            },
+            {
+              "id": "M3CT6",
+              "src": "/videos/instagram/M3CT6.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-bh07pobhm",
+          "name": "Jaguar MK 2",
+          "mediaIds": [
+            "MK2J1",
+            "MK2J2",
+            "MK2J3",
+            "MK2J4",
+            "MK2J5",
+            "MK2J6",
+            "MK2J7"
+          ],
+          "media": [
+            {
+              "id": "MK2J1",
+              "src": "/videos/instagram/MK2J1.jpg",
+              "alt": "Jaguar Jaguar MK 2",
+              "type": "image"
+            },
+            {
+              "id": "MK2J2",
+              "src": "/videos/instagram/MK2J2.jpg",
+              "alt": "Jaguar Jaguar MK 2",
+              "type": "image"
+            },
+            {
+              "id": "MK2J3",
+              "src": "/videos/instagram/MK2J3.jpg",
+              "alt": "Jaguar Jaguar MK 2",
+              "type": "image"
+            },
+            {
+              "id": "MK2J4",
+              "src": "/videos/instagram/MK2J4.jpg",
+              "alt": "Jaguar Jaguar MK 2",
+              "type": "image"
+            },
+            {
+              "id": "MK2J5",
+              "src": "/videos/instagram/MK2J5.jpg",
+              "alt": "Jaguar Jaguar MK 2",
+              "type": "image"
+            },
+            {
+              "id": "MK2J6",
+              "src": "/videos/instagram/MK2J6.jpg",
+              "alt": "Jaguar Jaguar MK 2",
+              "type": "image"
+            },
+            {
+              "id": "MK2J7",
+              "src": "/videos/instagram/MK2J7.jpg",
+              "alt": "Jaguar Jaguar MK 2",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-hagop38xe",
+          "name": "Tesla Model Y",
+          "mediaIds": [
+            "ModelY1",
+            "ModelY2",
+            "ModelY3",
+            "ModelY4",
+            "ModelY5"
+          ],
+          "media": [
+            {
+              "id": "ModelY1",
+              "src": "/videos/instagram/ModelY1.jpg",
+              "alt": "Tesla Tesla Model Y",
+              "type": "image"
+            },
+            {
+              "id": "ModelY2",
+              "src": "/videos/instagram/ModelY2.jpg",
+              "alt": "Tesla Tesla Model Y",
+              "type": "image"
+            },
+            {
+              "id": "ModelY3",
+              "src": "/videos/instagram/ModelY3.jpg",
+              "alt": "Tesla Tesla Model Y",
+              "type": "image"
+            },
+            {
+              "id": "ModelY4",
+              "src": "/videos/instagram/ModelY4.jpg",
+              "alt": "Tesla Tesla Model Y",
+              "type": "image"
+            },
+            {
+              "id": "ModelY5",
+              "src": "/videos/instagram/ModelY5.jpg",
+              "alt": "Tesla Tesla Model Y",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-e6j248fl3",
+          "name": "Audi Q5",
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [
+            "Q5Audi1",
+            "Q5Audi2",
+            "Q5Audi3",
+            "Q5Audi4",
+            "Q5Audi5",
+            "Q5Audi6",
+            "Q5Audi7",
+            "Q5Audi8",
+            "Q5Audi9"
+          ],
+          "media": [
+            {
+              "id": "Q5Audi1",
+              "src": "/videos/instagram/Q5Audi1.jpg",
+              "alt": "Audi Audi Q5",
+              "type": "image"
+            },
+            {
+              "id": "Q5Audi2",
+              "src": "/videos/instagram/Q5Audi2.jpg",
+              "alt": "Audi Audi Q5",
+              "type": "image"
+            },
+            {
+              "id": "Q5Audi3",
+              "src": "/videos/instagram/Q5Audi3.jpg",
+              "alt": "Audi Audi Q5",
+              "type": "image"
+            },
+            {
+              "id": "Q5Audi4",
+              "src": "/videos/instagram/Q5Audi4.jpg",
+              "alt": "Audi Audi Q5",
+              "type": "image"
+            },
+            {
+              "id": "Q5Audi5",
+              "src": "/videos/instagram/Q5Audi5.jpg",
+              "alt": "Audi Audi Q5",
+              "type": "image"
+            },
+            {
+              "id": "Q5Audi6",
+              "src": "/videos/instagram/Q5Audi6.jpg",
+              "alt": "Audi Audi Q5",
+              "type": "image"
+            },
+            {
+              "id": "Q5Audi7",
+              "src": "/videos/instagram/Q5Audi7.jpg",
+              "alt": "Audi Audi Q5",
+              "type": "image"
+            },
+            {
+              "id": "Q5Audi8",
+              "src": "/videos/instagram/Q5Audi8.jpg",
+              "alt": "Audi Audi Q5",
+              "type": "image"
+            },
+            {
+              "id": "Q5Audi9",
+              "src": "/videos/instagram/Q5Audi9.jpg",
+              "alt": "Audi Audi Q5",
+              "type": "image"
+            }
+          ]
+        },
+        {
+          "id": "project-1768000344854-02ycqq39f",
+          "name": "BMW M3",
+          "mediaIds": [
+            "M3CT1",
+            "M3CT2",
+            "M3CT3",
+            "M3CT4",
+            "M3CT5",
+            "M3CT6"
+          ],
+          "media": [
+            {
+              "id": "M3CT1",
+              "src": "/videos/instagram/M3CT1.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            },
+            {
+              "id": "M3CT2",
+              "src": "/videos/instagram/M3CT2.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            },
+            {
+              "id": "M3CT3",
+              "src": "/videos/instagram/M3CT3.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            },
+            {
+              "id": "M3CT4",
+              "src": "/videos/instagram/M3CT4.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            },
+            {
+              "id": "M3CT5",
+              "src": "/videos/instagram/M3CT5.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            },
+            {
+              "id": "M3CT6",
+              "src": "/videos/instagram/M3CT6.jpg",
+              "alt": "BMW BMW M3 Competition Touring",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-p0xtamykb",
+          "name": "Bentley",
+          "mediaIds": [
+            "Bent1",
+            "Bent2",
+            "Bent3",
+            "Bent4",
+            "Bent5"
+          ],
+          "media": [
+            {
+              "id": "Bent1",
+              "src": "/videos/instagram/Bent1.jpg",
+              "alt": "Specials Bentley",
+              "type": "image"
+            },
+            {
+              "id": "Bent2",
+              "src": "/videos/instagram/Bent2.mp4",
+              "alt": "Specials Bentley",
+              "type": "video"
+            },
+            {
+              "id": "Bent3",
+              "src": "/videos/instagram/Bent3.jpg",
+              "alt": "Specials Bentley",
+              "type": "image"
+            },
+            {
+              "id": "Bent4",
+              "src": "/videos/instagram/Bent4.jpg",
+              "alt": "Specials Bentley",
+              "type": "image"
+            },
+            {
+              "id": "Bent5",
+              "src": "/videos/instagram/Bent5.jpg",
+              "alt": "Specials Bentley",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344853-0667rq7rm",
+          "name": "Caterham 7",
+          "mediaIds": [
+            "Caterham1",
+            "Caterham2",
+            "Caterham3",
+            "Caterham4",
+            "Caterham5",
+            "Caterham6"
+          ],
+          "media": [
+            {
+              "id": "Caterham1",
+              "src": "/videos/instagram/Caterham1.jpg",
+              "alt": "Specials Caterham 7",
+              "type": "image"
+            },
+            {
+              "id": "Caterham2",
+              "src": "/videos/instagram/Caterham2.jpg",
+              "alt": "Specials Caterham 7",
+              "type": "image"
+            },
+            {
+              "id": "Caterham3",
+              "src": "/videos/instagram/Caterham3.jpg",
+              "alt": "Specials Caterham 7",
+              "type": "image"
+            },
+            {
+              "id": "Caterham4",
+              "src": "/videos/instagram/Caterham4.jpg",
+              "alt": "Specials Caterham 7",
+              "type": "image"
+            },
+            {
+              "id": "Caterham5",
+              "src": "/videos/instagram/Caterham5.jpg",
+              "alt": "Specials Caterham 7",
+              "type": "image"
+            },
+            {
+              "id": "Caterham6",
+              "src": "/videos/instagram/Caterham6.jpg",
+              "alt": "Specials Caterham 7",
+              "type": "image"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements."
+        },
+        {
+          "id": "project-1768000344854-n8hrxxmch",
+          "name": "Ferrari 458 Italia",
+          "description": "Complete vehicle detailing service combining exterior and interior care.",
+          "mediaIds": [
+            "458i1",
+            "458i2"
+          ],
+          "media": [
+            {
+              "id": "458i1",
+              "src": "/videos/instagram/458i1.jpg",
+              "alt": "Ferrari Ferrari 458 Italia",
+              "type": "image"
+            },
+            {
+              "id": "458i2",
+              "src": "/videos/instagram/458i2.jpg",
+              "alt": "Ferrari Ferrari 458 Italia",
+              "type": "image"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import Link from "next/link";
+
+const services = [
+  {
+    id: "detailing",
+    name: "Car Detailing",
+    price: "from £125",
+    description: "Decontamination power wash with meticulous attention to every detail",
+    href: "/services#detailing",
+  },
+  {
+    id: "correction",
+    name: "Paint Correction",
+    price: "from £250",
+    description: "1 stage enhancement to restore depth, gloss and clarity",
+    href: "/services#correction",
+  },
+  {
+    id: "coating",
+    name: "Ceramic Coating",
+    price: "from £400",
+    description: "2 year protection with VRS SiC ceramic coating technology",
+    href: "/services#coating",
+  },
+  {
+    id: "ppf",
+    name: "PPF Protection",
+    price: "from £1,250",
+    description: "Front end paint protection film with self-healing technology",
+    href: "/services#ppf",
+  },
+];
+
+export default function ServiceOverview() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section className="py-20 md:py-28 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12" ref={ref}>
+          <motion.h2
+            initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
+            animate={isInView ? { opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" } : { opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-4xl md:text-5xl font-bold mb-6 text-dark-900"
+            style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+          >
+            Our Services
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="text-lg text-dark-700 max-w-2xl mx-auto"
+            style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+          >
+            Comprehensive vehicle rejuvenation services, from meticulous
+            detailing to long-term paint protection.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service) => (
+            <Link
+              key={service.id}
+              href={service.href}
+              className="group bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-primary-500 transition-all duration-300 hover:shadow-lg"
+            >
+              <div className="mb-4">
+                <h3 
+                  className="text-xl font-bold mb-2 text-dark-900 group-hover:text-primary-600 transition-colors"
+                  style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                >
+                  {service.name}
+                </h3>
+                <p 
+                  className="text-2xl font-bold text-primary-600 mb-3"
+                  style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                >
+                  {service.price}
+                </p>
+              </div>
+              <p 
+                className="text-dark-700 mb-4"
+                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+              >
+                {service.description}
+              </p>
+              <span 
+                className="text-primary-600 font-semibold group-hover:underline"
+                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+              >
+                Learn more →
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link 
+            href="/services" 
+            className="border-2 border-dark-900 text-dark-900 px-6 py-3 rounded-full font-semibold text-center hover:bg-dark-900 hover:text-white transition-colors uppercase tracking-wider inline-block"
+            style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+          >
+            View All Services
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+

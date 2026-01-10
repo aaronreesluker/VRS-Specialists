@@ -1,0 +1,92 @@
+@keyframes shiny-text {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.shiny-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Star-border style effect for coverage cards */
+
+/* Animate a custom angle to drive the conic gradient */
+@property --coverage-border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes coverage-border-rotate {
+  from {
+    --coverage-border-angle: 0deg;
+  }
+  to {
+    --coverage-border-angle: 360deg;
+  }
+}
+
+.coverage-card {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Rotating conic gradient border behind the inner card */
+.coverage-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 0.5rem;
+  padding: 2px;
+  opacity: 1;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    conic-gradient(
+      from var(--coverage-border-angle),
+      transparent 0deg,
+      transparent 40deg,
+      #E11C22 60deg,
+      transparent 80deg,
+      transparent 120deg,
+      #E11C22 140deg,
+      transparent 160deg,
+      transparent 200deg,
+      #E11C22 220deg,
+      transparent 240deg,
+      transparent 280deg,
+      #E11C22 300deg,
+      transparent 320deg,
+      transparent 360deg
+    );
+
+  /* Hollow center so only the border glows, like StarBorder */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  animation: coverage-border-rotate 7s linear infinite;
+  filter:
+    drop-shadow(0 0 6px #E11C22)
+    drop-shadow(0 0 12px rgba(225, 28, 34, 0.7));
+}
+
+/* Slightly intensify glow on hover for a premium feel */
+.coverage-card:hover::before {
+  filter:
+    drop-shadow(0 0 8px #E11C22)
+    drop-shadow(0 0 18px rgba(225, 28, 34, 0.9));
+}
+
+/* Make sure the inner card tracks the same radius as the border */
+.coverage-card-inner {
+  border-radius: 0.5rem;
+}

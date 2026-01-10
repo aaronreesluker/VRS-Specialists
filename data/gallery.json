@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "src": "/gallery/image1.jpg",
+    "alt": "Paint correction work showing restored gloss",
+    "category": "Correction"
+  },
+  {
+    "id": 2,
+    "src": "/gallery/image2.jpg",
+    "alt": "Ceramic coating application",
+    "category": "Coating"
+  },
+  {
+    "id": 3,
+    "src": "/gallery/image3.jpg",
+    "alt": "Premium car detailing service",
+    "category": "Detailing"
+  },
+  {
+    "id": 4,
+    "src": "/gallery/image4.jpg",
+    "alt": "PPF installation on front bumper",
+    "category": "PPF"
+  }
+]
+
