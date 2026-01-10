@@ -321,7 +321,7 @@ export default function ScrollCarCinematic({
             <canvas
               ref={canvasRef}
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ imageRendering: "high-quality" }}
+              style={{ imageRendering: "auto" as const }}
             />
           )}
 

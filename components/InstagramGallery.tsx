@@ -174,9 +174,10 @@ export function InstagramGallery({
 
     // Only auto-rotate if there are multiple images and no video
     if (currentPost?.images && currentPost.images.length > 1 && !currentPost.video) {
+      const images = currentPost.images; // Store in variable for TypeScript narrowing
       imageRotationIntervalRef.current = setInterval(() => {
         setSelectedImageIndex((prev) => {
-          return (prev + 1) % currentPost.images.length;
+          return (prev + 1) % images.length;
         });
       }, 3000); // Rotate every 3 seconds
     }
@@ -244,8 +245,9 @@ export function InstagramGallery({
   // Handle manual image navigation
   const goToNextImage = () => {
     const currentPost = services[selectedServiceIndex]?.examples?.[selectedExampleIndex];
-    if (currentPost?.images && currentPost.images.length > 1) {
-      setSelectedImageIndex((prev) => (prev + 1) % currentPost.images.length);
+    const images = currentPost?.images;
+    if (images && images.length > 1) {
+      setSelectedImageIndex((prev) => (prev + 1) % images.length);
       if (imageRotationIntervalRef.current) {
         clearInterval(imageRotationIntervalRef.current);
         imageRotationIntervalRef.current = null;
@@ -255,8 +257,9 @@ export function InstagramGallery({
 
   const goToPrevImage = () => {
     const currentPost = services[selectedServiceIndex]?.examples?.[selectedExampleIndex];
-    if (currentPost?.images && currentPost.images.length > 1) {
-      setSelectedImageIndex((prev) => (prev - 1 + currentPost.images.length) % currentPost.images.length);
+    const images = currentPost?.images;
+    if (images && images.length > 1) {
+      setSelectedImageIndex((prev) => (prev - 1 + images.length) % images.length);
       if (imageRotationIntervalRef.current) {
         clearInterval(imageRotationIntervalRef.current);
         imageRotationIntervalRef.current = null;
@@ -299,19 +302,21 @@ export function InstagramGallery({
   // Lightbox image navigation
   const goToNextLightboxImage = () => {
     const currentPost = services[selectedServiceIndex]?.examples?.[selectedExampleIndex];
-    if (currentPost?.images && currentPost.images.length > 1) {
-      const nextIndex = (lightboxImageIndex + 1) % currentPost.images.length;
+    const images = currentPost?.images;
+    if (images && images.length > 1) {
+      const nextIndex = (lightboxImageIndex + 1) % images.length;
       setLightboxImageIndex(nextIndex);
-      setLightboxMediaSrc(currentPost.images[nextIndex]);
+      setLightboxMediaSrc(images[nextIndex]);
     }
   };
 
   const goToPrevLightboxImage = () => {
     const currentPost = services[selectedServiceIndex]?.examples?.[selectedExampleIndex];
-    if (currentPost?.images && currentPost.images.length > 1) {
-      const prevIndex = (lightboxImageIndex - 1 + currentPost.images.length) % currentPost.images.length;
+    const images = currentPost?.images;
+    if (images && images.length > 1) {
+      const prevIndex = (lightboxImageIndex - 1 + images.length) % images.length;
       setLightboxImageIndex(prevIndex);
-      setLightboxMediaSrc(currentPost.images[prevIndex]);
+      setLightboxMediaSrc(images[prevIndex]);
     }
   };
 
@@ -451,100 +456,106 @@ export function InstagramGallery({
                     )}
                   </button>
                           </div>
-              ) : currentPost?.images && currentPost.images.length > 0 ? (
-                <div 
-                  className="relative w-full flex justify-center cursor-pointer"
-                  onClick={() => {
-                    const currentImageSrc = currentPost.images[Math.min(selectedImageIndex, currentPost.images.length - 1)] || currentPost.images[0];
-                    openLightbox("image", currentImageSrc, selectedImageIndex);
-                  }}
-                >
-                  <img
-                    key={`${selectedServiceIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
-                    src={currentPost.images[Math.min(selectedImageIndex, currentPost.images.length - 1)] || currentPost.images[0]}
-                    alt={`${currentPost.title || 'Project'} - Image ${selectedImageIndex + 1} of ${currentPost.images.length}`}
-                    className="w-auto h-auto max-w-full max-h-[400px] object-contain"
-                  />
-                  {/* 10% Black Overlay */}
-                  <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
-                            </div>
-              ) : null}
-                          </div>
-            
-            {/* Smaller pagination for images within project */}
-            {currentPost?.images && currentPost.images.length > 1 && (
-              <div className="flex justify-center items-center gap-2 mt-3">
-                <button
-                  onClick={() => {
-                    // Pause auto-rotation when user manually navigates
-                    if (imageRotationIntervalRef.current) {
-                      clearInterval(imageRotationIntervalRef.current);
-                      imageRotationIntervalRef.current = null;
-                    }
-                    setSelectedImageIndex(selectedImageIndex > 0 ? selectedImageIndex - 1 : currentPost.images.length - 1);
-                  }}
-                  className="text-white hover:text-gray-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                  aria-label="Previous image"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                
-                <div className="flex gap-1.5 items-center">
-                  {currentPost.images.map((_, index) => {
-                    const isActive = selectedImageIndex === index;
-                    const isBeforeActive = index < selectedImageIndex;
-                    const isAfterActive = index > selectedImageIndex;
-                    
-                    let clipPath = "none";
-                    if (isActive) {
-                      clipPath = "none";
-                    } else if (isBeforeActive) {
-                      clipPath = "polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)";
-                    } else if (isAfterActive) {
-                      clipPath = "polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%)";
-                    }
-                    
+              ) : (() => {
+                const images = currentPost?.images;
+                if (!images || images.length === 0) return null;
+                const imageSrc = images[Math.min(selectedImageIndex, images.length - 1)] || images[0];
                 return (
-                      <button
-                    key={index}
-                        onClick={() => {
-                          // Pause auto-rotation when user manually navigates
-                          if (imageRotationIntervalRef.current) {
-                            clearInterval(imageRotationIntervalRef.current);
-                            imageRotationIntervalRef.current = null;
-                          }
-                          setSelectedImageIndex(index);
-                        }}
-                        className={`transition-all ${
-                          isActive ? "bg-white h-0.5 w-6" : "bg-white/30 h-0.5 w-4"
-                        }`}
-                        aria-label={`View image ${index + 1} of ${currentPost.images.length}`}
-                        style={{ clipPath }}
+                  <>
+                    <div 
+                      className="relative w-full flex justify-center cursor-pointer"
+                      onClick={() => {
+                        openLightbox("image", imageSrc, selectedImageIndex);
+                      }}
+                    >
+                      <img
+                        key={`${selectedServiceIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
+                        src={imageSrc}
+                        alt={`${currentPost?.title || 'Project'} - Image ${selectedImageIndex + 1} of ${images.length}`}
+                        className="w-auto h-auto max-w-full max-h-[400px] object-contain"
                       />
-                    );
-                  })}
-                </div>
-                
-                <button
-                  onClick={() => {
-                    // Pause auto-rotation when user manually navigates
-                    if (imageRotationIntervalRef.current) {
-                      clearInterval(imageRotationIntervalRef.current);
-                      imageRotationIntervalRef.current = null;
-                    }
-                    setSelectedImageIndex(selectedImageIndex < currentPost.images.length - 1 ? selectedImageIndex + 1 : 0);
-                  }}
-                  className="text-white hover:text-gray-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                  aria-label="Next image"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            )}
+                      {/* 10% Black Overlay */}
+                      <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
+                    </div>
+                    
+                    {/* Smaller pagination for images within project */}
+                    {images.length > 1 && (
+                      <div className="flex justify-center items-center gap-2 mt-3">
+                        <button
+                          onClick={() => {
+                            // Pause auto-rotation when user manually navigates
+                            if (imageRotationIntervalRef.current) {
+                              clearInterval(imageRotationIntervalRef.current);
+                              imageRotationIntervalRef.current = null;
+                            }
+                            setSelectedImageIndex(selectedImageIndex > 0 ? selectedImageIndex - 1 : images.length - 1);
+                          }}
+                          className="text-white hover:text-gray-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                          aria-label="Previous image"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                          </svg>
+                        </button>
+                        
+                        <div className="flex gap-1.5 items-center">
+                          {images.map((_, index) => {
+                            const isActive = selectedImageIndex === index;
+                            const isBeforeActive = index < selectedImageIndex;
+                            const isAfterActive = index > selectedImageIndex;
+                            
+                            let clipPath = "none";
+                            if (isActive) {
+                              clipPath = "none";
+                            } else if (isBeforeActive) {
+                              clipPath = "polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)";
+                            } else if (isAfterActive) {
+                              clipPath = "polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%)";
+                            }
+                            
+                            return (
+                              <button
+                                key={index}
+                                onClick={() => {
+                                  // Pause auto-rotation when user manually navigates
+                                  if (imageRotationIntervalRef.current) {
+                                    clearInterval(imageRotationIntervalRef.current);
+                                    imageRotationIntervalRef.current = null;
+                                  }
+                                  setSelectedImageIndex(index);
+                                }}
+                                className={`transition-all ${
+                                  isActive ? "bg-white h-0.5 w-6" : "bg-white/30 h-0.5 w-4"
+                                }`}
+                                aria-label={`View image ${index + 1} of ${images.length}`}
+                                style={{ clipPath }}
+                              />
+                            );
+                          })}
+                        </div>
+                        
+                        <button
+                          onClick={() => {
+                            // Pause auto-rotation when user manually navigates
+                            if (imageRotationIntervalRef.current) {
+                              clearInterval(imageRotationIntervalRef.current);
+                              imageRotationIntervalRef.current = null;
+                            }
+                            setSelectedImageIndex(selectedImageIndex < images.length - 1 ? selectedImageIndex + 1 : 0);
+                          }}
+                          className="text-white hover:text-gray-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                          aria-label="Next image"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
+                          </div>
           </div>
 
           {/* Right: Service Details - More space */}

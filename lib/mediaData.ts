@@ -196,9 +196,14 @@ export function getServicesData(): ServiceGroup[] {
   return services.map((service) => {
     const examples: InstagramPost[] = service.projects.map((project) => {
       // Get the first video or first image as primary media
-      const firstVideo = project.media.find((m) => m.type === "video");
-      const firstImage = project.media.find((m) => m.type === "image");
-      const allImages = project.media.filter((m) => m.type === "image").map((m) => m.src);
+      // Cast media type to ensure it matches MediaItem interface
+      const mediaItems: MediaItem[] = project.media.map(m => ({
+        ...m,
+        type: (m.type === "video" ? "video" : "image") as "image" | "video"
+      }));
+      const firstVideo = mediaItems.find((m) => m.type === "video");
+      const firstImage = mediaItems.find((m) => m.type === "image");
+      const allImages = mediaItems.filter((m) => m.type === "image").map((m) => m.src);
 
       // Generate service-specific details
       const serviceDetails = generateServiceDetails(service.name, project.name);
