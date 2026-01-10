@@ -52,14 +52,13 @@ export function ScrollCarHero({
   const carOpacity = useTransform(scrollYProgress, [0, 0.15], [0, 1], { clamp: true });
 
   // Car animation: Linear mapping for consistent frame progression
-  // Using easeOut for smoother start, linear for consistent mid-scroll, easeIn for smooth end
+  // Smooth transitions with adjusted input ranges for natural feel
   const carAnimationProgress = useTransform(
     scrollYProgress,
-    [0, 0.05, 0.95, 1],
-    [0, 0.05, 0.95, 1],
+    [0, 1],
+    [0, 1],
     { 
-      clamp: true,
-      ease: [0.25, 0.1, 0.25, 1] // Custom cubic bezier for ultra-smooth transitions
+      clamp: true
     }
   );
 
