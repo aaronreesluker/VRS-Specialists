@@ -1,7 +1,16 @@
 import { NextResponse } from "next/server";
-import { readdir } from "fs/promises";
-import { join } from "path";
 import mediaData from "@/data/media-organization.json";
+
+// Dynamic imports to prevent Next.js from bundling filesystem access in production
+const getFileSystemAccess = async () => {
+  // Only import fs/promises in development
+  if (process.env.NODE_ENV === "production" || process.env.VERCEL) {
+    return null;
+  }
+  const { readdir } = await import("fs/promises");
+  const { join } = await import("path");
+  return { readdir, join };
+};
 
 interface MediaFile {
   filename: string;
@@ -63,6 +72,19 @@ export async function GET() {
       });
     }
 
+    // Dynamically load filesystem access to prevent bundling in production
+    const fsAccess = await getFileSystemAccess();
+    if (!fsAccess) {
+      return NextResponse.json({
+        success: true,
+        files: [],
+        total: 0,
+        used: getUsedMediaFiles().size,
+        message: "Media scanning only available in local development",
+      });
+    }
+
+    const { readdir, join } = fsAccess;
     const instagramDir = join(process.cwd(), "public", "videos", "instagram");
     const files = await readdir(instagramDir);
     
