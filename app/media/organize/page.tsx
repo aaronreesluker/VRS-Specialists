@@ -238,12 +238,13 @@ export default function MediaOrganizePage() {
       files: currentGroup.files || [],
       serviceId: currentGroup.serviceId || "",
       serviceName: service?.name || "",
-      brand: currentGroup.brand,
-      projectName: currentGroup.projectName,
+      brand: currentGroup.brand || "",
+      projectName: currentGroup.projectName || "",
       caption: currentGroup.caption || "",
       description: currentGroup.description,
       detailedDescription: currentGroup.detailedDescription,
       location: currentGroup.location,
+      existingProjectId: currentGroup.existingProjectId,
     };
 
     setGroups((prev) => [...prev, savedGroup]);
