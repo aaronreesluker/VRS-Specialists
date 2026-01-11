@@ -53,6 +53,9 @@ function extractBrand(projectName: string): string | null {
   return null;
 }
 
+// Brands that should always appear, even if they have 0 projects
+const ALWAYS_SHOW_BRANDS = ["McLaren", "Ferrari", "Tesla", "Jaguar"];
+
 // Transform service data to brand-based groups
 export function getBrandsData(): BrandGroup[] {
   const servicesData = getServicesData();
@@ -88,6 +91,13 @@ export function getBrandsData(): BrandGroup[] {
     // Add all Specials examples - they will also appear under their brand if applicable
     brandMap.set("Specials", specialsService.examples);
   }
+  
+  // Ensure always-show brands are included even if they have 0 projects
+  ALWAYS_SHOW_BRANDS.forEach((brandName) => {
+    if (!brandMap.has(brandName)) {
+      brandMap.set(brandName, []);
+    }
+  });
   
   // Convert to array and sort by brand name
   const brandGroups: BrandGroup[] = Array.from(brandMap.entries())

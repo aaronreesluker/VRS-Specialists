@@ -113,7 +113,15 @@ export function BrandGallery({
   const pillBgActive = isLight ? "bg-brand-red text-white" : "bg-white text-black";
   const pillBgInactive = isLight ? "bg-white text-black border-2 border-black hover:border-brand-red hover:text-brand-red" : "bg-white/10 text-white border border-white/20 hover:bg-white/20";
   const pillHover = isLight ? "hover:border-brand-red hover:text-brand-red" : "hover:bg-white/20";
-  const [selectedBrandIndex, setSelectedBrandIndex] = useState<number>(initialBrandIndex);
+  // When filtering by a specific brand (brands.length === 1), selectedBrandIndex should always be 0
+  // Otherwise, use initialBrandIndex but clamp it to valid bounds
+  const getEffectiveInitialIndex = () => {
+    if (brands.length === 0) return 0;
+    if (brands.length === 1) return 0;
+    return Math.min(initialBrandIndex ?? 0, brands.length - 1);
+  };
+  
+  const [selectedBrandIndex, setSelectedBrandIndex] = useState<number>(getEffectiveInitialIndex());
   
   // Use allBrands for navigation if provided, otherwise use brands
   const navigationBrands = allBrands || brands;
@@ -221,18 +229,29 @@ export function BrandGallery({
     }
   }, [selectedBrandIndex, selectedExampleIndex, isMuted, brands]);
 
-  // Update selectedBrandIndex when initialBrandIndex changes (from URL param)
+  // Update selectedBrandIndex when brands or initialBrandIndex changes (from URL param)
   useEffect(() => {
-    if (initialBrandIndex !== undefined && initialBrandIndex !== selectedBrandIndex) {
-      setSelectedBrandIndex(initialBrandIndex);
-      setSelectedExampleIndex(0); // Reset to first example when brand changes
+    // When filtering by a specific brand, always use index 0
+    // Otherwise, use initialBrandIndex but ensure it's within bounds
+    let targetIndex = 0;
+    if (brands.length === 0) {
+      targetIndex = 0;
+    } else if (brands.length === 1) {
+      targetIndex = 0; // Always use index 0 when only one brand is shown
+    } else {
+      // Use initialBrandIndex but clamp to valid range
+      targetIndex = Math.min(initialBrandIndex ?? 0, Math.max(0, brands.length - 1));
     }
-  }, [initialBrandIndex]);
+    
+    setSelectedBrandIndex(targetIndex);
+    setSelectedExampleIndex(0); // Reset to first example when brand changes
+  }, [initialBrandIndex, brands.length, brands]);
 
   // Handle fallback media selection
   useEffect(() => {
     if (brands && brands.length > 0) {
-      const brand = brands[selectedBrandIndex];
+      const safeIndex = Math.min(selectedBrandIndex, brands.length - 1);
+      const brand = brands[safeIndex];
       if (brand && brand.examples && brand.examples.length > 0) {
         const currentPost = brand.examples[selectedExampleIndex];
         if (!currentPost || (!currentPost.video && (!currentPost.images || currentPost.images.length === 0))) {
@@ -245,49 +264,14 @@ export function BrandGallery({
     }
   }, [selectedBrandIndex, selectedExampleIndex, brands]);
 
-  // Get current brand and example
-  const currentBrand = brands && brands.length > 0 ? brands[selectedBrandIndex] : null;
-  
-  if (!brands || brands.length === 0 || !currentBrand || !currentBrand.examples || currentBrand.examples.length === 0) {
-    return (
-      <section className={`py-20 md:py-28 ${bgColor}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className={textColor}>No brands available.</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  // Video event handlers
+  const handleVideoPlay = () => {
+    // Video started playing
+  };
 
-  const currentPost = currentBrand.examples[selectedExampleIndex];
-  const hasMedia = currentPost && (currentPost.video || (currentPost.images && currentPost.images.length > 0));
-  
-  if (!hasMedia) {
-    const anyWithMedia = currentBrand.examples.find(ex => ex.video || (ex.images && ex.images.length > 0));
-    if (!anyWithMedia) {
-      return (
-        <section className={`py-20 md:py-28 ${bgColor}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimatedSectionHeader
-              title={title}
-              subtitle={subtitle}
-              brandNames={brands.map((brand) => brand.brandName)}
-              selectedBrandIndex={selectedBrandIndex}
-              onBrandClick={(index) => {
-                setSelectedBrandIndex(index);
-                setSelectedExampleIndex(0);
-              }}
-              isLight={isLight}
-            />
-            <div className="text-center">
-              <p className={textColor}>No media content available for this brand.</p>
-            </div>
-          </div>
-        </section>
-      );
-    }
-  }
+  const handleVideoPause = () => {
+    // Video paused
+  };
 
   // Lightbox functions
   const openLightbox = (type: "image" | "video", src: string, imageIndex: number = 0) => {
@@ -309,24 +293,69 @@ export function BrandGallery({
     }
   };
 
+  // Get current brand and example - ensure selectedBrandIndex is within bounds
+  const safeSelectedBrandIndex = brands && brands.length > 0 
+    ? Math.min(selectedBrandIndex, brands.length - 1)
+    : 0;
+  const currentBrand = brands && brands.length > 0 ? brands[safeSelectedBrandIndex] : null;
+  
+  if (!brands || brands.length === 0 || !currentBrand || !currentBrand.examples || currentBrand.examples.length === 0) {
+    return (
+      <section className={`py-20 md:py-28 bg-white`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-black">No brands available.</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const currentPost = currentBrand.examples[selectedExampleIndex];
+  const hasMedia = currentPost && (currentPost.video || (currentPost.images && currentPost.images.length > 0));
+  
+  // Lightbox navigation function - uses currentPost from closure
   const navigateLightboxImages = (direction: "prev" | "next") => {
     if (lightboxMediaType === "image" && currentPost?.images && currentPost.images.length > 1) {
       const totalImages = currentPost.images.length;
-      setLightboxImageIndex((prevIndex) => {
-        if (direction === "next") {
-          return (prevIndex + 1) % totalImages;
-        } else {
-          return (prevIndex - 1 + totalImages) % totalImages;
-        }
-      });
-      setLightboxMediaSrc(currentPost.images[(lightboxImageIndex + (direction === "next" ? 1 : -1) + totalImages) % totalImages]);
+      const newIndex = direction === "next" 
+        ? (lightboxImageIndex + 1) % totalImages
+        : (lightboxImageIndex - 1 + totalImages) % totalImages;
+      setLightboxImageIndex(newIndex);
+      if (currentPost.images[newIndex]) {
+        setLightboxMediaSrc(currentPost.images[newIndex]);
+      }
     }
   };
-
-  const brandNames = brands.map((brand) => brand.brandName);
+  
+  if (!hasMedia) {
+    const anyWithMedia = currentBrand.examples.find(ex => ex.video || (ex.images && ex.images.length > 0));
+    if (!anyWithMedia) {
+      return (
+        <section className="py-20 md:py-28 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimatedSectionHeader
+              title={title}
+              subtitle={subtitle}
+              brandNames={brands.map((brand) => brand.brandName)}
+              selectedBrandIndex={selectedBrandIndex}
+              onBrandClick={(index) => {
+                setSelectedBrandIndex(index);
+                setSelectedExampleIndex(0);
+              }}
+              isLight={true}
+            />
+            <div className="text-center">
+              <p className="text-black">No media content available for this brand.</p>
+            </div>
+          </div>
+        </section>
+      );
+    }
+  }
 
   return (
-    <section className={`py-20 md:py-28 ${bgColor}`}>
+    <section className="py-20 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <AnimatedSectionHeader
@@ -344,14 +373,15 @@ export function BrandGallery({
               setSelectedExampleIndex(0);
             }
           }}
-          isLight={isLight}
+          isLight={true}
         />
 
         {/* Main Content - Video Player + Project Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 max-w-6xl mx-auto">
-          {/* Left: Media Player */}
-          <div className="relative lg:col-span-4 flex flex-col items-center">
-            <div className="relative w-full max-w-[300px] bg-black rounded-2xl overflow-hidden shadow-2xl flex justify-center items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 max-w-7xl mx-auto">
+          {/* Left: Media Player - Video or Images - 50% */}
+          <div className="relative lg:col-span-6 flex flex-col items-center">
+            <div className="relative w-full max-w-full bg-black rounded-2xl overflow-hidden shadow-2xl flex justify-center items-center group">
+              {/* Video or Image */}
               {currentPost?.video ? (
                 <div 
                   className="relative w-full flex justify-center cursor-pointer"
@@ -361,18 +391,25 @@ export function BrandGallery({
                     ref={videoRef}
                     key={`${selectedBrandIndex}-${selectedExampleIndex}`}
                     src={currentPost.video}
-                    className="w-auto h-auto max-w-full max-h-[400px] object-contain"
+                    className="w-full h-auto max-h-[570px] md:max-h-[665px] lg:max-h-[760px] object-contain"
                     controls
                     playsInline
                     autoPlay
                     muted={isMuted}
                     loop
+                    onPlay={handleVideoPlay}
+                    onPause={handleVideoPause}
+                    onEnded={handleVideoPause}
                   >
                     Your browser does not support the video tag.
                   </video>
+                  {/* 10% Black Overlay */}
+                  <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
+                  
+                  {/* Mute/Unmute Toggle Button */}
                   <button
                     onClick={(e) => {
-                      e.stopPropagation();
+                      e.stopPropagation(); // Prevent opening lightbox
                       setIsMuted(!isMuted);
                       if (videoRef.current) {
                         videoRef.current.muted = !isMuted;
@@ -392,7 +429,6 @@ export function BrandGallery({
                       </svg>
                     )}
                   </button>
-                  <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]"></div>
                 </div>
               ) : (() => {
                 const images = currentPost?.images;
@@ -409,104 +445,132 @@ export function BrandGallery({
                       key={`${selectedBrandIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
                       src={imageSrc}
                       alt={`${currentPost?.title || 'Project'} - Image ${selectedImageIndex + 1} of ${images.length}`}
-                      className="w-auto h-auto max-w-full max-h-[400px] object-contain"
+                      className="w-full h-auto max-h-[570px] md:max-h-[665px] lg:max-h-[760px] object-contain"
                     />
-                    <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]"></div>
+                    {/* 10% Black Overlay */}
+                    <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
                   </div>
                 );
               })()}
             </div>
             
-            {/* Smaller pagination for images within project */}
-            {currentPost?.images && currentPost.images.length > 1 && (() => {
-              const images = currentPost.images;
-              return (
-                <div className="flex justify-center items-center gap-2 mt-3">
-                  <button
-                    onClick={() => {
-                      if (imageRotationIntervalRef.current) {
-                        clearInterval(imageRotationIntervalRef.current);
-                        imageRotationIntervalRef.current = null;
-                      }
-                      setSelectedImageIndex(selectedImageIndex > 0 ? selectedImageIndex - 1 : images.length - 1);
-                    }}
-                  className={`${textColor} hover:opacity-70 transition-colors`}
-                  aria-label="Previous image"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                
-                  <div className="flex gap-1.5 items-center">
-                    {images.map((_, index) => {
-                    const isActive = selectedImageIndex === index;
-                    const isBeforeActive = index < selectedImageIndex;
-                    const isAfterActive = index > selectedImageIndex;
-                    
-                    let clipPath = "none";
-                    if (isActive) {
-                      clipPath = "none";
-                    } else if (isBeforeActive) {
-                      clipPath = "polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)";
-                    } else if (isAfterActive) {
-                      clipPath = "polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%)";
-                    }
-                    
-                    return (
+            {/* Pagination and Click to Expand beneath media */}
+            <div className="flex flex-col items-center gap-3 mt-4 w-full">
+              {/* Pagination - for images only */}
+              {(() => {
+                const images = currentPost?.images;
+                if (images && images.length > 1) {
+                  return (
+                    <div className="flex justify-center items-center gap-3">
                       <button
-                        key={index}
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          // Pause auto-rotation when user manually navigates
                           if (imageRotationIntervalRef.current) {
                             clearInterval(imageRotationIntervalRef.current);
                             imageRotationIntervalRef.current = null;
                           }
-                          setSelectedImageIndex(index);
+                          setSelectedImageIndex(selectedImageIndex > 0 ? selectedImageIndex - 1 : images.length - 1);
                         }}
-                        className={`transition-all ${
-                          isActive ? (isLight ? "bg-brand-red h-0.5 w-6" : "bg-white h-0.5 w-6") : (isLight ? "bg-gray-300 h-0.5 w-4" : "bg-white/30 h-0.5 w-4")
-                        }`}
-                        style={{ clipPath }}
-                      />
-                    );
-                  })}
-                </div>
-                
-                <button
-                  onClick={() => {
-                    if (imageRotationIntervalRef.current) {
-                      clearInterval(imageRotationIntervalRef.current);
-                      imageRotationIntervalRef.current = null;
-                    }
-                      setSelectedImageIndex(selectedImageIndex < images.length - 1 ? selectedImageIndex + 1 : 0);
-                    }}
-                    className={`${textColor} hover:opacity-70 transition-colors`}
-                    aria-label="Next image"
-                  >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-              );
-            })()}
+                        className="text-gray-600 hover:text-black transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                        aria-label="Previous image"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      
+                      <div className="flex gap-2 items-center">
+                        {images.map((_, index) => {
+                          const isActive = selectedImageIndex === index;
+                          const isBeforeActive = index < selectedImageIndex;
+                          const isAfterActive = index > selectedImageIndex;
+                          
+                          let clipPath = "none";
+                          if (isActive) {
+                            clipPath = "none";
+                          } else if (isBeforeActive) {
+                            clipPath = "polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)";
+                          } else if (isAfterActive) {
+                            clipPath = "polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%)";
+                          }
+                          
+                          return (
+                            <button
+                              key={index}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                // Pause auto-rotation when user manually navigates
+                                if (imageRotationIntervalRef.current) {
+                                  clearInterval(imageRotationIntervalRef.current);
+                                  imageRotationIntervalRef.current = null;
+                                }
+                                setSelectedImageIndex(index);
+                              }}
+                              className={`transition-all ${
+                                isActive ? "bg-brand-red h-1 w-8" : "bg-gray-300 h-1 w-5"
+                              } rounded-full hover:bg-gray-400`}
+                              aria-label={`View image ${index + 1} of ${images.length}`}
+                              style={{ clipPath }}
+                            />
+                          );
+                        })}
+                      </div>
+                      
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          // Pause auto-rotation when user manually navigates
+                          if (imageRotationIntervalRef.current) {
+                            clearInterval(imageRotationIntervalRef.current);
+                            imageRotationIntervalRef.current = null;
+                          }
+                          setSelectedImageIndex(selectedImageIndex < images.length - 1 ? selectedImageIndex + 1 : 0);
+                        }}
+                        className="text-gray-600 hover:text-black transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                        aria-label="Next image"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                      
+                      {/* Image counter */}
+                      <span className="text-gray-600 text-xs ml-2"
+                        style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                      >
+                        {selectedImageIndex + 1} / {images.length}
+                      </span>
+                    </div>
+                  );
+                }
+                return null;
+              })()}
+              
+              {/* Subtle Click to Expand Prompt - Always visible below media */}
+              <div className="bg-gray-100 border border-gray-300 text-black px-4 py-2 rounded-full text-xs font-medium flex items-center gap-2"
+                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                </svg>
+                Click to expand
+              </div>
+            </div>
           </div>
 
-          {/* Right: Project Details */}
-          <div className="flex flex-col justify-center lg:col-span-8">
-            <div className="flex items-start justify-between mb-4">
+          {/* Right: Project Details - 50% */}
+          <div className="flex flex-col justify-center lg:col-span-6">
+            <div className="flex items-start justify-between mb-3 gap-3">
               <h3 
-                className={`text-3xl md:text-4xl font-bold ${textColor}`}
+                className="text-xl md:text-2xl lg:text-2xl font-bold text-black leading-tight"
                 style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
               >
                 {currentPost?.title || "Project"}
               </h3>
               <span 
-                className="text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap ml-4"
-                style={{ 
-                  fontFamily: "var(--font-outfit), sans-serif",
-                  backgroundColor: "var(--color-brand-red)"
-                }}
+                className="bg-brand-red text-white text-[10px] md:text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap flex-shrink-0"
+                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 {currentBrand.brandName}
               </span>
@@ -514,7 +578,7 @@ export function BrandGallery({
 
             {currentPost?.location && (
               <p 
-                className={`${textColorSecondary} mb-4 text-sm uppercase tracking-wider`}
+                className="text-gray-700 mb-3 text-xs uppercase tracking-wider"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 {currentPost.location}
@@ -522,12 +586,12 @@ export function BrandGallery({
             )}
 
             {currentPost?.duration && (
-              <div className="flex items-center gap-2 mb-4">
-                <svg className="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center gap-2 mb-3">
+                <svg className="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span 
-                  className={`${textColor} text-sm font-semibold`}
+                  className="text-black text-xs font-semibold"
                   style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                 >
                   Duration: {currentPost.duration}
@@ -537,7 +601,7 @@ export function BrandGallery({
 
             {currentPost?.description && (
               <p 
-                className={`${textColor} mb-4 text-lg font-semibold leading-relaxed`}
+                className="text-black mb-3 text-sm font-medium leading-relaxed"
                 style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
               >
                 {currentPost.description}
@@ -546,7 +610,7 @@ export function BrandGallery({
 
             {currentPost?.detailedDescription && (
               <p 
-                className={`${textColorSecondary} mb-6 text-base leading-relaxed`}
+                className="text-gray-700 mb-6 text-xs leading-relaxed"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 {currentPost.detailedDescription}
@@ -554,23 +618,23 @@ export function BrandGallery({
             )}
 
             {(currentPost?.techniques && currentPost.techniques.length > 0) || (currentPost?.results && currentPost.results.length > 0) ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 {currentPost?.techniques && currentPost.techniques.length > 0 && (
                   <div>
                     <h4 
-                      className={`${textColor} text-sm font-semibold uppercase tracking-wider mb-3`}
+                      className="text-black text-xs font-semibold uppercase tracking-wider mb-2"
                       style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
                     >
                       Techniques Used
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5">
                       {currentPost.techniques.map((technique, index) => (
                         <li key={index} className="flex items-start gap-2">
-                          <svg className="w-4 h-4 text-brand-red mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-3.5 h-3.5 text-brand-red mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           <span 
-                            className={`${textColorSecondary} text-sm`}
+                            className="text-gray-700 text-xs"
                             style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                           >
                             {technique}
@@ -584,19 +648,19 @@ export function BrandGallery({
                 {currentPost?.results && currentPost.results.length > 0 && (
                   <div>
                     <h4 
-                      className={`${textColor} text-sm font-semibold uppercase tracking-wider mb-3`}
+                      className="text-black text-xs font-semibold uppercase tracking-wider mb-2"
                       style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
                     >
                       Results Achieved
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5">
                       {currentPost.results.map((result, index) => (
                         <li key={index} className="flex items-start gap-2">
-                          <svg className="w-4 h-4 text-brand-red mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-3.5 h-3.5 text-brand-red mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                           <span 
-                            className={`${textColorSecondary} text-sm`}
+                            className="text-gray-700 text-xs"
                             style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                           >
                             {result}
@@ -609,12 +673,13 @@ export function BrandGallery({
               </div>
             ) : null}
 
+            {/* Tags */}
             {currentPost?.tags && currentPost.tags.length > 0 && (
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {currentPost.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className={`${isLight ? "border-black text-black hover:border-brand-red hover:text-brand-red" : "border-white/30 text-white"} px-4 py-2 rounded-full text-sm transition-colors`}
+                    className="border border-gray-300 text-black px-3 py-1 rounded-full text-xs hover:border-brand-red hover:text-brand-red transition-colors"
                     style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                   >
                     {tag}
@@ -623,15 +688,13 @@ export function BrandGallery({
               </div>
             )}
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3">
               {currentPost?.galleryUrl && (
                 <Link
                   href={currentPost.galleryUrl}
-                  className={`${isLight ? "text-white hover:opacity-90" : "bg-white text-black hover:bg-gray-100"} px-6 py-3 rounded-full font-semibold text-center transition-colors uppercase tracking-wider`}
-                  style={{ 
-                    fontFamily: "var(--font-outfit), sans-serif",
-                    ...(isLight ? { backgroundColor: "var(--color-brand-red)" } : {})
-                  }}
+                  className="bg-brand-red text-white px-4 py-2 rounded-full font-semibold text-center hover:bg-red-700 transition-colors uppercase tracking-wider text-xs sm:text-sm"
+                  style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                 >
                   View job gallery
                 </Link>
@@ -639,26 +702,8 @@ export function BrandGallery({
               {currentPost?.bookingUrl && (
                 <Link
                   href={currentPost.bookingUrl}
-                  className={`border-2 ${isLight ? "text-brand-red hover:text-white" : "border-white text-white hover:bg-white/10"} px-6 py-3 rounded-full font-semibold text-center transition-colors uppercase tracking-wider`}
-                  style={{ 
-                    fontFamily: "var(--font-outfit), sans-serif",
-                    ...(isLight ? { 
-                      borderColor: "var(--color-brand-red)",
-                      ...({} as any) // TypeScript workaround
-                    } : {})
-                  }}
-                  onMouseEnter={(e) => {
-                    if (isLight) {
-                      e.currentTarget.style.backgroundColor = "var(--color-brand-red)";
-                      e.currentTarget.style.color = "white";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (isLight) {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                      e.currentTarget.style.color = "var(--color-brand-red)";
-                    }
-                  }}
+                  className="border-2 border-brand-red text-brand-red px-4 py-2 rounded-full font-semibold text-center hover:bg-brand-red hover:text-white transition-colors uppercase tracking-wider text-xs sm:text-sm"
+                  style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                 >
                   Book this package
                 </Link>
@@ -672,7 +717,7 @@ export function BrandGallery({
           <div className="flex justify-center items-center gap-4 mt-12">
             <button
               onClick={() => setSelectedExampleIndex(selectedExampleIndex > 0 ? selectedExampleIndex - 1 : currentBrand.examples.length - 1)}
-              className={`${textColor} hover:opacity-70 transition-colors`}
+              className="text-black hover:text-gray-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Previous project"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -686,12 +731,17 @@ export function BrandGallery({
                 const isBeforeActive = index < selectedExampleIndex;
                 const isAfterActive = index > selectedExampleIndex;
                 
+                // Active line: rectangle, non-active: parallelogram slanted toward active
                 let clipPath = "none";
+                
                 if (isActive) {
+                  // Active line: straight rectangle
                   clipPath = "none";
                 } else if (isBeforeActive) {
+                  // Lines before active: parallelogram slanted right (toward active)
                   clipPath = "polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)";
                 } else if (isAfterActive) {
+                  // Lines after active: parallelogram slanted left (toward active)
                   clipPath = "polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%)";
                 }
                 
@@ -699,9 +749,10 @@ export function BrandGallery({
                   <button
                     key={index}
                     onClick={() => setSelectedExampleIndex(index)}
-                        className={`transition-all ${
-                          isActive ? (isLight ? "bg-brand-red h-1 w-8" : "bg-white h-1 w-8") : (isLight ? "bg-gray-300 h-1 w-6" : "bg-white/30 h-1 w-6")
-                        }`}
+                    className={`transition-all ${
+                      isActive ? "bg-brand-red h-1 w-8" : "bg-gray-300 h-1 w-6"
+                    }`}
+                    aria-label={`View project ${index + 1} of ${currentBrand.brandName}`}
                     style={{ clipPath }}
                   />
                 );
@@ -710,7 +761,7 @@ export function BrandGallery({
             
             <button
               onClick={() => setSelectedExampleIndex(selectedExampleIndex < currentBrand.examples.length - 1 ? selectedExampleIndex + 1 : 0)}
-              className={`${textColor} hover:opacity-70 transition-colors`}
+              className="text-black hover:text-gray-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Next project"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
