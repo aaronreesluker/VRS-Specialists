@@ -124,9 +124,9 @@ export default function Navigation() {
             <Image 
               src="/assets/vrs4.png" 
               alt="VRS Vehicle Rejuvenation Specialists" 
-              width={120}
-              height={32}
-              className="h-8 w-auto"
+              width={180}
+              height={48}
+              className="h-12 w-auto"
               style={{ filter: textColor === "#ffffff" ? "brightness(0) invert(1)" : "none" }}
               priority
             />
