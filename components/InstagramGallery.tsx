@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 /**
  * InstagramGallery Component
@@ -96,12 +97,14 @@ function AnimatedSectionHeader({
             <button
               key={index}
               onClick={() => onServiceClick(index)}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
+              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black ${
                 selectedServiceIndex === index
                   ? "bg-white text-black"
                   : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
               }`}
               style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+              aria-label={`Filter by ${serviceName}`}
+              aria-pressed={selectedServiceIndex === index}
             >
               {serviceName}
             </button>
@@ -215,9 +218,8 @@ export function InstagramGallery({
                 // Video started playing
                 setPlayingVideo(selectedServiceIndex);
               })
-              .catch((error) => {
+              .catch(() => {
                 // Auto-play was prevented, user interaction required
-                console.log("Video autoplay prevented:", error);
               });
           }
         }
@@ -288,16 +290,27 @@ export function InstagramGallery({
     }
   };
 
-  // Handle ESC key to close lightbox
+  // Handle keyboard navigation for lightbox
   useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isLightboxOpen) {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isLightboxOpen) return;
+
+      if (e.key === "Escape") {
         closeLightbox();
+      } else if (lightboxMediaType === "image") {
+        const currentPost = services[selectedServiceIndex]?.examples?.[selectedExampleIndex];
+        if (currentPost?.images && currentPost.images.length > 1) {
+          if (e.key === "ArrowLeft") {
+            goToPrevLightboxImage();
+          } else if (e.key === "ArrowRight") {
+            goToNextLightboxImage();
+          }
+        }
       }
     };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [isLightboxOpen]);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isLightboxOpen, lightboxMediaType, selectedServiceIndex, selectedExampleIndex, services]);
 
   // Lightbox image navigation
   const goToNextLightboxImage = () => {
@@ -424,6 +437,7 @@ export function InstagramGallery({
                     autoPlay
                     muted={isMuted}
                     loop
+                    preload="metadata"
                     onPlay={handleVideoPlay}
                     onPause={handleVideoPause}
                     onEnded={handleVideoPause}
@@ -468,11 +482,15 @@ export function InstagramGallery({
                       openLightbox("image", imageSrc, selectedImageIndex);
                     }}
                   >
-                    <img
+                    <Image
                       key={`${selectedServiceIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
                       src={imageSrc}
                       alt={`${currentPost?.title || 'Project'} - Image ${selectedImageIndex + 1} of ${images.length}`}
+                      width={1200}
+                      height={800}
                       className="w-full h-auto max-h-[570px] md:max-h-[665px] lg:max-h-[760px] object-contain"
+                      loading="lazy"
+                      quality={90}
                     />
                     {/* 10% Black Overlay */}
                     <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
@@ -522,9 +540,9 @@ export function InstagramGallery({
                             clipPath = "polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%)";
                           }
                           
-                          return (
+                return (
                             <button
-                              key={index}
+                    key={index}
                               onClick={(e) => {
                                 e.stopPropagation();
                                 // Pause auto-rotation when user manually navigates
@@ -864,10 +882,14 @@ export function InstagramGallery({
               </div>
             ) : (
               <>
-                <img
+                <Image
                   src={lightboxMediaSrc}
                   alt="Expanded view"
+                  width={1920}
+                  height={1080}
                   className="max-w-full max-h-[90vh] object-contain"
+                  quality={95}
+                  priority
                 />
                 {/* Navigation arrows for multiple images */}
                 {(() => {

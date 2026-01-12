@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 /**
  * ScrollNav Component
@@ -104,11 +105,14 @@ export function ScrollNav({
             <div className="flex items-center justify-between">
               {/* Logo/Brand */}
               <div className="flex items-center">
-                <img 
+                <Image 
                   src="/assets/vrs4.png" 
                   alt="VRS Vehicle Rejuvenation Specialists" 
+                  width={120}
+                  height={24}
                   className="h-6 w-auto"
                   style={{ filter: textColor === "#000000" ? "none" : "brightness(0) invert(1)" }}
+                  priority
                 />
               </div>
 

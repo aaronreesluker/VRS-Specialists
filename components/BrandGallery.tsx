@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { BrandGroup } from "@/lib/brandData";
 
 interface BrandGalleryProps {
@@ -63,7 +64,7 @@ function AnimatedSectionHeader({
             <button
               key={index}
               onClick={() => onBrandClick(index)}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
+              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2 ${
                 selectedBrandIndex === index
                   ? pillBgActive
                   : pillBgInactive
@@ -72,6 +73,8 @@ function AnimatedSectionHeader({
                 fontFamily: "var(--font-outfit), sans-serif",
                 ...(isLight && selectedBrandIndex === index ? { backgroundColor: "var(--color-brand-red)" } : {})
               }}
+              aria-label={`Filter by ${brandName}`}
+              aria-pressed={selectedBrandIndex === index}
             >
               {brandName}
             </button>
@@ -213,8 +216,8 @@ export function BrandGallery({
               .then(() => {
                 // Video started playing
               })
-              .catch((error) => {
-                console.log("Video autoplay prevented:", error);
+              .catch(() => {
+                // Video autoplay prevented - user interaction required
               });
           }
         }
@@ -292,6 +295,29 @@ export function BrandGallery({
       lightboxVideoRef.current.pause();
     }
   };
+
+  // Handle keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isLightboxOpen) return;
+
+      if (e.key === "Escape") {
+        closeLightbox();
+      } else if (lightboxMediaType === "image") {
+        const brand = brands && brands.length > 0 ? brands[Math.min(selectedBrandIndex, brands.length - 1)] : null;
+        const post = brand?.examples?.[selectedExampleIndex];
+        if (post?.images && post.images.length > 1) {
+          if (e.key === "ArrowLeft") {
+            navigateLightboxImages("prev");
+          } else if (e.key === "ArrowRight") {
+            navigateLightboxImages("next");
+          }
+        }
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isLightboxOpen, lightboxMediaType, selectedBrandIndex, selectedExampleIndex, brands]);
 
   // Get current brand and example - ensure selectedBrandIndex is within bounds
   const safeSelectedBrandIndex = brands && brands.length > 0 
@@ -397,6 +423,7 @@ export function BrandGallery({
                     autoPlay
                     muted={isMuted}
                     loop
+                    preload="metadata"
                     onPlay={handleVideoPlay}
                     onPause={handleVideoPause}
                     onEnded={handleVideoPause}
@@ -441,11 +468,15 @@ export function BrandGallery({
                       openLightbox("image", imageSrc, selectedImageIndex);
                     }}
                   >
-                    <img
+                    <Image
                       key={`${selectedBrandIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
                       src={imageSrc}
                       alt={`${currentPost?.title || 'Project'} - Image ${selectedImageIndex + 1} of ${images.length}`}
+                      width={1200}
+                      height={800}
                       className="w-full h-auto max-h-[570px] md:max-h-[665px] lg:max-h-[760px] object-contain"
+                      loading="lazy"
+                      quality={90}
                     />
                     {/* 10% Black Overlay */}
                     <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
@@ -795,10 +826,14 @@ export function BrandGallery({
             <div className="relative max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
               {lightboxMediaType === "image" && (
                 <>
-                  <img
+                  <Image
                     src={lightboxMediaSrc}
                     alt={`${currentPost?.title || 'Project'} - Image ${lightboxImageIndex + 1} of ${currentPost?.images?.length}`}
+                    width={1920}
+                    height={1080}
                     className="max-w-full max-h-full object-contain"
+                    quality={95}
+                    priority
                   />
                   {currentPost?.images && currentPost.images.length > 1 && (
                     <>

@@ -44,8 +44,7 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      // In a real implementation, this would POST to an API endpoint
-      // For now, we'll use mailto as a fallback
+      // Format email body
       const emailBody = `
 Name: ${formData.name}
 Email: ${formData.email}
@@ -58,10 +57,10 @@ Message:
 ${formData.message}
       `.trim();
 
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Simulate form submission delay for better UX
+      await new Promise((resolve) => setTimeout(resolve, 500));
 
-      // In production, replace this with actual API call
+      // Use mailto: to open email client
       window.location.href = `mailto:info@vrsspecialists.com?subject=Enquiry from ${formData.name}&body=${encodeURIComponent(emailBody)}`;
 
       setIsSubmitted(true);
@@ -307,9 +306,20 @@ ${formData.message}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          aria-busy={isSubmitting}
         >
-          {isSubmitting ? "Sending..." : "Send Enquiry"}
+          {isSubmitting ? (
+            <>
+              <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Sending...
+            </>
+          ) : (
+            "Send Enquiry"
+          )}
         </button>
       </div>
     </form>

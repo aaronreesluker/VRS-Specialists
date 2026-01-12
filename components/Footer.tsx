@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Footer() {
@@ -28,10 +29,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <img 
+            <Image 
               src="/assets/vrs1.png" 
               alt="VRS Vehicle Rejuvenation Specialists" 
+              width={180}
+              height={48}
               className="h-12 w-auto mb-4"
+              loading="lazy"
             />
             <p 
               className="text-dark-700 mb-3"

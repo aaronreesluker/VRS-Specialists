@@ -52,9 +52,7 @@ export function ImageSequencePlayer({
     const normalizedBasePath = cleanBasePath.endsWith("/") ? cleanBasePath.slice(0, -1) : cleanBasePath;
     const fullPath = `${normalizedBasePath}/${filename}`;
     
-    if (process.env.NODE_ENV === "development" && index <= 3) {
-      console.log(`[ImageSequencePlayer] Frame ${index}: ${fullPath}`);
-    }
+    // Frame path generated
     
     return fullPath;
   };

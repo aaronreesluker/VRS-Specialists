@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Navigation() {
@@ -32,10 +33,13 @@ export default function Navigation() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center">
-            <img 
+            <Image 
               src="/assets/vrs4.png" 
               alt="VRS Vehicle Rejuvenation Specialists" 
+              width={120}
+              height={32}
               className="h-8 w-auto"
+              priority
             />
           </Link>
 
