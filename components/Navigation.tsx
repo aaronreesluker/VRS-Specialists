@@ -16,10 +16,14 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Navigation links - only showing Home for pitch/portfolio site
-  // Other pages (Services, About, FAQ, Blog, Contact) will be added when ready
+  // Navigation links
   const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/services", label: "Services" },
+    { href: "/brands", label: "Work by Brand" },
+    { href: "/about", label: "About" },
+    { href: "/faq", label: "FAQ" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
