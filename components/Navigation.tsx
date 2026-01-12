@@ -92,35 +92,28 @@ export default function Navigation() {
     return null;
   }
 
-  // Get RGB values from backgroundColor to create semi-transparent version
+  // Get RGB values from backgroundColor - use full opacity for seamless blend
   const getBackgroundStyle = () => {
     const rgb = backgroundColor.match(/\d+/g);
     if (rgb && rgb.length >= 3) {
       const r = parseInt(rgb[0]);
       const g = parseInt(rgb[1]);
       const b = parseInt(rgb[2]);
-      const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-      
-      // Use semi-transparent version for blend effect
-      if (brightness > 128) {
-        // Light background - use subtle transparency
-        return `rgba(${r}, ${g}, ${b}, 0.95)`;
-      } else {
-        // Dark background - use more opacity
-        return `rgba(${r}, ${g}, ${b}, 0.9)`;
-      }
+      // Use full opacity (1.0) for completely seamless blend
+      return `rgb(${r}, ${g}, ${b})`;
     }
-    return "rgba(255, 255, 255, 0.95)";
+    return "rgb(255, 255, 255)";
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-sm ${
-        isScrolled ? "shadow-lg" : ""
-      } ${isHomePage && !isVisible ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isHomePage && !isVisible ? "opacity-0 pointer-events-none" : "opacity-100"
+      }`}
       style={{
         backgroundColor: getBackgroundStyle(),
         border: "none",
+        boxShadow: "none",
       }}
     >
       <div className="container-custom">
@@ -143,8 +136,11 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="transition-colors font-medium text-sm hover:opacity-70"
-                style={{ color: textColor }}
+                className="transition-opacity font-medium text-sm hover:opacity-70"
+                style={{ 
+                  color: textColor,
+                  fontFamily: "var(--font-outfit), sans-serif",
+                }}
               >
                 {link.label}
               </Link>
@@ -185,8 +181,11 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block transition-colors font-medium py-2 hover:opacity-70"
-                style={{ color: textColor }}
+                className="block transition-opacity font-medium py-2 hover:opacity-70"
+                style={{ 
+                  color: textColor,
+                  fontFamily: "var(--font-outfit), sans-serif",
+                }}
               >
                 {link.label}
               </Link>
