@@ -12,8 +12,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [backgroundColor, setBackgroundColor] = useState("rgba(255, 255, 255, 0.8)");
-  const [textColor, setTextColor] = useState("#1f2937"); // dark-700
+  const textColor = "#ffffff"; // Always white text
 
   useEffect(() => {
     // Always visible on non-homepage
@@ -24,34 +23,6 @@ export default function Navigation() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 20);
-      
-      // Detect which section we're in and match background color
-      const sections = document.querySelectorAll("section");
-      let currentSection: Element | null = null;
-      
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 100 && rect.bottom >= 100) {
-          currentSection = section;
-        }
-      });
-      
-      if (currentSection) {
-        const computedStyle = window.getComputedStyle(currentSection);
-        const bgColor = computedStyle.backgroundColor;
-        setBackgroundColor(bgColor);
-        
-        // Determine text color based on background brightness
-        const rgb = bgColor.match(/\d+/g);
-        if (rgb && rgb.length >= 3) {
-          const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-          setTextColor(brightness > 128 ? "#1f2937" : "#ffffff"); // dark-700 or white
-        }
-      } else {
-        // Default to white background if no section detected
-        setBackgroundColor("rgba(255, 255, 255, 0.8)");
-        setTextColor("#1f2937");
-      }
       
       // Scroll-aware behavior for homepage
       if (isHomePage) {
@@ -92,26 +63,12 @@ export default function Navigation() {
     return null;
   }
 
-  // Get RGB values from backgroundColor - use full opacity for seamless blend
-  const getBackgroundStyle = () => {
-    const rgb = backgroundColor.match(/\d+/g);
-    if (rgb && rgb.length >= 3) {
-      const r = parseInt(rgb[0]);
-      const g = parseInt(rgb[1]);
-      const b = parseInt(rgb[2]);
-      // Use full opacity (1.0) for completely seamless blend
-      return `rgb(${r}, ${g}, ${b})`;
-    }
-    return "rgb(255, 255, 255)";
-  };
-
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-black transition-all duration-500 ${
         isHomePage && !isVisible ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
       style={{
-        backgroundColor: getBackgroundStyle(),
         border: "none",
         borderBottom: "none",
         boxShadow: "none",
@@ -127,7 +84,7 @@ export default function Navigation() {
               width={240}
               height={64}
               className="h-16 w-auto"
-              style={{ filter: textColor === "#ffffff" ? "brightness(0) invert(1)" : "none" }}
+              style={{ filter: "brightness(0) invert(1)" }}
               priority
             />
           </Link>
