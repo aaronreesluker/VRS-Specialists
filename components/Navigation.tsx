@@ -12,7 +12,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const textColor = "#ffffff"; // Always white text
+  const textColor = isHomePage ? "#ffffff" : "#1f2937"; // White text on homepage (black bg), dark text on other pages (white bg)
 
   useEffect(() => {
     // Always visible on non-homepage
@@ -65,9 +65,9 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-black transition-all duration-500 ${
-        isHomePage && !isVisible ? "opacity-0 pointer-events-none" : "opacity-100"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isHomePage ? "bg-black" : "bg-white"
+      } ${isHomePage && !isVisible ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       style={{
         border: "none",
         borderBottom: "none",
@@ -84,7 +84,7 @@ export default function Navigation() {
               width={240}
               height={64}
               className="h-16 w-auto"
-              style={{ filter: "brightness(0) invert(1)" }}
+              style={{ filter: isHomePage ? "brightness(0) invert(1)" : "none" }}
               priority
             />
           </Link>
