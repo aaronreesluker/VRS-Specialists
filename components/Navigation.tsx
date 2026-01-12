@@ -3,18 +3,46 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 20);
+      
+      // Scroll-aware behavior for homepage
+      if (isHomePage) {
+        // Show menu when scrolling up, hide when scrolling down
+        if (currentScrollY < lastScrollY && currentScrollY > 100) {
+          setIsVisible(true);
+        } else if (currentScrollY > lastScrollY) {
+          setIsVisible(false);
+        }
+        
+        // Hide menu at the very top
+        if (currentScrollY < 100) {
+          setIsVisible(false);
+        }
+      } else {
+        // Always visible on other pages
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener("scroll", handleScroll);
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage, lastScrollY]);
 
   // Navigation links
   const navLinks = [
@@ -26,13 +54,18 @@ export default function Navigation() {
     { href: "/contact", label: "Contact" },
   ];
 
+  // Don't render on homepage if not visible (scroll-aware)
+  if (isHomePage && !isVisible) {
+    return null;
+  }
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-lg"
           : "bg-white/80 backdrop-blur-sm"
-      }`}
+      } ${isHomePage && !isVisible ? "opacity-0 pointer-events-none" : "opacity-100"}`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
