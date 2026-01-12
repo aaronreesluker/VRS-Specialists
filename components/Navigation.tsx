@@ -30,41 +30,44 @@ export default function Navigation() {
         // Hero section (ScrollCarHero) is black - use black/white
         // Other sections should match their background color
         
-        // Detect which section we're in and match background color
-        const sections = document.querySelectorAll("section");
-        let currentSection: Element | null = null;
+        // Hero section is approximately 300vh (3x viewport height)
+        // Check if we're still in the hero section (ScrollCarHero with black background)
+        const heroHeight = window.innerHeight * 3; // 300vh
+        const isInHeroSection = currentScrollY < heroHeight;
         
-        sections.forEach((section) => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section;
-          }
-        });
-        
-        // Check if we're in the hero section (first section with black background)
-        // The hero section is typically at the top and has a black background
-        const heroSection = document.querySelector('[class*="bg-black"]') || 
-                           document.querySelector('section:first-of-type');
-        const isInHeroSection = heroSection && (
-          currentScrollY < (heroSection.getBoundingClientRect().bottom + currentScrollY - window.innerHeight) ||
-          currentScrollY < 300 // Approximate hero section height
-        );
-        
-        if (isInHeroSection || !currentSection) {
-          // In hero section - use black background with white text
+        if (isInHeroSection) {
+          // In hero section (Porsche/car section) - use black background with white text
           setBackgroundColor("rgb(0, 0, 0)");
           setTextColor("#ffffff");
-        } else if (currentSection) {
-          // In other sections - match their background color
-          const computedStyle = window.getComputedStyle(currentSection);
-          const bgColor = computedStyle.backgroundColor;
-          setBackgroundColor(bgColor);
+        } else {
+          // Past hero section - detect which section we're in and match background color
+          const sections = document.querySelectorAll("section");
+          let currentSection: Element | null = null;
           
-          // Determine text color based on background brightness
-          const rgb = bgColor.match(/\d+/g);
-          if (rgb && rgb.length >= 3) {
-            const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-            setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            // Check if section is near the top (where header is)
+            if (rect.top <= 100 && rect.bottom >= 100) {
+              currentSection = section;
+            }
+          });
+          
+          if (currentSection) {
+            // Match the section's background color
+            const computedStyle = window.getComputedStyle(currentSection);
+            const bgColor = computedStyle.backgroundColor;
+            setBackgroundColor(bgColor);
+            
+            // Determine text color based on background brightness
+            const rgb = bgColor.match(/\d+/g);
+            if (rgb && rgb.length >= 3) {
+              const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+              setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
+            }
+          } else {
+            // Default fallback
+            setBackgroundColor("rgb(147, 147, 147)"); // #929292 - next section after hero
+            setTextColor("#1f2937");
           }
         }
         
