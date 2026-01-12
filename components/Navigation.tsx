@@ -14,26 +14,29 @@ export default function Navigation() {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
+    // Always visible on non-homepage
+    if (!isHomePage) {
+      setIsVisible(true);
+      return;
+    }
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 20);
       
       // Scroll-aware behavior for homepage
-      if (isHomePage) {
-        // Show menu when scrolling up, hide when scrolling down
-        if (currentScrollY < lastScrollY && currentScrollY > 100) {
-          setIsVisible(true);
-        } else if (currentScrollY > lastScrollY) {
-          setIsVisible(false);
-        }
-        
-        // Hide menu at the very top
-        if (currentScrollY < 100) {
-          setIsVisible(false);
-        }
-      } else {
-        // Always visible on other pages
+      // Show menu when scrolling up, hide when scrolling down
+      if (currentScrollY < lastScrollY && currentScrollY > 100) {
+        // Scrolling up and past hero section
         setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setIsVisible(false);
+      }
+      
+      // Hide menu at the very top
+      if (currentScrollY < 100) {
+        setIsVisible(false);
       }
       
       setLastScrollY(currentScrollY);
@@ -44,13 +47,10 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage, lastScrollY]);
 
-  // Navigation links
+  // Simplified navigation links
   const navLinks = [
-    { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
-    { href: "/brands", label: "Work by Brand" },
-    { href: "/about", label: "About" },
-    { href: "/faq", label: "FAQ" },
+    { href: "/brands", label: "Work" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -80,20 +80,17 @@ export default function Navigation() {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          {/* Desktop Navigation - Simplified */}
+          <div className="hidden lg:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-dark-700 hover:text-primary-600 transition-colors font-medium"
+                className="text-dark-700 hover:text-primary-600 transition-colors font-medium text-sm"
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="btn-primary">
-              Get a Quote
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -134,13 +131,6 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              onClick={() => setIsOpen(false)}
-              className="btn-primary inline-block"
-            >
-              Get a Quote
-            </Link>
           </div>
         )}
       </div>
