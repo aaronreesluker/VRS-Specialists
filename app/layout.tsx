@@ -3,7 +3,7 @@ import { Inter, Space_Grotesk, Outfit } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import MobileCTA from "@/components/MobileCTA";
-import NavigationWrapper from "@/components/NavigationWrapper";
+import ConditionalNavigation from "@/components/ConditionalNavigation";
 import { LocalBusinessSchema } from "@/components/schema";
 
 const inter = Inter({ 
@@ -70,7 +70,8 @@ export default function RootLayout({
         <LocalBusinessSchema />
       </head>
       <body>
-        <NavigationWrapper>{children}</NavigationWrapper>
+        <ConditionalNavigation />
+        <main className="min-h-screen">{children}</main>
         <Footer />
         <MobileCTA />
       </body>
