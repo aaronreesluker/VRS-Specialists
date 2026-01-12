@@ -12,7 +12,8 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const textColor = isHomePage ? "#ffffff" : "#1f2937"; // White text on homepage (black bg), dark text on other pages (white bg)
+  const [backgroundColor, setBackgroundColor] = useState("rgba(0, 0, 0, 1)");
+  const [textColor, setTextColor] = useState("#ffffff");
 
   useEffect(() => {
     // Always visible on non-homepage
@@ -24,8 +25,50 @@ export default function Navigation() {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 20);
       
-      // Scroll-aware behavior for homepage
       if (isHomePage) {
+        // On homepage: detect which section we're in
+        // Hero section (ScrollCarHero) is black - use black/white
+        // Other sections should match their background color
+        
+        // Detect which section we're in and match background color
+        const sections = document.querySelectorAll("section");
+        let currentSection: Element | null = null;
+        
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+          }
+        });
+        
+        // Check if we're in the hero section (first section with black background)
+        // The hero section is typically at the top and has a black background
+        const heroSection = document.querySelector('[class*="bg-black"]') || 
+                           document.querySelector('section:first-of-type');
+        const isInHeroSection = heroSection && (
+          currentScrollY < (heroSection.getBoundingClientRect().bottom + currentScrollY - window.innerHeight) ||
+          currentScrollY < 300 // Approximate hero section height
+        );
+        
+        if (isInHeroSection || !currentSection) {
+          // In hero section - use black background with white text
+          setBackgroundColor("rgb(0, 0, 0)");
+          setTextColor("#ffffff");
+        } else if (currentSection) {
+          // In other sections - match their background color
+          const computedStyle = window.getComputedStyle(currentSection);
+          const bgColor = computedStyle.backgroundColor;
+          setBackgroundColor(bgColor);
+          
+          // Determine text color based on background brightness
+          const rgb = bgColor.match(/\d+/g);
+          if (rgb && rgb.length >= 3) {
+            const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+            setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
+          }
+        }
+        
+        // Scroll-aware behavior for homepage
         // Show menu when scrolling up, hide when scrolling down
         if (currentScrollY < lastScrollY && currentScrollY > 100) {
           // Scrolling up and past hero section
@@ -40,7 +83,34 @@ export default function Navigation() {
           setIsVisible(false);
         }
       } else {
+        // Other pages: always visible, match section background
         setIsVisible(true);
+        
+        const sections = document.querySelectorAll("section");
+        let currentSection: Element | null = null;
+        
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+          }
+        });
+        
+        if (currentSection) {
+          const computedStyle = window.getComputedStyle(currentSection);
+          const bgColor = computedStyle.backgroundColor;
+          setBackgroundColor(bgColor);
+          
+          const rgb = bgColor.match(/\d+/g);
+          if (rgb && rgb.length >= 3) {
+            const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+            setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
+          }
+        } else {
+          // Default to white background on other pages
+          setBackgroundColor("rgb(255, 255, 255)");
+          setTextColor("#1f2937");
+        }
       }
       
       setLastScrollY(currentScrollY);
@@ -63,12 +133,25 @@ export default function Navigation() {
     return null;
   }
 
+  // Get RGB values from backgroundColor
+  const getBackgroundStyle = () => {
+    const rgb = backgroundColor.match(/\d+/g);
+    if (rgb && rgb.length >= 3) {
+      const r = parseInt(rgb[0]);
+      const g = parseInt(rgb[1]);
+      const b = parseInt(rgb[2]);
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+    return backgroundColor;
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isHomePage ? "bg-black" : "bg-white"
-      } ${isHomePage && !isVisible ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        isHomePage && !isVisible ? "opacity-0 pointer-events-none" : "opacity-100"
+      }`}
       style={{
+        backgroundColor: getBackgroundStyle(),
         border: "none",
         borderBottom: "none",
         boxShadow: "none",
@@ -84,7 +167,7 @@ export default function Navigation() {
               width={240}
               height={64}
               className="h-16 w-auto"
-              style={{ filter: isHomePage ? "brightness(0) invert(1)" : "none" }}
+              style={{ filter: textColor === "#ffffff" ? "brightness(0) invert(1)" : "none" }}
               priority
             />
           </Link>
