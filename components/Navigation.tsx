@@ -113,7 +113,9 @@ export default function Navigation() {
       style={{
         backgroundColor: getBackgroundStyle(),
         border: "none",
+        borderBottom: "none",
         boxShadow: "none",
+        outline: "none",
       }}
     >
       <div className="container-custom">
