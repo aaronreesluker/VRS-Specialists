@@ -42,9 +42,20 @@ export default function Navigation() {
           setBackgroundColor("rgb(0, 0, 0)");
           setTextColor("#ffffff");
         } else {
-          // Show navigation after hero section
-          setIsVisible(true);
-          // Past hero section - detect which section we're in and match background color
+          // Past hero section - scroll-aware behavior
+          // Hide when scrolling down, show when scrolling up
+          if (currentScrollY > lastScrollY && currentScrollY > heroHeight + 50) {
+            // Scrolling down - hide navigation
+            setIsVisible(false);
+          } else if (currentScrollY < lastScrollY) {
+            // Scrolling up - show navigation
+            setIsVisible(true);
+          } else if (currentScrollY <= heroHeight + 50) {
+            // Just past hero section - show navigation
+            setIsVisible(true);
+          }
+          
+          // Detect which section we're in and match background color
           const sections = document.querySelectorAll("section");
           let currentSection: Element | null = null;
           
