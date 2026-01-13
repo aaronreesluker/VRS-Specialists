@@ -180,8 +180,18 @@ export default function Navigation() {
       lastScrollYRef.current = currentScrollY;
     };
     
+    // Set initial visibility for non-homepage
+    if (!isHomePage) {
+      const initialScrollY = window.scrollY;
+      if (initialScrollY <= 50) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false); // Start hidden if already scrolled down
+      }
+    }
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check - this will set initial visibility
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage]);
 
