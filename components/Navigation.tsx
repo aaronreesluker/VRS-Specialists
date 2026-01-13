@@ -112,14 +112,15 @@ export default function Navigation() {
         }
       } else {
         // Other pages: scroll-aware behavior (hide on scroll down, show on scroll up)
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Only apply scroll logic if we've scrolled past the initial threshold
+        if (currentScrollY <= 100) {
+          // Near top - always show navigation
+          setIsVisible(true);
+        } else if (currentScrollY > lastScrollY) {
           // Scrolling down - hide navigation
           setIsVisible(false);
         } else if (currentScrollY < lastScrollY) {
           // Scrolling up - show navigation
-          setIsVisible(true);
-        } else if (currentScrollY <= 100) {
-          // Near top - show navigation
           setIsVisible(true);
         }
         
