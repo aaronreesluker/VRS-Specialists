@@ -165,8 +165,14 @@ export function InstagramGallery({
       videoRef.current.currentTime = 0;
       videoRef.current.load(); // Reload video to ensure it starts from beginning
     }
-    setSelectedImageIndex(0); // Reset to first image when switching projects
-  }, [selectedServiceIndex, selectedExampleIndex]);
+    // Reset to -1 (video) if project has video, otherwise 0 (first image)
+    const currentPost = services[selectedServiceIndex]?.examples?.[selectedExampleIndex];
+    if (currentPost?.video) {
+      setSelectedImageIndex(-1); // Start with video
+    } else {
+      setSelectedImageIndex(0); // Start with first image
+    }
+  }, [selectedServiceIndex, selectedExampleIndex, services]);
 
   // Auto-rotate through images if project has multiple images
   useEffect(() => {
@@ -430,89 +436,105 @@ export function InstagramGallery({
           <div className="relative lg:col-span-6 flex flex-col items-center">
             <div className="relative w-full max-w-full bg-black rounded-2xl overflow-hidden shadow-2xl flex justify-center items-center group">
               {/* Video or Image */}
-              {currentPost?.video ? (
-                <div 
-                  className="relative w-full flex justify-center cursor-pointer"
-                  onClick={() => openLightbox("video", currentPost.video!)}
-                >
-                  <video
-                    ref={videoRef}
-                    key={`${selectedServiceIndex}-${selectedExampleIndex}`}
-                    src={currentPost.video}
-                    className="w-full h-auto max-h-[570px] md:max-h-[665px] lg:max-h-[760px] object-contain"
-                    controls
-                    playsInline
-                    autoPlay
-                    muted={isMuted}
-                    loop
-                    preload="metadata"
-                    onPlay={handleVideoPlay}
-                    onPause={handleVideoPause}
-                    onEnded={handleVideoPause}
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-                  {/* 10% Black Overlay */}
-                  <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
-                  
-                  {/* Mute/Unmute Toggle Button */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation(); // Prevent opening lightbox
-                      setIsMuted(!isMuted);
-                      if (videoRef.current) {
-                        videoRef.current.muted = !isMuted;
-                      }
-                    }}
-                    className="absolute top-4 right-4 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-colors z-10"
-                    aria-label={isMuted ? "Unmute video" : "Mute video"}
-                  >
-                    {isMuted ? (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-                      </svg>
-                    ) : (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                            </svg>
-                    )}
-                  </button>
-                          </div>
-              ) : (() => {
-                const images = currentPost?.images;
-                if (!images || images.length === 0) return null;
-                const imageSrc = images[Math.min(selectedImageIndex, images.length - 1)] || images[0];
-                return (
-                  <div 
-                    className="relative w-full flex justify-center cursor-pointer"
-                    onClick={() => {
-                      openLightbox("image", imageSrc, selectedImageIndex);
-                    }}
-                  >
-                    <Image
-                      key={`${selectedServiceIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
-                      src={imageSrc}
-                      alt={`${currentPost?.title || 'Project'} - Image ${selectedImageIndex + 1} of ${images.length}`}
-                      width={1200}
-                      height={800}
-                      className="w-full h-auto max-h-[570px] md:max-h-[665px] lg:max-h-[760px] object-contain"
-                      loading="lazy"
-                      quality={90}
-                    />
-                    {/* 10% Black Overlay */}
-                    <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
-                  </div>
-                );
+              {(() => {
+                const hasVideo = !!currentPost?.video;
+                const images = currentPost?.images || [];
+                const hasImages = images.length > 0;
+                
+                // If project has both video and images, show video only when selectedImageIndex is -1
+                // Otherwise show the selected image
+                // If project has only video, show video
+                // If project has only images, show images
+                const shouldShowVideo = hasVideo && (!hasImages || selectedImageIndex === -1);
+                
+                if (shouldShowVideo) {
+                  return (
+                    <div 
+                      className="relative w-full flex justify-center cursor-pointer"
+                      onClick={() => openLightbox("video", currentPost.video!)}
+                    >
+                      <video
+                        ref={videoRef}
+                        key={`${selectedServiceIndex}-${selectedExampleIndex}`}
+                        src={currentPost.video}
+                        className="w-full h-auto max-h-[570px] md:max-h-[665px] lg:max-h-[760px] object-contain"
+                        controls
+                        playsInline
+                        autoPlay
+                        muted={isMuted}
+                        loop
+                        preload="metadata"
+                        onPlay={handleVideoPlay}
+                        onPause={handleVideoPause}
+                        onEnded={handleVideoPause}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                      {/* 10% Black Overlay */}
+                      <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
+                      
+                      {/* Mute/Unmute Toggle Button */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent opening lightbox
+                          setIsMuted(!isMuted);
+                          if (videoRef.current) {
+                            videoRef.current.muted = !isMuted;
+                          }
+                        }}
+                        className="absolute top-4 right-4 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-colors z-10"
+                        aria-label={isMuted ? "Unmute video" : "Mute video"}
+                      >
+                        {isMuted ? (
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                          </svg>
+                        ) : (
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                          </svg>
+                        )}
+                      </button>
+                    </div>
+                  );
+                } else if (hasImages) {
+                  const imageSrc = images[Math.min(Math.max(selectedImageIndex, 0), images.length - 1)] || images[0];
+                  return (
+                    <div 
+                      className="relative w-full flex justify-center cursor-pointer"
+                      onClick={() => {
+                        openLightbox("image", imageSrc, selectedImageIndex);
+                      }}
+                    >
+                      <Image
+                        key={`${selectedServiceIndex}-${selectedExampleIndex}-${selectedImageIndex}`}
+                        src={imageSrc}
+                        alt={`${currentPost?.title || 'Project'} - Image ${selectedImageIndex + 1} of ${images.length}`}
+                        width={1200}
+                        height={800}
+                        className="w-full h-auto max-h-[570px] md:max-h-[665px] lg:max-h-[760px] object-contain"
+                        loading="lazy"
+                        quality={90}
+                      />
+                      {/* 10% Black Overlay */}
+                      <div className="absolute inset-0 bg-black/10 pointer-events-none z-[1]" />
+                    </div>
+                  );
+                }
+                return null;
               })()}
             </div>
             
             {/* Pagination and Click to Expand beneath media */}
             <div className="flex flex-col items-center gap-3 mt-4 w-full">
-              {/* Pagination - for images only */}
+              {/* Pagination - for video + images or images only */}
               {(() => {
-                const images = currentPost?.images;
-                if (images && images.length > 1) {
+                const hasVideo = !!currentPost?.video;
+                const images = currentPost?.images || [];
+                const totalItems = hasVideo ? images.length + 1 : images.length; // +1 for video
+                
+                if (totalItems > 1) {
                   return (
                     <div className="flex justify-center items-center gap-3">
                       <button
