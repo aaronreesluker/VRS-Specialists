@@ -210,8 +210,8 @@ export default function Navigation() {
     link: link.href,
   }));
 
-  // Don't render on homepage if not visible (scroll-aware)
-  if (isHomePage && !isVisible) {
+  // Don't render if not visible (scroll-aware for all pages)
+  if (!isVisible) {
     return null;
   }
 
