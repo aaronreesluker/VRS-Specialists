@@ -85,6 +85,11 @@ function extractBrand(projectName: string): string | null {
     }
   }
   
+  // Handle common misspellings/variations
+  if (nameUpper.includes("MCLAREN") || nameUpper.includes("MCLAREN")) {
+    return "McLaren";
+  }
+  
   return null;
 }
 
