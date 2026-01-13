@@ -44,24 +44,19 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      // Format email body
-      const emailBody = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Service Interest: ${formData.service}
-Preferred Location: ${formData.location}
-Vehicle: ${formData.vehicleMake} ${formData.vehicleModel} (${formData.vehicleYear}) - ${formData.vehicleColour}
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-Message:
-${formData.message}
-      `.trim();
+      const data = await response.json();
 
-      // Simulate form submission delay for better UX
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
-      // Use mailto: to open email client
-      window.location.href = `mailto:info@vrsspecialists.com?subject=Enquiry from ${formData.name}&body=${encodeURIComponent(emailBody)}`;
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit form");
+      }
 
       setIsSubmitted(true);
       setFormData({
@@ -78,7 +73,11 @@ ${formData.message}
         honeypot: "",
       });
     } catch (err) {
-      setError("Something went wrong. Please try again or contact us directly.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again or contact us directly."
+      );
     } finally {
       setIsSubmitting(false);
     }

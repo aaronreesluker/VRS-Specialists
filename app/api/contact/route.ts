@@ -80,24 +80,42 @@ export async function POST(request: NextRequest) {
       message: sanitize(message),
     };
 
-    // In production, send email using a service like:
-    // - Resend (recommended)
-    // - SendGrid
-    // - AWS SES
-    // - Nodemailer with SMTP
+    // Send to webhook
+    const webhookUrl = process.env.CONTACT_WEBHOOK_URL || 
+      "https://services.leadconnectorhq.com/hooks/3wQD2SH7L4R72I2FaIgS/webhook-trigger/e3ba9017-9d0d-453c-862e-a9cbc2884952";
 
-    // For now, log the submission (replace with actual email service)
-    console.log("Contact form submission:", sanitizedData);
+    try {
+      const webhookResponse = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: sanitizedData.name,
+          email: sanitizedData.email,
+          phone: sanitizedData.phone,
+          service: sanitizedData.service,
+          location: sanitizedData.location,
+          vehicleMake: sanitizedData.vehicleMake,
+          vehicleModel: sanitizedData.vehicleModel,
+          vehicleYear: sanitizedData.vehicleYear,
+          vehicleColour: sanitizedData.vehicleColour,
+          message: sanitizedData.message,
+          source: "VRS Website Contact Form",
+          timestamp: new Date().toISOString(),
+        }),
+      });
 
-    // TODO: Replace with actual email service
-    // Example with Resend:
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: "contact@vrsspecialists.com",
-    //   to: "info@vrsspecialists.com",
-    //   subject: `New enquiry from ${sanitizedData.name}`,
-    //   html: formatEmailTemplate(sanitizedData),
-    // });
+      if (!webhookResponse.ok) {
+        console.error("Webhook error:", await webhookResponse.text());
+        // Still return success to user even if webhook fails
+        // Log error for monitoring
+      }
+    } catch (webhookError) {
+      console.error("Webhook request failed:", webhookError);
+      // Still return success to user even if webhook fails
+      // Log error for monitoring
+    }
 
     return NextResponse.json(
       { 
