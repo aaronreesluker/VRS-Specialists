@@ -111,9 +111,19 @@ export default function Navigation() {
           }
         }
       } else {
-        // Other pages: always visible, match section background
-        setIsVisible(true);
+        // Other pages: scroll-aware behavior (hide on scroll down, show on scroll up)
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          // Scrolling down - hide navigation
+          setIsVisible(false);
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolling up - show navigation
+          setIsVisible(true);
+        } else if (currentScrollY <= 100) {
+          // Near top - show navigation
+          setIsVisible(true);
+        }
         
+        // Match section background
         const sections = document.querySelectorAll("section");
         let currentSection: Element | null = null;
         
@@ -126,13 +136,37 @@ export default function Navigation() {
         
         if (currentSection) {
           const computedStyle = window.getComputedStyle(currentSection);
-          const bgColor = computedStyle.backgroundColor;
+          let bgColor = computedStyle.backgroundColor;
+          
+          // Handle rgba/rgb color values
+          if (bgColor === "rgba(0, 0, 0, 0)" || bgColor === "transparent") {
+            // If transparent, check inline style
+            const htmlElement = currentSection as HTMLElement;
+            const inlineBg = htmlElement.getAttribute("style");
+            if (inlineBg && inlineBg.includes("backgroundColor")) {
+              const match = inlineBg.match(/backgroundColor["']?\s*[:=]\s*["']?([^;"']+)/);
+              if (match) {
+                bgColor = match[1].trim();
+                // Convert hex to rgb if needed
+                if (bgColor.startsWith("#")) {
+                  const hex = bgColor.replace("#", "");
+                  const r = parseInt(hex.substring(0, 2), 16);
+                  const g = parseInt(hex.substring(2, 4), 16);
+                  const b = parseInt(hex.substring(4, 6), 16);
+                  bgColor = `rgb(${r}, ${g}, ${b})`;
+                }
+              }
+            }
+          }
+          
           setBackgroundColor(bgColor);
           
           const rgb = bgColor.match(/\d+/g);
           if (rgb && rgb.length >= 3) {
             const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
             setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
+          } else {
+            setTextColor("#1f2937");
           }
         } else {
           // Default to white background on other pages
