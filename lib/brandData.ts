@@ -32,6 +32,36 @@ const CAR_BRANDS = [
 function extractBrand(projectName: string): string | null {
   const nameUpper = projectName.toUpperCase();
   
+  // First, check for brand in parentheses (e.g., "(Jaguar)", "(audi)", "(bmw)")
+  const parenMatch = projectName.match(/\(([^)]+)\)/);
+  if (parenMatch) {
+    const brandInParens = parenMatch[1].trim();
+    const brandInParensUpper = brandInParens.toUpperCase();
+    
+    // Check if it matches any known brand
+    for (const brand of CAR_BRANDS) {
+      const brandUpper = brand.toUpperCase();
+      if (brandInParensUpper === brandUpper || brandInParensUpper.includes(brandUpper) || brandUpper.includes(brandInParensUpper)) {
+        // Handle special cases
+        if (brandUpper === "ROLLS-ROYCE" || brandUpper === "ROLLS ROYCE") {
+          return "Rolls Royce";
+        }
+        if (brandUpper === "LAND ROVER" && nameUpper.includes("RANGE ROVER")) {
+          return "Range Rover";
+        }
+        if (brandUpper === "LAND ROVER" && !nameUpper.includes("RANGE ROVER")) {
+          return "Land Rover";
+        }
+        return brand;
+      }
+    }
+  }
+  
+  // Check for BMW model codes (M340i, M3, M4, M5, etc.)
+  if (/M\d{3,4}I?/i.test(projectName) || /^M[1-9]/i.test(projectName)) {
+    return "BMW";
+  }
+  
   // Check for each brand (case-insensitive)
   for (const brand of CAR_BRANDS) {
     const brandUpper = brand.toUpperCase();
