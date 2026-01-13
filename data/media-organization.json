@@ -2070,41 +2070,12 @@
           "id": "project-1768000344854-u16ufe3ik",
           "name": "Audi R8 Spyder",
           "mediaIds": [
-            "AudiR8",
-            "R81",
-            "R82",
-            "R83",
             "R8S1",
-            "R8S2",
             "R8S3",
             "R8S4",
             "R8S5"
           ],
           "media": [
-            {
-              "id": "AudiR8",
-              "src": "/videos/instagram/AudiR8.mp4",
-              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
-              "type": "video"
-            },
-            {
-              "id": "R81",
-              "src": "/videos/instagram/R81.jpg",
-              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 9)",
-              "type": "image"
-            },
-            {
-              "id": "R82",
-              "src": "/videos/instagram/R82.jpg",
-              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 9)",
-              "type": "image"
-            },
-            {
-              "id": "R83",
-              "src": "/videos/instagram/R83.jpg",
-              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 4 of 9)",
-              "type": "image"
-            },
             {
               "id": "R8S1",
               "src": "/videos/instagram/R8S1.mp4",
@@ -2112,27 +2083,21 @@
               "type": "video"
             },
             {
-              "id": "R8S2",
-              "src": "/videos/instagram/R8S2.mp4",
-              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
-              "type": "video"
-            },
-            {
               "id": "R8S3",
               "src": "/videos/instagram/R8S3.jpg",
-              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 7 of 9)",
+              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 1 of 3)",
               "type": "image"
             },
             {
               "id": "R8S4",
               "src": "/videos/instagram/R8S4.jpg",
-              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 8 of 9)",
+              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 3)",
               "type": "image"
             },
             {
               "id": "R8S5",
               "src": "/videos/instagram/R8S5.jpg",
-              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 9 of 9)",
+              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 3)",
               "type": "image"
             }
           ],
@@ -2609,19 +2574,12 @@
           "id": "project-1768169832091-opqqtegas",
           "name": "Hero Ranger Camper",
           "mediaIds": [
-            "DKRwZqvsZyi",
-            "C9fWHoLNGKG"
+            "DKRwZqvsZyi"
           ],
           "media": [
             {
               "id": "DKRwZqvsZyi",
               "src": "/videos/instagram/DKRwZqvsZyi.mp4",
-              "alt": "Hero Ranger Camper in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
-              "type": "video"
-            },
-            {
-              "id": "C9fWHoLNGKG",
-              "src": "/videos/instagram/C9fWHoLNGKG.mp4",
               "alt": "Hero Ranger Camper in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
               "type": "video"
             }
@@ -2666,17 +2624,8 @@
         {
           "id": "project-1768169832091-88aod5l21",
           "name": "Porsche 911 Targa 4 GTS",
-          "mediaIds": [
-            "CtlVvlZAy1n"
-          ],
-          "media": [
-            {
-              "id": "CtlVvlZAy1n",
-              "src": "/videos/instagram/CtlVvlZAy1n.mp4",
-              "alt": "Porsche 911 Targa 4 GTS in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
-              "type": "video"
-            }
-          ],
+          "mediaIds": [],
+          "media": [],
           "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
           "location": "BRIGHTON & SUSSEX"
         }
