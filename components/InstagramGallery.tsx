@@ -532,6 +532,7 @@ export function InstagramGallery({
               {(() => {
                 const hasVideo = !!currentPost?.video;
                 const images = currentPost?.images || [];
+                const hasImages = images.length > 0;
                 const totalItems = hasVideo ? images.length + 1 : images.length; // +1 for video
                 
                 if (totalItems > 1) {
