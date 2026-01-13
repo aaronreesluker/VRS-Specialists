@@ -1660,35 +1660,31 @@
             "Urus5",
             "Urus6",
             "Urus7",
-            "Urus8",
-            "Urus9",
-            "URUSM1",
-            "URUSM2",
-            "URUSM3"
+            "Urus8"
           ],
           "media": [
             {
               "id": "Urus1",
               "src": "/videos/instagram/Urus1.jpg",
-              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 1 of 12)",
+              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 1 of 8)",
               "type": "image"
             },
             {
               "id": "Urus2",
               "src": "/videos/instagram/Urus2.jpg",
-              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 12)",
+              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 8)",
               "type": "image"
             },
             {
               "id": "Urus3",
               "src": "/videos/instagram/Urus3.jpg",
-              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 12)",
+              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 8)",
               "type": "image"
             },
             {
               "id": "Urus4",
               "src": "/videos/instagram/Urus4.jpg",
-              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 4 of 12)",
+              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 4 of 8)",
               "type": "image"
             },
             {
@@ -1706,37 +1702,13 @@
             {
               "id": "Urus7",
               "src": "/videos/instagram/Urus7.jpg",
-              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 7 of 12)",
+              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 7 of 8)",
               "type": "image"
             },
             {
               "id": "Urus8",
               "src": "/videos/instagram/Urus8.jpg",
-              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 8 of 12)",
-              "type": "image"
-            },
-            {
-              "id": "Urus9",
-              "src": "/videos/instagram/Urus9.jpg",
-              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 9 of 12)",
-              "type": "image"
-            },
-            {
-              "id": "URUSM1",
-              "src": "/videos/instagram/URUSM1.jpg",
-              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 10 of 12)",
-              "type": "image"
-            },
-            {
-              "id": "URUSM2",
-              "src": "/videos/instagram/URUSM2.jpg",
-              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 11 of 12)",
-              "type": "image"
-            },
-            {
-              "id": "URUSM3",
-              "src": "/videos/instagram/URUSM3.jpg",
-              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 12 of 12)",
+              "alt": "Lamborghini Urus in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 8 of 8)",
               "type": "image"
             }
           ],
