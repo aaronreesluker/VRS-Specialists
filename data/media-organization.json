@@ -879,7 +879,6 @@
             "599gtb3",
             "599gtb4",
             "599gtb5",
-            "599gtb6",
             "599gtb7",
             "599gtb8"
           ],
@@ -887,19 +886,19 @@
             {
               "id": "599gtb1",
               "src": "/videos/instagram/599gtb1.jpg",
-              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 1 of 8)",
+              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 1 of 7)",
               "type": "image"
             },
             {
               "id": "599gtb2",
               "src": "/videos/instagram/599gtb2.jpg",
-              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 8)",
+              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 7)",
               "type": "image"
             },
             {
               "id": "599gtb3",
               "src": "/videos/instagram/599gtb3.jpg",
-              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 8)",
+              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 7)",
               "type": "image"
             },
             {
@@ -911,25 +910,19 @@
             {
               "id": "599gtb5",
               "src": "/videos/instagram/599gtb5.jpg",
-              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 5 of 8)",
+              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 5 of 7)",
               "type": "image"
-            },
-            {
-              "id": "599gtb6",
-              "src": "/videos/instagram/599gtb6.mp4",
-              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
-              "type": "video"
             },
             {
               "id": "599gtb7",
               "src": "/videos/instagram/599gtb7.jpg",
-              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 7 of 8)",
+              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 6 of 7)",
               "type": "image"
             },
             {
               "id": "599gtb8",
               "src": "/videos/instagram/599gtb8.jpg",
-              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 8 of 8)",
+              "alt": "Ferrari 599 GTB Fiorano in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 7 of 7)",
               "type": "image"
             }
           ],
