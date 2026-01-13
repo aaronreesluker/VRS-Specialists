@@ -29,12 +29,12 @@ export default function Navigation() {
       if (isHomePage) {
         // On homepage: detect which section we're in
         // Hero section (ScrollCarHero) is black - use black/white
-        // Other sections should match their background color
+        // Grey section immediately after should match grey background
         
         // Hero section is approximately 300vh (3x viewport height)
         // Check if we're still in the hero section (ScrollCarHero with black background)
         const heroHeight = window.innerHeight * 3; // 300vh
-        const isInHeroSection = currentScrollY < heroHeight;
+        const isInHeroSection = currentScrollY < heroHeight * 0.95; // Slight buffer to transition earlier
         
         if (isInHeroSection) {
           // In hero section (Porsche/car section) - use black background with white text
@@ -47,8 +47,8 @@ export default function Navigation() {
           
           sections.forEach((section) => {
             const rect = section.getBoundingClientRect();
-            // Check if section is near the top (where header is)
-            if (rect.top <= 100 && rect.bottom >= 100) {
+            // Check if section is near the top (where header is) or covers the header area
+            if (rect.top <= 100 && rect.bottom >= 0) {
               currentSection = section;
             }
           });
@@ -56,7 +56,28 @@ export default function Navigation() {
           if (currentSection) {
             // Match the section's background color
             const computedStyle = window.getComputedStyle(currentSection);
-            const bgColor = computedStyle.backgroundColor;
+            let bgColor = computedStyle.backgroundColor;
+            
+            // Handle rgba/rgb color values
+            if (bgColor === "rgba(0, 0, 0, 0)" || bgColor === "transparent") {
+              // If transparent, check inline style
+              const inlineBg = currentSection.getAttribute("style");
+              if (inlineBg && inlineBg.includes("backgroundColor")) {
+                const match = inlineBg.match(/backgroundColor["']?\s*[:=]\s*["']?([^;"']+)/);
+                if (match) {
+                  bgColor = match[1].trim();
+                  // Convert hex to rgb if needed
+                  if (bgColor.startsWith("#")) {
+                    const hex = bgColor.replace("#", "");
+                    const r = parseInt(hex.substring(0, 2), 16);
+                    const g = parseInt(hex.substring(2, 4), 16);
+                    const b = parseInt(hex.substring(4, 6), 16);
+                    bgColor = `rgb(${r}, ${g}, ${b})`;
+                  }
+                }
+              }
+            }
+            
             setBackgroundColor(bgColor);
             
             // Determine text color based on background brightness
@@ -64,11 +85,14 @@ export default function Navigation() {
             if (rgb && rgb.length >= 3) {
               const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
               setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
+            } else {
+              // Default for grey section
+              setTextColor("#ffffff");
             }
           } else {
-            // Default fallback
-            setBackgroundColor("rgb(147, 147, 147)"); // #929292 - next section after hero
-            setTextColor("#1f2937");
+            // Default fallback - grey section
+            setBackgroundColor("rgb(146, 146, 146)"); // #929292 - grey section after hero
+            setTextColor("#ffffff");
           }
         }
         
