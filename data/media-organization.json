@@ -760,7 +760,6 @@
         "project-1768000344854-tehatyuog",
         "project-1768000344854-jwqzf0k8b",
         "project-1768000344854-vr0aijt5r",
-        "project-1768000344854-6o7zzpqe8",
         "project-1768000344854-u16ufe3ik",
         "project-1768000344854-xbhg4yw6q",
         "project-1768000344854-u98mcwkrj",
@@ -2131,44 +2130,6 @@
               "id": "RangeRAB9",
               "src": "/videos/instagram/RangeRAB9.jpg",
               "alt": "Range Rover Autobiography in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 10 of 10)",
-              "type": "image"
-            }
-          ],
-          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
-          "location": "BRIGHTON & SUSSEX"
-        },
-        {
-          "id": "project-1768000344854-6o7zzpqe8",
-          "name": "Matte Grey Audi r8",
-          "mediaIds": [
-            "AudiR8",
-            "R81",
-            "R82",
-            "R83"
-          ],
-          "media": [
-            {
-              "id": "AudiR8",
-              "src": "/videos/instagram/AudiR8.mp4",
-              "alt": "Matte Grey Audi r8 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
-              "type": "video"
-            },
-            {
-              "id": "R81",
-              "src": "/videos/instagram/R81.jpg",
-              "alt": "Matte Grey Audi r8 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 1 of 3)",
-              "type": "image"
-            },
-            {
-              "id": "R82",
-              "src": "/videos/instagram/R82.jpg",
-              "alt": "Matte Grey Audi r8 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 3)",
-              "type": "image"
-            },
-            {
-              "id": "R83",
-              "src": "/videos/instagram/R83.jpg",
-              "alt": "Matte Grey Audi r8 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 3)",
               "type": "image"
             }
           ],
