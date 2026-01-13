@@ -522,20 +522,50 @@ export function BrandGallery({
                 const totalItems = hasVideo ? images.length + 1 : images.length; // +1 for video
                 
                 if (totalItems > 1) {
+                  // Calculate previous/next indices accounting for video at -1
+                  const getPreviousIndex = () => {
+                    if (selectedImageIndex === -1) {
+                      // From video, go to last image
+                      return images.length - 1;
+                    } else if (selectedImageIndex === 0) {
+                      // From first image, go to video if it exists
+                      return hasVideo ? -1 : images.length - 1;
+                    } else {
+                      return selectedImageIndex - 1;
+                    }
+                  };
+                  
+                  const getNextIndex = () => {
+                    if (selectedImageIndex === -1) {
+                      // From video, go to first image
+                      return 0;
+                    } else if (selectedImageIndex === images.length - 1) {
+                      // From last image, go to video if it exists
+                      return hasVideo ? -1 : 0;
+                    } else {
+                      return selectedImageIndex + 1;
+                    }
+                  };
+                  
                   return (
                     <div className="flex justify-center items-center gap-3">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          // Pause auto-rotation when user manually navigates
+                          // Pause all videos and auto-rotation when user manually navigates
+                          const allVideos = document.querySelectorAll('video');
+                          allVideos.forEach((video) => {
+                            video.pause();
+                            video.currentTime = 0;
+                          });
                           if (imageRotationIntervalRef.current) {
                             clearInterval(imageRotationIntervalRef.current);
                             imageRotationIntervalRef.current = null;
                           }
-                          setSelectedImageIndex(selectedImageIndex > 0 ? selectedImageIndex - 1 : images.length - 1);
+                          setSelectedImageIndex(getPreviousIndex());
                         }}
                         className="text-gray-600 hover:text-black transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                        aria-label="Previous image"
+                        aria-label="Previous"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -543,6 +573,30 @@ export function BrandGallery({
                       </button>
                       
                       <div className="flex gap-2 items-center">
+                        {/* Video pagination dot (if video exists) */}
+                        {hasVideo && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              const allVideos = document.querySelectorAll('video');
+                              allVideos.forEach((video) => {
+                                video.pause();
+                                video.currentTime = 0;
+                              });
+                              if (imageRotationIntervalRef.current) {
+                                clearInterval(imageRotationIntervalRef.current);
+                                imageRotationIntervalRef.current = null;
+                              }
+                              setSelectedImageIndex(-1);
+                            }}
+                            className={`transition-all ${
+                              selectedImageIndex === -1 ? "bg-brand-red h-1 w-8" : "bg-gray-300 h-1 w-5"
+                            } rounded-full hover:bg-gray-400`}
+                            aria-label="View video"
+                          />
+                        )}
+                        
+                        {/* Image pagination dots */}
                         {images.map((_, index) => {
                           const isActive = selectedImageIndex === index;
                           const isBeforeActive = index < selectedImageIndex;
@@ -562,7 +616,12 @@ export function BrandGallery({
                               key={index}
                               onClick={(e) => {
                                 e.stopPropagation();
-                                // Pause auto-rotation when user manually navigates
+                                // Pause all videos when switching to image
+                                const allVideos = document.querySelectorAll('video');
+                                allVideos.forEach((video) => {
+                                  video.pause();
+                                  video.currentTime = 0;
+                                });
                                 if (imageRotationIntervalRef.current) {
                                   clearInterval(imageRotationIntervalRef.current);
                                   imageRotationIntervalRef.current = null;
@@ -582,26 +641,31 @@ export function BrandGallery({
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          // Pause auto-rotation when user manually navigates
+                          // Pause all videos and auto-rotation when user manually navigates
+                          const allVideos = document.querySelectorAll('video');
+                          allVideos.forEach((video) => {
+                            video.pause();
+                            video.currentTime = 0;
+                          });
                           if (imageRotationIntervalRef.current) {
                             clearInterval(imageRotationIntervalRef.current);
                             imageRotationIntervalRef.current = null;
                           }
-                          setSelectedImageIndex(selectedImageIndex < images.length - 1 ? selectedImageIndex + 1 : 0);
+                          setSelectedImageIndex(getNextIndex());
                         }}
                         className="text-gray-600 hover:text-black transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                        aria-label="Next image"
+                        aria-label="Next"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </button>
                       
-                      {/* Image counter */}
+                      {/* Media counter */}
                       <span className="text-gray-600 text-xs ml-2"
                         style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                       >
-                        {selectedImageIndex + 1} / {images.length}
+                        {selectedImageIndex === -1 ? 1 : selectedImageIndex + 2} / {totalItems}
                       </span>
                     </div>
                   );
