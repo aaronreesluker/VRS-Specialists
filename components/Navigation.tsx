@@ -188,13 +188,13 @@ export default function Navigation() {
             <StaggeredMenu
               items={staggeredMenuItems}
               position="right"
-              colors={["#1e1e22", "#35353c"]}
+              colors={["#ffffff", "#f9fafb"]}
               displaySocials={false}
               displayItemNumbering={true}
               logoUrl="/assets/vrs4.png"
               menuButtonColor={textColor}
-              openMenuButtonColor="#ffffff"
-              accentColor="#5227FF"
+              openMenuButtonColor="#E11C22"
+              accentColor="#E11C22"
               changeMenuColorOnOpen={true}
               isFixed={false}
               closeOnClickAway={true}
