@@ -1696,12 +1696,7 @@
             "S3A1",
             "S3A2",
             "S3A3",
-            "S3A4",
-            "S3A5",
-            "S3A6",
-            "S3A7",
-            "S3A8",
-            "S3A9"
+            "S3A4"
           ],
           "media": [
             {
@@ -1713,49 +1708,19 @@
             {
               "id": "S3A2",
               "src": "/videos/instagram/S3A2.jpg",
-              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 9)",
+              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 1 of 3)",
               "type": "image"
             },
             {
               "id": "S3A3",
               "src": "/videos/instagram/S3A3.jpg",
-              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 9)",
+              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 3)",
               "type": "image"
             },
             {
               "id": "S3A4",
               "src": "/videos/instagram/S3A4.jpg",
-              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 4 of 9)",
-              "type": "image"
-            },
-            {
-              "id": "S3A5",
-              "src": "/videos/instagram/S3A5.jpg",
-              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 5 of 9)",
-              "type": "image"
-            },
-            {
-              "id": "S3A6",
-              "src": "/videos/instagram/S3A6.jpg",
-              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 6 of 9)",
-              "type": "image"
-            },
-            {
-              "id": "S3A7",
-              "src": "/videos/instagram/S3A7.jpg",
-              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 7 of 9)",
-              "type": "image"
-            },
-            {
-              "id": "S3A8",
-              "src": "/videos/instagram/S3A8.jpg",
-              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 8 of 9)",
-              "type": "image"
-            },
-            {
-              "id": "S3A9",
-              "src": "/videos/instagram/S3A9.jpg",
-              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 9 of 9)",
+              "alt": "Audi S3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 3)",
               "type": "image"
             }
           ],
