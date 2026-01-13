@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { StaggeredMenu } from "./StaggeredMenu";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -131,6 +132,13 @@ export default function Navigation() {
     { href: "/contact", label: "Contact" },
   ];
 
+  // Convert navLinks to StaggeredMenu format
+  const staggeredMenuItems = navLinks.map((link) => ({
+    label: link.label,
+    ariaLabel: `Navigate to ${link.label}`,
+    link: link.href,
+  }));
+
   // Don't render on homepage if not visible (scroll-aware)
   if (isHomePage && !isVisible) {
     return null;
@@ -175,21 +183,23 @@ export default function Navigation() {
             />
           </Link>
 
-          {/* Desktop Navigation - Simplified */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="transition-opacity font-medium text-sm hover:opacity-70"
-                style={{ 
-                  color: textColor,
-                  fontFamily: "var(--font-outfit), sans-serif",
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
+          {/* Desktop Navigation - Staggered Menu Burger */}
+          <div className="hidden lg:block">
+            <StaggeredMenu
+              items={staggeredMenuItems}
+              position="right"
+              colors={["#1e1e22", "#35353c"]}
+              displaySocials={false}
+              displayItemNumbering={true}
+              logoUrl="/assets/vrs4.png"
+              menuButtonColor={textColor}
+              openMenuButtonColor="#ffffff"
+              accentColor="#5227FF"
+              changeMenuColorOnOpen={true}
+              isFixed={false}
+              closeOnClickAway={true}
+              className="staggered-menu-nav"
+            />
           </div>
 
           {/* Mobile Menu Button */}
