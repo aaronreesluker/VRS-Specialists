@@ -665,7 +665,19 @@ export function BrandGallery({
                       <span className="text-gray-600 text-xs ml-2"
                         style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                       >
-                        {selectedImageIndex === -1 ? 1 : selectedImageIndex + 2} / {totalItems}
+                        {(() => {
+                          // Calculate current position based on what's actually being displayed
+                          // Video is position 1, first image is position 2, etc.
+                          let currentPosition: number;
+                          if (hasVideo && (!hasImages || selectedImageIndex === -1)) {
+                            // Currently showing video
+                            currentPosition = 1;
+                          } else {
+                            // Currently showing an image
+                            currentPosition = selectedImageIndex + 2; // +2 because video is 1, first image is 2
+                          }
+                          return `${currentPosition} / ${totalItems}`;
+                        })()}
                       </span>
                     </div>
                   );
