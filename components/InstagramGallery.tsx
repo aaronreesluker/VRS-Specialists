@@ -669,14 +669,19 @@ export function InstagramGallery({
                       >
                         {(() => {
                           // Calculate current position based on what's actually being displayed
-                          // Video is position 1, first image is position 2, etc.
                           let currentPosition: number;
                           if (hasVideo && (!hasImages || selectedImageIndex === -1)) {
                             // Currently showing video
                             currentPosition = 1;
                           } else {
                             // Currently showing an image
-                            currentPosition = selectedImageIndex + 2; // +2 because video is 1, first image is 2
+                            if (hasVideo) {
+                              // If there's a video, images start at position 2 (video is 1)
+                              currentPosition = selectedImageIndex + 2;
+                            } else {
+                              // If no video, images start at position 1
+                              currentPosition = selectedImageIndex + 1;
+                            }
                           }
                           return `${currentPosition} / ${totalItems}`;
                         })()}
