@@ -1200,7 +1200,6 @@
           "name": "BMW M4 CS ",
           "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
           "mediaIds": [
-            "CS1",
             "cs2",
             "cs3",
             "cs4",
@@ -1212,57 +1211,51 @@
           ],
           "media": [
             {
-              "id": "CS1",
-              "src": "/videos/instagram/CS1.mp4",
-              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
-              "type": "video"
-            },
-            {
               "id": "cs2",
               "src": "/videos/instagram/cs2.jpg",
-              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 9)",
+              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 1 of 8)",
               "type": "image"
             },
             {
               "id": "cs3",
               "src": "/videos/instagram/cs3.jpg",
-              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 9)",
+              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 8)",
               "type": "image"
             },
             {
               "id": "cs4",
               "src": "/videos/instagram/cs4.jpg",
-              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 4 of 9)",
+              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 8)",
               "type": "image"
             },
             {
               "id": "cs5",
               "src": "/videos/instagram/cs5.jpg",
-              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 5 of 9)",
+              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 4 of 8)",
               "type": "image"
             },
             {
               "id": "cs6",
               "src": "/videos/instagram/cs6.jpg",
-              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 6 of 9)",
+              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 5 of 8)",
               "type": "image"
             },
             {
               "id": "cs7",
               "src": "/videos/instagram/cs7.jpg",
-              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 7 of 9)",
+              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 6 of 8)",
               "type": "image"
             },
             {
               "id": "cs8",
               "src": "/videos/instagram/cs8.jpg",
-              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 8 of 9)",
+              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 7 of 8)",
               "type": "image"
             },
             {
               "id": "cs9",
               "src": "/videos/instagram/cs9.jpg",
-              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 9 of 9)",
+              "alt": "BMW M4 CS  in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 8 of 8)",
               "type": "image"
             }
           ],
