@@ -61,7 +61,8 @@ export default function Navigation() {
             // Handle rgba/rgb color values
             if (bgColor === "rgba(0, 0, 0, 0)" || bgColor === "transparent") {
               // If transparent, check inline style
-              const inlineBg = currentSection.getAttribute("style");
+              const htmlElement = currentSection as HTMLElement;
+              const inlineBg = htmlElement.getAttribute("style");
               if (inlineBg && inlineBg.includes("backgroundColor")) {
                 const match = inlineBg.match(/backgroundColor["']?\s*[:=]\s*["']?([^;"']+)/);
                 if (match) {
@@ -86,12 +87,12 @@ export default function Navigation() {
               const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
               setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
             } else {
-              // Default for grey section
+              // Default for black section
               setTextColor("#ffffff");
             }
           } else {
-            // Default fallback - grey section
-            setBackgroundColor("rgb(146, 146, 146)"); // #929292 - grey section after hero
+            // Default fallback - black section
+            setBackgroundColor("rgb(0, 0, 0)"); // Black section after hero
             setTextColor("#ffffff");
           }
         }
