@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { StaggeredMenu } from "./StaggeredMenu";
 
@@ -12,18 +12,14 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0);
   const [backgroundColor, setBackgroundColor] = useState("rgba(0, 0, 0, 1)");
   const [textColor, setTextColor] = useState("#ffffff");
 
   useEffect(() => {
-    // Always visible on non-homepage
-    if (!isHomePage) {
-      setIsVisible(true);
-    }
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const lastScrollY = lastScrollYRef.current;
       setIsScrolled(currentScrollY > 20);
       
       if (isHomePage) {
@@ -176,13 +172,18 @@ export default function Navigation() {
         }
       }
       
-      setLastScrollY(currentScrollY);
+      lastScrollYRef.current = currentScrollY;
     };
+    
+    // Initial visibility setup
+    if (!isHomePage) {
+      setIsVisible(true);
+    }
     
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHomePage, lastScrollY]);
+  }, [isHomePage]);
 
   // Simplified navigation links
   const navLinks = [
