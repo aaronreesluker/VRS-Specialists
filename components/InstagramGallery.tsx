@@ -540,15 +540,27 @@ export function InstagramGallery({
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          // Pause auto-rotation when user manually navigates
+                          // Pause all videos and auto-rotation when user manually navigates
+                          const allVideos = document.querySelectorAll('video');
+                          allVideos.forEach((video) => {
+                            video.pause();
+                            video.currentTime = 0;
+                          });
                           if (imageRotationIntervalRef.current) {
                             clearInterval(imageRotationIntervalRef.current);
                             imageRotationIntervalRef.current = null;
                           }
-                          setSelectedImageIndex(selectedImageIndex > 0 ? selectedImageIndex - 1 : images.length - 1);
+                          // Calculate previous index accounting for video at -1
+                          if (selectedImageIndex === -1) {
+                            setSelectedImageIndex(images.length - 1);
+                          } else if (selectedImageIndex === 0) {
+                            setSelectedImageIndex(hasVideo ? -1 : images.length - 1);
+                          } else {
+                            setSelectedImageIndex(selectedImageIndex - 1);
+                          }
                         }}
                         className="text-white/70 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                        aria-label="Previous image"
+                        aria-label="Previous"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -556,6 +568,30 @@ export function InstagramGallery({
                       </button>
                       
                       <div className="flex gap-2 items-center">
+                        {/* Video pagination dot (if video exists) */}
+                        {hasVideo && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              const allVideos = document.querySelectorAll('video');
+                              allVideos.forEach((video) => {
+                                video.pause();
+                                video.currentTime = 0;
+                              });
+                              if (imageRotationIntervalRef.current) {
+                                clearInterval(imageRotationIntervalRef.current);
+                                imageRotationIntervalRef.current = null;
+                              }
+                              setSelectedImageIndex(-1);
+                            }}
+                            className={`transition-all ${
+                              selectedImageIndex === -1 ? "bg-white h-1 w-8" : "bg-white/40 h-1 w-5"
+                            } rounded-full hover:bg-white/60`}
+                            aria-label="View video"
+                          />
+                        )}
+                        
+                        {/* Image pagination dots */}
                         {images.map((_, index) => {
                           const isActive = selectedImageIndex === index;
                           const isBeforeActive = index < selectedImageIndex;
@@ -570,12 +606,17 @@ export function InstagramGallery({
                             clipPath = "polygon(0% 0%, 80% 0%, 100% 100%, 20% 100%)";
                           }
                           
-                return (
+                          return (
                             <button
-                    key={index}
+                              key={index}
                               onClick={(e) => {
                                 e.stopPropagation();
-                                // Pause auto-rotation when user manually navigates
+                                // Pause all videos when switching to image
+                                const allVideos = document.querySelectorAll('video');
+                                allVideos.forEach((video) => {
+                                  video.pause();
+                                  video.currentTime = 0;
+                                });
                                 if (imageRotationIntervalRef.current) {
                                   clearInterval(imageRotationIntervalRef.current);
                                   imageRotationIntervalRef.current = null;
@@ -595,15 +636,27 @@ export function InstagramGallery({
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          // Pause auto-rotation when user manually navigates
+                          // Pause all videos and auto-rotation when user manually navigates
+                          const allVideos = document.querySelectorAll('video');
+                          allVideos.forEach((video) => {
+                            video.pause();
+                            video.currentTime = 0;
+                          });
                           if (imageRotationIntervalRef.current) {
                             clearInterval(imageRotationIntervalRef.current);
                             imageRotationIntervalRef.current = null;
                           }
-                          setSelectedImageIndex(selectedImageIndex < images.length - 1 ? selectedImageIndex + 1 : 0);
+                          // Calculate next index accounting for video at -1
+                          if (selectedImageIndex === -1) {
+                            setSelectedImageIndex(0);
+                          } else if (selectedImageIndex === images.length - 1) {
+                            setSelectedImageIndex(hasVideo ? -1 : 0);
+                          } else {
+                            setSelectedImageIndex(selectedImageIndex + 1);
+                          }
                         }}
                         className="text-white/70 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                        aria-label="Next image"
+                        aria-label="Next"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
