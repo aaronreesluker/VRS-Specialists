@@ -2317,6 +2317,23 @@
           "location": "BRIGHTON & SUSSEX"
         },
         {
+          "id": "project-1768000344854-tesla-model3",
+          "name": "Tesla Model 3",
+          "mediaIds": [
+            "DOot49lAoB6"
+          ],
+          "media": [
+            {
+              "id": "DOot49lAoB6",
+              "src": "/videos/instagram/DOot49lAoB6.mp4",
+              "alt": "Tesla Model 3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
+              "type": "video"
+            }
+          ],
+          "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "location": "BRIGHTON & SUSSEX"
+        },
+        {
           "id": "project-1768000344854-e6j248fl3",
           "name": "Audi Q5",
           "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
