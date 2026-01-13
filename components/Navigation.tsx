@@ -127,6 +127,7 @@ export default function Navigation() {
 
   // Simplified navigation links
   const navLinks = [
+    { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
     { href: "/brands", label: "Work" },
     { href: "/contact", label: "Contact" },
