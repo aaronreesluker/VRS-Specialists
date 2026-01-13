@@ -444,7 +444,7 @@ export function BrandGallery({
                         ref={videoRef}
                         key={`${selectedBrandIndex}-${selectedExampleIndex}`}
                         src={currentPost.video}
-                        className="w-full h-auto max-h-[570px] md:max-h-[665px] lg:max-h-[760px] object-contain"
+                        className="w-full h-auto max-h-[400px] md:max-h-[480px] lg:max-h-[550px] object-contain"
                         controls
                         playsInline
                         autoPlay
