@@ -153,8 +153,16 @@ export function InstagramGallery({
       imageRotationIntervalRef.current = null;
     }
 
+    // Pause all videos in the document to prevent videos playing across pagination
+    const allVideos = document.querySelectorAll('video');
+    allVideos.forEach((video) => {
+      video.pause();
+      video.currentTime = 0; // Reset to beginning
+    });
+
     if (videoRef.current) {
       videoRef.current.pause();
+      videoRef.current.currentTime = 0;
       videoRef.current.load(); // Reload video to ensure it starts from beginning
     }
     setSelectedImageIndex(0); // Reset to first image when switching projects
@@ -764,7 +772,15 @@ export function InstagramGallery({
         {currentService.examples.length > 1 && (
           <div className="flex justify-center items-center gap-4 mt-12">
             <button
-              onClick={() => setSelectedExampleIndex(selectedExampleIndex > 0 ? selectedExampleIndex - 1 : currentService.examples.length - 1)}
+              onClick={() => {
+                // Pause all videos before changing page
+                const allVideos = document.querySelectorAll('video');
+                allVideos.forEach((video) => {
+                  video.pause();
+                  video.currentTime = 0;
+                });
+                setSelectedExampleIndex(selectedExampleIndex > 0 ? selectedExampleIndex - 1 : currentService.examples.length - 1);
+              }}
               className="text-white hover:text-gray-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Previous project"
             >
@@ -796,7 +812,15 @@ export function InstagramGallery({
                 return (
                   <button
                     key={index}
-                    onClick={() => setSelectedExampleIndex(index)}
+                    onClick={() => {
+                      // Pause all videos before changing page
+                      const allVideos = document.querySelectorAll('video');
+                      allVideos.forEach((video) => {
+                        video.pause();
+                        video.currentTime = 0;
+                      });
+                      setSelectedExampleIndex(index);
+                    }}
                     className={`transition-all ${
                       isActive ? "bg-white h-1 w-8" : "bg-white/30 h-1 w-6"
                     }`}
@@ -808,7 +832,15 @@ export function InstagramGallery({
           </div>
             
             <button
-              onClick={() => setSelectedExampleIndex(selectedExampleIndex < currentService.examples.length - 1 ? selectedExampleIndex + 1 : 0)}
+              onClick={() => {
+                // Pause all videos before changing page
+                const allVideos = document.querySelectorAll('video');
+                allVideos.forEach((video) => {
+                  video.pause();
+                  video.currentTime = 0;
+                });
+                setSelectedExampleIndex(selectedExampleIndex < currentService.examples.length - 1 ? selectedExampleIndex + 1 : 0);
+              }}
               className="text-white hover:text-gray-300 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Next project"
             >
