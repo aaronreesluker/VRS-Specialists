@@ -62,6 +62,11 @@ function extractBrand(projectName: string): string | null {
     return "BMW";
   }
   
+  // Check for Tesla models (Model S, Model 3, Model X, Model Y) even without "Tesla" in name
+  if (/Model\s+[S3XY]/i.test(projectName) || /Model\s+S/i.test(projectName) || /Model\s+X/i.test(projectName) || /Model\s+Y/i.test(projectName)) {
+    return "Tesla";
+  }
+  
   // Check for each brand (case-insensitive)
   for (const brand of CAR_BRANDS) {
     const brandUpper = brand.toUpperCase();
