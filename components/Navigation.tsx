@@ -108,17 +108,17 @@ export default function Navigation() {
         }
       } else {
         // Other pages: scroll-aware behavior (hide on scroll down, show on scroll up)
-        // Only apply scroll logic if we've scrolled past the initial threshold
-        if (currentScrollY <= 100) {
+        if (currentScrollY <= 50) {
           // Near top - always show navigation
           setIsVisible(true);
-        } else if (currentScrollY > lastScrollY) {
-          // Scrolling down - hide navigation
+        } else if (currentScrollY > lastScrollY + 5) {
+          // Scrolling down (with threshold to avoid flickering) - hide navigation
           setIsVisible(false);
-        } else if (currentScrollY < lastScrollY) {
-          // Scrolling up - show navigation
+        } else if (currentScrollY < lastScrollY - 5) {
+          // Scrolling up (with threshold to avoid flickering) - show navigation
           setIsVisible(true);
         }
+        // If scroll position hasn't changed much, keep current visibility state
         
         // Match section background
         const sections = document.querySelectorAll("section");
