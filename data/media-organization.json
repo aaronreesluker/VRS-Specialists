@@ -1303,7 +1303,6 @@
           "id": "project-1768000344853-7osumpbcb",
           "name": "Ferrari f430",
           "mediaIds": [
-            "f430f1",
             "f430f2",
             "f430f3",
             "f430f4",
@@ -1311,33 +1310,27 @@
           ],
           "media": [
             {
-              "id": "f430f1",
-              "src": "/videos/instagram/f430f1.mp4",
-              "alt": "Ferrari f430 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
-              "type": "video"
-            },
-            {
               "id": "f430f2",
               "src": "/videos/instagram/f430f2.jpg",
-              "alt": "Ferrari f430 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 5)",
+              "alt": "Ferrari f430 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 1 of 4)",
               "type": "image"
             },
             {
               "id": "f430f3",
               "src": "/videos/instagram/f430f3.jpg",
-              "alt": "Ferrari f430 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 5)",
+              "alt": "Ferrari f430 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 4)",
               "type": "image"
             },
             {
               "id": "f430f4",
               "src": "/videos/instagram/f430f4.jpg",
-              "alt": "Ferrari f430 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 4 of 5)",
+              "alt": "Ferrari f430 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 4)",
               "type": "image"
             },
             {
               "id": "f430f5",
               "src": "/videos/instagram/f430f5.jpg",
-              "alt": "Ferrari f430 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 5 of 5)",
+              "alt": "Ferrari f430 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 4 of 4)",
               "type": "image"
             }
           ],
