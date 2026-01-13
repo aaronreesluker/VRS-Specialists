@@ -125,7 +125,7 @@ export default function Home() {
       {/* Next section - revealed through flash transition */}
       {/* IMPORTANT: Background color should match flashColor prop above */}
       <section 
-        className="relative w-full min-h-screen pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-24 flex items-center justify-center"
+        className="relative w-full min-h-screen pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-24 flex items-center justify-center"
         style={{ backgroundColor: "#929292" }} // Matches last frame of car animation
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
