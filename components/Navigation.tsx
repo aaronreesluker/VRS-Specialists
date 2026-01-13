@@ -108,15 +108,20 @@ export default function Navigation() {
         }
       } else {
         // Other pages: scroll-aware behavior (hide on scroll down, show on scroll up)
+        const scrollDifference = Math.abs(currentScrollY - lastScrollY);
+        
         if (currentScrollY <= 50) {
           // Near top - always show navigation
           setIsVisible(true);
-        } else if (currentScrollY > lastScrollY + 5) {
-          // Scrolling down (with threshold to avoid flickering) - hide navigation
-          setIsVisible(false);
-        } else if (currentScrollY < lastScrollY - 5) {
-          // Scrolling up (with threshold to avoid flickering) - show navigation
-          setIsVisible(true);
+        } else if (scrollDifference > 5) {
+          // Only update if scroll difference is significant (prevents flickering)
+          if (currentScrollY > lastScrollY) {
+            // Scrolling down - hide navigation
+            setIsVisible(false);
+          } else if (currentScrollY < lastScrollY) {
+            // Scrolling up - show navigation
+            setIsVisible(true);
+          }
         }
         // If scroll position hasn't changed much, keep current visibility state
         
