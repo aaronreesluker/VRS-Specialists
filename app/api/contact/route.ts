@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
 
     // Send to webhook
     const webhookUrl = process.env.CONTACT_WEBHOOK_URL || 
-      "https://services.leadconnectorhq.com/hooks/3wQD2SH7L4R72I2FaIgS/webhook-trigger/e3ba9017-9d0d-453c-862e-a9cbc2884952";
+      "https://flow.zoho.eu/20111718033/flow/webhook/incoming?zapikey=1001.9a12e725a59a1e93a35316579605ec5c.faa42baf56fafa7b3801e6a83bb7506c&isdebug=false";
 
     try {
       const webhookResponse = await fetch(webhookUrl, {
