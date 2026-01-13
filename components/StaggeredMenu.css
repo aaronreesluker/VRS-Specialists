@@ -75,16 +75,18 @@
   color: var(--sm-button-color, #fff);
   z-index: 1002;
   transition: color 0.3s ease;
+  outline: none;
+}
+
+.sm-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .staggered-menu-nav .sm-toggle {
   padding: 0.5rem;
 }
 
-.sm-toggle:focus {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-}
 
 .sm-toggle-textWrap {
   position: relative;
@@ -129,28 +131,34 @@
 
 .staggered-menu-panel {
   position: fixed;
-  top: 80px; /* Start below navigation */
-  right: 1rem;
+  top: 0;
   width: 320px;
   max-width: 90vw;
-  max-height: calc(100vh - 100px);
+  height: 100vh;
   background: #ffffff;
-  border: 1px solid #E11C22;
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border-left: 1px solid #E11C22;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   overflow-y: auto;
   will-change: transform;
 }
 
 .staggered-menu-wrapper[data-position="right"] .staggered-menu-panel {
-  right: 1rem;
+  right: 0;
   left: auto;
+  border-left: 1px solid #E11C22;
+  border-right: none;
 }
 
 .staggered-menu-wrapper[data-position="left"] .staggered-menu-panel {
-  left: 1rem;
+  left: 0;
   right: auto;
+  border-right: 1px solid #E11C22;
+  border-left: none;
 }
 
 .sm-panel-inner {
@@ -259,11 +267,8 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .staggered-menu-panel {
-    top: 70px;
-    right: 0.5rem;
-    left: 0.5rem;
-    width: auto;
-    max-width: calc(100vw - 1rem);
+    width: 100%;
+    max-width: 100vw;
   }
   
   .sm-panel-inner {
