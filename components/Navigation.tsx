@@ -175,13 +175,8 @@ export default function Navigation() {
       lastScrollYRef.current = currentScrollY;
     };
     
-    // Initial visibility setup
-    if (!isHomePage) {
-      setIsVisible(true);
-    }
-    
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    handleScroll(); // Initial check - this will set initial visibility
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage]);
 
