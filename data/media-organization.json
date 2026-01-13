@@ -2476,53 +2476,9 @@
         {
           "id": "project-1768000344854-02ycqq39f",
           "name": "BMW M3",
-          "mediaIds": [
-            "M3CT1",
-            "M3CT2",
-            "M3CT3",
-            "M3CT4",
-            "M3CT5",
-            "M3CT6"
-          ],
-          "media": [
-            {
-              "id": "M3CT1",
-              "src": "/videos/instagram/M3CT1.jpg",
-              "alt": "BMW M3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 1 of 6)",
-              "type": "image"
-            },
-            {
-              "id": "M3CT2",
-              "src": "/videos/instagram/M3CT2.jpg",
-              "alt": "BMW M3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 2 of 6)",
-              "type": "image"
-            },
-            {
-              "id": "M3CT3",
-              "src": "/videos/instagram/M3CT3.jpg",
-              "alt": "BMW M3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 6)",
-              "type": "image"
-            },
-            {
-              "id": "M3CT4",
-              "src": "/videos/instagram/M3CT4.jpg",
-              "alt": "BMW M3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 4 of 6)",
-              "type": "image"
-            },
-            {
-              "id": "M3CT5",
-              "src": "/videos/instagram/M3CT5.jpg",
-              "alt": "BMW M3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 5 of 6)",
-              "type": "image"
-            },
-            {
-              "id": "M3CT6",
-              "src": "/videos/instagram/M3CT6.jpg",
-              "alt": "BMW M3 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 6 of 6)",
-              "type": "image"
-            }
-          ],
           "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "mediaIds": [],
+          "media": [],
           "location": "BRIGHTON & SUSSEX"
         },
         {
