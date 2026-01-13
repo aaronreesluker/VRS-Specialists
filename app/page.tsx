@@ -125,20 +125,20 @@ export default function Home() {
       {/* Next section - revealed through flash transition */}
       {/* IMPORTANT: Background color should match flashColor prop above */}
       <section 
-        className="relative w-full min-h-screen py-12 sm:py-16 md:py-24 flex items-center justify-center"
+        className="relative w-full min-h-screen pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-24 flex items-center justify-center"
         style={{ backgroundColor: "#929292" }} // Matches last frame of car animation
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 
+          <h1 
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 md:mb-10 text-balance leading-tight"
               style={{ 
                 fontFamily: "var(--font-space-grotesk), sans-serif",
                 color: "#FFFFFF",
                 textShadow: "0 2px 8px rgba(0, 0, 0, 0.3)"
               }}
-            >
-              Vehicle Rejuvenation
+          >
+            Vehicle Rejuvenation
               <br className="hidden sm:block" />
               <span className="block sm:inline">
                 <span 
@@ -156,7 +156,7 @@ export default function Home() {
                   Specialists
                 </span>
               </span>
-            </h1>
+          </h1>
             
             <p 
               className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed"
@@ -166,9 +166,9 @@ export default function Home() {
                 textShadow: "0 1px 4px rgba(0, 0, 0, 0.3)"
               }}
             >
-              Meticulous detailing, paint correction, and protection services in
-              Brighton and across Sussex. Studio workshop or mobile service.
-            </p>
+            Meticulous detailing, paint correction, and protection services in
+            Brighton and across Sussex. Studio workshop or mobile service.
+          </p>
             
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center mb-8 sm:mb-10 md:mb-12">
               <a
