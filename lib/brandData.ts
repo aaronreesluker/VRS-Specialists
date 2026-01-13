@@ -85,11 +85,19 @@ export function getBrandsData(): BrandGroup[] {
   });
   
   // Also check for "Specials" service and add it as a brand
-  // Include ALL Specials projects - this ensures Specials appears as a category on the brands page
+  // Only include Specials projects that don't have a recognizable brand
   const specialsService = servicesData.find(s => s.serviceName === "Specials");
   if (specialsService && specialsService.examples.length > 0) {
-    // Add all Specials examples - they will also appear under their brand if applicable
-    brandMap.set("Specials", specialsService.examples);
+    // Filter out examples that have a recognizable brand - they should only appear in their brand category
+    const specialsOnly = specialsService.examples.filter(example => {
+      const brand = extractBrand(example.title || "");
+      return !brand; // Only include if no brand was found
+    });
+    
+    // Only add Specials category if there are items without recognizable brands
+    if (specialsOnly.length > 0) {
+      brandMap.set("Specials", specialsOnly);
+    }
   }
   
   // Ensure always-show brands are included even if they have 0 projects
