@@ -116,7 +116,7 @@ export default function Home() {
         heroHeight={300} // Adjusted for mobile in component (max 200vh on mobile)
         titleMain="V.R.S"
         titleSub="Vehicle Rejuvenation Specialists"
-        flashColor="#929292" // Matches next section background
+        flashColor="#000000" // Matches next section background (black)
         backgroundColor="bg-black"
         frameBasePath="/car/frames"
         frameFormat="%04d.png"
@@ -126,7 +126,7 @@ export default function Home() {
       {/* IMPORTANT: Background color should match flashColor prop above */}
       <section 
         className="relative w-full min-h-screen pt-4 sm:pt-6 md:pt-8 pb-12 sm:pb-16 md:pb-24 flex items-center justify-center"
-        style={{ backgroundColor: "#929292" }} // Matches last frame of car animation
+        style={{ backgroundColor: "#000000" }} // Matches last frame of car animation (black)
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center text-white">
