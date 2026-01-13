@@ -9,6 +9,7 @@ import { StaggeredMenu } from "./StaggeredMenu";
 export default function Navigation() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isServicesPage = pathname === "/services";
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -161,19 +162,31 @@ export default function Navigation() {
             }
           }
           
-          setBackgroundColor(bgColor);
-          
-          const rgb = bgColor.match(/\d+/g);
-          if (rgb && rgb.length >= 3) {
-            const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-            setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
-          } else {
+          // Force white background on services page
+          if (isServicesPage) {
+            setBackgroundColor("rgb(255, 255, 255)");
             setTextColor("#1f2937");
+          } else {
+            setBackgroundColor(bgColor);
+            
+            const rgb = bgColor.match(/\d+/g);
+            if (rgb && rgb.length >= 3) {
+              const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+              setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
+            } else {
+              setTextColor("#1f2937");
+            }
           }
         } else {
           // Default to white background on other pages
-          setBackgroundColor("rgb(255, 255, 255)");
-          setTextColor("#1f2937");
+          // Force white on services page
+          if (isServicesPage) {
+            setBackgroundColor("rgb(255, 255, 255)");
+            setTextColor("#1f2937");
+          } else {
+            setBackgroundColor("rgb(255, 255, 255)");
+            setTextColor("#1f2937");
+          }
         }
       }
       
