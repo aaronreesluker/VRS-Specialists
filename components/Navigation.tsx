@@ -28,19 +28,22 @@ export default function Navigation() {
       
       if (isHomePage) {
         // On homepage: detect which section we're in
-        // Hero section (ScrollCarHero) is black - use black/white
+        // Hero section (ScrollCarHero) is black - hide navigation during this section
         // Grey section immediately after should match grey background
         
         // Hero section is approximately 300vh (3x viewport height)
-        // Check if we're still in the hero section (ScrollCarHero with black background)
+        // Hide navigation during the Porsche scrolling section
         const heroHeight = window.innerHeight * 3; // 300vh
-        const isInHeroSection = currentScrollY < heroHeight * 0.95; // Slight buffer to transition earlier
+        const isInHeroSection = currentScrollY < heroHeight;
         
         if (isInHeroSection) {
-          // In hero section (Porsche/car section) - use black background with white text
+          // In hero section (Porsche/car section) - hide navigation completely
+          setIsVisible(false);
           setBackgroundColor("rgb(0, 0, 0)");
           setTextColor("#ffffff");
         } else {
+          // Show navigation after hero section
+          setIsVisible(true);
           // Past hero section - detect which section we're in and match background color
           const sections = document.querySelectorAll("section");
           let currentSection: Element | null = null;
@@ -87,29 +90,14 @@ export default function Navigation() {
               const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
               setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
             } else {
-              // Default for black section
+              // Default for grey section
               setTextColor("#ffffff");
             }
           } else {
-            // Default fallback - black section
-            setBackgroundColor("rgb(0, 0, 0)"); // Black section after hero
+            // Default fallback - grey section
+            setBackgroundColor("rgb(146, 146, 146)"); // #929292 - grey section after hero
             setTextColor("#ffffff");
           }
-        }
-        
-        // Scroll-aware behavior for homepage
-        // Show menu when scrolling up, hide when scrolling down
-        if (currentScrollY < lastScrollY && currentScrollY > 100) {
-          // Scrolling up and past hero section
-          setIsVisible(true);
-        } else if (currentScrollY > lastScrollY) {
-          // Scrolling down
-          setIsVisible(false);
-        }
-        
-        // Hide menu at the very top
-        if (currentScrollY < 100) {
-          setIsVisible(false);
         }
       } else {
         // Other pages: always visible, match section background
