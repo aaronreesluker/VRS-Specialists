@@ -2664,16 +2664,9 @@
           "id": "project-1768169832091-fbe54mona",
           "name": "BMW E9 3.0 CSI 1975",
           "mediaIds": [
-            "C6Q2lxzNGR1",
             "DMxw_7bMmsh"
           ],
           "media": [
-            {
-              "id": "C6Q2lxzNGR1",
-              "src": "/videos/instagram/C6Q2lxzNGR1.mp4",
-              "alt": "BMW E9 3.0 CSI 1975 in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. - Professional car detailing video",
-              "type": "video"
-            },
             {
               "id": "DMxw_7bMmsh",
               "src": "/videos/instagram/DMxw_7bMmsh.mp4",
