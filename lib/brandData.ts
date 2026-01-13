@@ -111,16 +111,26 @@ export function getBrandsData(): BrandGroup[] {
     });
   });
   
-  // Group by brand
+  // Group by brand, deduplicating by project name
   const brandMap = new Map<string, InstagramPost[]>();
+  const seenProjects = new Set<string>(); // Track projects we've already added by name
   
   allExamples.forEach((example) => {
     const brand = extractBrand(example.title || "");
     if (brand) {
+      // Use project name as unique key to prevent duplicates
+      const projectKey = example.title?.toLowerCase().trim() || "";
+      
+      // Skip if we've already added this project to any brand
+      if (seenProjects.has(projectKey)) {
+        return;
+      }
+      
       if (!brandMap.has(brand)) {
         brandMap.set(brand, []);
       }
       brandMap.get(brand)!.push(example);
+      seenProjects.add(projectKey);
     }
   });
   
