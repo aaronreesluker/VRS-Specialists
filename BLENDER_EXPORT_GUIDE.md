@@ -15,10 +15,10 @@ C:\Users\aaron\OneDrive\Desktop\Websites\To DO\VRS Specialists\public\car\frames
 **Output Format:** `frame_####.png`
 
 Where `####` is a 4-digit zero-padded frame number:
-- Frame 1: `frame_0001.png`
-- Frame 2: `frame_0002.png`
+- Frame 1: `0001.png`
+- Frame 2: `0002.png`
 - ...
-- Frame 160: `frame_0160.png`
+- Frame 161: `0161.png`
 
 ### Blender Render Settings
 
@@ -34,7 +34,7 @@ Where `####` is a 4-digit zero-padded frame number:
 
 3. **Frame Range:**
    - **Start Frame:** 1
-   - **End Frame:** 160
+   - **End Frame:** 161
    - **Frame Step:** 1
 
 4. **Output Settings:**
@@ -47,14 +47,14 @@ Where `####` is a 4-digit zero-padded frame number:
 - [ ] File format: PNG
 - [ ] Color mode: RGBA (with Alpha)
 - [ ] Film Transparent: Enabled
-- [ ] Frame range: 1 to 160
-- [ ] File naming: `frame_####.png`
+- [ ] Frame range: 1 to 161
+- [ ] File naming: `####.png` (4-digit zero-padded, e.g., `0001.png`)
 - [ ] Resolution: Your desired resolution (1920x1080 or higher recommended)
 
 ### After Export
 
-1. Verify all 160 frames are in the folder
-2. Check that files are named correctly: `frame_0001.png` through `frame_0160.png`
+1. Verify all 161 frames are in the folder
+2. Check that files are named correctly: `0001.png` through `0161.png`
 3. Test the website - the animation should work automatically!
 
 ### File Size Optimization (Optional)
@@ -77,7 +77,7 @@ If your PNG files are very large (>10MB total), consider:
 - Ensure files are actually in the `public` folder (not `app` or `components`)
 
 **Animation not smooth:**
-- Verify all 160 frames exist
+- Verify all 161 frames exist
 - Check frame numbers are sequential (no gaps)
 - Ensure files aren't corrupted
 

@@ -107,12 +107,12 @@ export default function Home() {
       {/* 
         SETUP INSTRUCTIONS:
         1. Place your PNG frames in: /public/car/frames/
-        2. Naming: frame_0001.png, frame_0002.png, ..., frame_0140.png
+        2. Naming: 0001.png, 0002.png, ..., 0161.png
         3. Adjust frameCount to match your total frames
         4. Set flashColor to match the background color of the next section
       */}
       <ScrollCarHero
-        frameCount={160}
+        frameCount={161}
         heroHeight={300} // Adjusted for mobile in component (max 200vh on mobile)
         titleMain="V.R.S"
         titleSub="Vehicle Rejuvenation Specialists"

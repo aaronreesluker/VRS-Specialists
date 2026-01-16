@@ -9,7 +9,7 @@ import { useEffect, useState, useRef } from "react";
  * 
  * FRAME MAPPING:
  * - progress 0.0 → frame 1 (0001.png)
- * - progress 1.0 → frame 160 (0160.png)
+ * - progress 1.0 → frame 161 (0161.png)
  * - Formula: frameIndex = Math.floor(clampedProgress * (frameCount - 1)) + 1
  */
 
@@ -34,7 +34,7 @@ export function ImageSequencePlayer({
   const [loadedFrames, setLoadedFrames] = useState<Set<number>>(new Set());
   const imageRef = useRef<HTMLImageElement>(null);
 
-  // Generate frame path from index (1-indexed: 1-160)
+  // Generate frame path from index (1-indexed: 1-161)
   const getFramePath = (index: number): string => {
     const paddedIndex = index.toString().padStart(4, "0");
     // Handle frameFormat - replace %04d with padded index

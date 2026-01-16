@@ -2,7 +2,8 @@
 const webhookUrl = "https://flow.zoho.eu/20111718033/flow/webhook/incoming?zapikey=1001.9a12e725a59a1e93a35316579605ec5c.faa42baf56fafa7b3801e6a83bb7506c&isdebug=false";
 
 const samplePayload = {
-  name: "John Doe",
+  firstName: "John",
+  lastName: "Doe",
   email: "john.doe@example.com",
   phone: "+44 7700 900123",
   service: "Car Detailing",

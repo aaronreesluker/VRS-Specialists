@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Validate required fields
-    const { name, email, phone, service, location, message, honeypot } = body;
+    const { firstName, lastName, email, phone, service, location, message, honeypot } = body;
 
     // Honeypot check
     if (honeypot) {
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true });
     }
 
-    if (!name || !email || !phone || !message) {
+    if (!firstName || !lastName || !email || !phone || !message) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -68,7 +68,8 @@ export async function POST(request: NextRequest) {
     const sanitize = (str: string) => str.trim().replace(/[<>]/g, "");
 
     const sanitizedData = {
-      name: sanitize(name),
+      firstName: sanitize(firstName),
+      lastName: sanitize(lastName),
       email: sanitize(email),
       phone: sanitize(phone),
       service: service ? sanitize(service) : "",
@@ -91,7 +92,8 @@ export async function POST(request: NextRequest) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: sanitizedData.name,
+          firstName: sanitizedData.firstName,
+          lastName: sanitizedData.lastName,
           email: sanitizedData.email,
           phone: sanitizedData.phone,
           service: sanitizedData.service,

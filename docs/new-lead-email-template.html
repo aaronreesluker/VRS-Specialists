@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Lead Notification</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background-color: #f4f4f4;">
+    <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center" style="padding: 20px 0;">
+                <table role="presentation" style="width: 600px; max-width: 100%; border-collapse: collapse; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #1a1a1a; padding: 30px; text-align: center;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: bold;">New Lead Received</h1>
+                            <p style="margin: 10px 0 0 0; color: #cccccc; font-size: 14px;">VRS Specialists Contact Form</p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Lead Details -->
+                    <tr>
+                        <td style="padding: 30px;">
+                            <h2 style="margin: 0 0 20px 0; color: #1a1a1a; font-size: 20px; font-weight: bold; border-bottom: 2px solid #e0e0e0; padding-bottom: 10px;">
+                                Lead Information
+                            </h2>
+                            
+                            <!-- Contact Details -->
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+                                <tr>
+                                    <td style="padding: 8px 0; color: #666666; font-size: 14px; width: 140px; font-weight: bold;">Name:</td>
+                                    <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">${firstName} ${lastName}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #666666; font-size: 14px; font-weight: bold;">Email:</td>
+                                    <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">
+                                        <a href="mailto:${email}" style="color: #0066cc; text-decoration: none;">${email}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #666666; font-size: 14px; font-weight: bold;">Phone:</td>
+                                    <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">
+                                        <a href="tel:${phone}" style="color: #0066cc; text-decoration: none;">${phone}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #666666; font-size: 14px; font-weight: bold;">Service:</td>
+                                    <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px; font-weight: 500;">${service}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #666666; font-size: 14px; font-weight: bold;">Location:</td>
+                                    <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">${location}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #666666; font-size: 14px; font-weight: bold;">Submitted:</td>
+                                    <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">${timestamp}</td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Vehicle Details -->
+                            <h3 style="margin: 25px 0 15px 0; color: #1a1a1a; font-size: 18px; font-weight: bold; border-bottom: 1px solid #e0e0e0; padding-bottom: 8px;">
+                                Vehicle Information
+                            </h3>
+                            
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+                                <tr>
+                                    <td style="padding: 8px 0; color: #666666; font-size: 14px; width: 140px; font-weight: bold;">Make:</td>
+                                    <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">${vehicleMake || 'Not provided'}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #666666; font-size: 14px; font-weight: bold;">Model:</td>
+                                    <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">${vehicleModel || 'Not provided'}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #666666; font-size: 14px; font-weight: bold;">Year:</td>
+                                    <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">${vehicleYear || 'Not provided'}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 8px 0; color: #666666; font-size: 14px; font-weight: bold;">Colour:</td>
+                                    <td style="padding: 8px 0; color: #1a1a1a; font-size: 14px;">${vehicleColour || 'Not provided'}</td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Message -->
+                            <h3 style="margin: 25px 0 15px 0; color: #1a1a1a; font-size: 18px; font-weight: bold; border-bottom: 1px solid #e0e0e0; padding-bottom: 8px;">
+                                Message
+                            </h3>
+                            
+                            <div style="background-color: #f9f9f9; border-left: 4px solid #0066cc; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                                <p style="margin: 0; color: #1a1a1a; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+                            </div>
+                            
+                            <!-- Action Button -->
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; margin-top: 30px;">
+                                <tr>
+                                    <td align="center" style="padding: 20px 0;">
+                                        <a href="mailto:${email}?subject=Re: Your enquiry to VRS Specialists" style="display: inline-block; background-color: #0066cc; color: #ffffff; text-decoration: none; padding: 12px 30px; border-radius: 5px; font-size: 14px; font-weight: bold;">Reply to Lead</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f9f9f9; padding: 20px 30px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="margin: 0; color: #999999; font-size: 12px;">
+                                This is an automated notification from the VRS Specialists website contact form.
+                            </p>
+                            <p style="margin: 5px 0 0 0; color: #999999; font-size: 12px;">
+                                Lead Source: ${source}
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+

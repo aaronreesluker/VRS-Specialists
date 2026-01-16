@@ -4,10 +4,10 @@
 
 ### 1. **Frame Index Calculation Bug**
 **Issue**: The original formula was correct but the progress range was wrong.
-- Original: `carAnimationRange: [0, 0.95]` meant frames only went from 1-152, never reaching frame 160
+- Original: `carAnimationRange: [0, 0.95]` meant frames only went from 1-152, never reaching frame 161
 - This caused the animation to "jump" at the end when it tried to show the final frames
 
-**Fix**: Changed to `[0, 1]` so scroll progress maps directly to all 160 frames.
+**Fix**: Changed to `[0, 1]` so scroll progress maps directly to all 161 frames.
 
 ### 2. **Scale Overshoot**
 **Issue**: Scale went from `0.8` to `5.0`, which is way too large.
@@ -50,13 +50,13 @@ const frameIndex = Math.floor(clamped * (frameCount - 1)) + 1;
 
 **Example**:
 - Progress `0.0` → Frame `1` (0001.png)
-- Progress `0.5` → Frame `80` (0080.png) 
-- Progress `1.0` → Frame `160` (0160.png)
+- Progress `0.5` → Frame `81` (0081.png) 
+- Progress `1.0` → Frame `161` (0161.png)
 
 This ensures:
 - Every frame is shown (no skipping)
 - Smooth progression (1 frame per small scroll movement)
-- No out-of-bounds errors (clamped to [1, 160])
+- No out-of-bounds errors (clamped to [1, 161])
 
 ### Sizing and Scaling
 **Container**: Responsive, centered, max-width constrained
@@ -96,7 +96,7 @@ canvas {
 
 ## Frame Storage
 
-**Current Location**: `/public/car/frames/0001.png` through `0160.png`
+**Current Location**: `/public/car/frames/0001.png` through `0161.png`
 
 **This is correct for Next.js**:
 - ✅ Files in `public/` are served as static assets
@@ -105,7 +105,7 @@ canvas {
 - ✅ Works with Next.js Image Optimization (if needed)
 
 **Naming Pattern**: `%04d.png` (4-digit zero-padded)
-- `0001.png`, `0002.png`, ..., `0160.png`
+- `0001.png`, `0002.png`, ..., `0161.png`
 - Consistent, sortable, easy to generate programmatically
 
 **Alternative Options** (if needed later):

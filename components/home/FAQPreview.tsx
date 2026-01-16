@@ -46,7 +46,7 @@ export default function FAQPreview() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-      return (
+  return (
         <section className="py-12 md:py-16 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12" ref={ref}>
@@ -75,21 +75,21 @@ export default function FAQPreview() {
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
               return (
-                <div
-                  key={index}
+            <div
+              key={index}
                   className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 overflow-hidden transition-all"
                 >
                   <button
                     onClick={() => toggleFAQ(index)}
                     className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-inset"
                     aria-expanded={isOpen}
-                  >
+            >
                     <h3 
                       className="text-lg font-bold text-white pr-4 flex-1"
                       style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
                     >
-                      {faq.question}
-                    </h3>
+                {faq.question}
+              </h3>
                     <svg
                       className={`w-5 h-5 text-white flex-shrink-0 transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
@@ -127,7 +127,7 @@ export default function FAQPreview() {
                 </div>
               );
             })}
-          </div>
+            </div>
         </div>
 
         {/* "View All FAQs" button removed - FAQ page not ready yet for pitch/portfolio site */}

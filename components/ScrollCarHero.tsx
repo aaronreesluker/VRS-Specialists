@@ -16,7 +16,7 @@ interface ScrollCarHeroProps {
 }
 
 export function ScrollCarHero({
-  frameCount = 160,
+  frameCount = 161,
   heroHeight = 300,
   titleMain = "V.R.S",
   titleSub = "Vehicle Rejuvenation Specialists",
