@@ -110,7 +110,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
             {/* Logo */}
-            <div className="mb-3 sm:mb-4">
+            <div className="mb-1 sm:mb-2">
               <Image 
                 src="/assets/vrs4.png" 
                 alt="VRS Vehicle Rejuvenation Specialists" 
@@ -153,7 +153,7 @@ export default function Home() {
               </a>
             </div>
             
-            <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2 mb-4">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-2 mb-4">
               <span 
                 className="inline-flex items-center text-xs sm:text-sm md:text-base uppercase tracking-wider"
                 style={{ 
