@@ -23,91 +23,80 @@ export default function Navigation() {
       const lastScrollY = lastScrollYRef.current;
       setIsScrolled(currentScrollY > 20);
       
-      if (isHomePage) {
-        // On homepage: detect which section we're in
-        // Hero section (ScrollCarHero) is black - hide navigation during this section
-        // Grey section immediately after should match grey background
-        
-        // Hero section is approximately 300vh (3x viewport height)
-        // Hide navigation during the Porsche scrolling section
-        const heroHeight = window.innerHeight * 3; // 300vh
-        const isInHeroSection = currentScrollY < heroHeight;
-        
-        if (isInHeroSection) {
-          // In hero section (Porsche/car section) - hide navigation completely
+      // Scroll-aware behavior for all pages (hide on scroll down, show on scroll up)
+      const scrollDifference = Math.abs(currentScrollY - lastScrollY);
+      
+      if (currentScrollY <= 50) {
+        // Near top - always show navigation
+        setIsVisible(true);
+      } else if (scrollDifference > 5) {
+        // Only update if scroll difference is significant (prevents flickering)
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down - hide navigation
           setIsVisible(false);
-          setBackgroundColor("rgb(0, 0, 0)");
-          setTextColor("#ffffff");
-        } else {
-          // Past hero section - scroll-aware behavior
-          // Hide when scrolling down, show when scrolling up
-          if (currentScrollY > lastScrollY && currentScrollY > heroHeight + 50) {
-            // Scrolling down - hide navigation
-            setIsVisible(false);
-          } else if (currentScrollY < lastScrollY) {
-            // Scrolling up - show navigation
-            setIsVisible(true);
-          } else if (currentScrollY <= heroHeight + 50) {
-            // Just past hero section - show navigation
-            setIsVisible(true);
-          }
-          
-          // Detect which section we're in and match background color
-          const sections = document.querySelectorAll("section");
-          let currentSection: Element | null = null;
-          
-          sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            // Check if section is near the top (where header is) or covers the header area
-            if (rect.top <= 100 && rect.bottom >= 0) {
-              currentSection = section;
-            }
-          });
-          
-          if (currentSection) {
-            // Match the section's background color
-            const computedStyle = window.getComputedStyle(currentSection);
-            let bgColor = computedStyle.backgroundColor;
-            
-            // Handle rgba/rgb color values
-            if (bgColor === "rgba(0, 0, 0, 0)" || bgColor === "transparent") {
-              // If transparent, check inline style
-              const htmlElement = currentSection as HTMLElement;
-              const inlineBg = htmlElement.getAttribute("style");
-              if (inlineBg && inlineBg.includes("backgroundColor")) {
-                const match = inlineBg.match(/backgroundColor["']?\s*[:=]\s*["']?([^;"']+)/);
-                if (match) {
-                  bgColor = match[1].trim();
-                  // Convert hex to rgb if needed
-                  if (bgColor.startsWith("#")) {
-                    const hex = bgColor.replace("#", "");
-                    const r = parseInt(hex.substring(0, 2), 16);
-                    const g = parseInt(hex.substring(2, 4), 16);
-                    const b = parseInt(hex.substring(4, 6), 16);
-                    bgColor = `rgb(${r}, ${g}, ${b})`;
-                  }
-                }
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolling up - show navigation
+          setIsVisible(true);
+        }
+      }
+      
+      // Detect which section we're in and match background color
+      const sections = document.querySelectorAll("section");
+      let currentSection: Element | null = null;
+      
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          currentSection = section;
+        }
+      });
+      
+      if (currentSection) {
+        const computedStyle = window.getComputedStyle(currentSection);
+        let bgColor = computedStyle.backgroundColor;
+        
+        // Handle rgba/rgb color values
+        if (bgColor === "rgba(0, 0, 0, 0)" || bgColor === "transparent") {
+          // If transparent, check inline style
+          const htmlElement = currentSection as HTMLElement;
+          const inlineBg = htmlElement.getAttribute("style");
+          if (inlineBg && inlineBg.includes("backgroundColor")) {
+            const match = inlineBg.match(/backgroundColor["']?\s*[:=]\s*["']?([^;"']+)/);
+            if (match) {
+              bgColor = match[1].trim();
+              // Convert hex to rgb if needed
+              if (bgColor.startsWith("#")) {
+                const hex = bgColor.replace("#", "");
+                const r = parseInt(hex.substring(0, 2), 16);
+                const g = parseInt(hex.substring(2, 4), 16);
+                const b = parseInt(hex.substring(4, 6), 16);
+                bgColor = `rgb(${r}, ${g}, ${b})`;
               }
             }
-            
-            setBackgroundColor(bgColor);
-            
-            // Determine text color based on background brightness
-            const rgb = bgColor.match(/\d+/g);
-            if (rgb && rgb.length >= 3) {
-              const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-              setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
-            } else {
-              // Default for grey section
-              setTextColor("#ffffff");
-            }
+          }
+        }
+        
+        // Force white background on services page
+        if (isServicesPage) {
+          setBackgroundColor("rgb(255, 255, 255)");
+          setTextColor("#1f2937");
+        } else {
+          setBackgroundColor(bgColor);
+          
+          const rgb = bgColor.match(/\d+/g);
+          if (rgb && rgb.length >= 3) {
+            const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+            setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
           } else {
-            // Default fallback - grey section
-            setBackgroundColor("rgb(146, 146, 146)"); // #929292 - grey section after hero
-            setTextColor("#ffffff");
+            setTextColor("#1f2937");
           }
         }
       } else {
+        // Default to matching page context
+        if (isServicesPage) {
+          setBackgroundColor("rgb(255, 255, 255)");
+          setTextColor("#1f2937");
+        } else {
         // Other pages: scroll-aware behavior (hide on scroll down, show on scroll up)
         const scrollDifference = Math.abs(currentScrollY - lastScrollY);
         
@@ -178,9 +167,12 @@ export default function Navigation() {
             }
           }
         } else {
-          // Default to white background on other pages
-          // Force white on services page
-          if (isServicesPage) {
+          // Default based on page context
+          if (isHomePage) {
+            // Homepage - default to black (hero section background)
+            setBackgroundColor("rgb(0, 0, 0)");
+            setTextColor("#ffffff");
+          } else if (isServicesPage) {
             setBackgroundColor("rgb(255, 255, 255)");
             setTextColor("#1f2937");
           } else {
@@ -188,25 +180,22 @@ export default function Navigation() {
             setTextColor("#1f2937");
           }
         }
-      }
       
       lastScrollYRef.current = currentScrollY;
     };
     
-    // Set initial visibility for non-homepage
-    if (!isHomePage) {
-      const initialScrollY = window.scrollY;
-      if (initialScrollY <= 50) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false); // Start hidden if already scrolled down
-      }
+    // Set initial visibility based on scroll position
+    const initialScrollY = window.scrollY;
+    if (initialScrollY <= 50) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false); // Start hidden if already scrolled down
     }
     
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHomePage]);
+  }, [isHomePage, isServicesPage]);
 
   // Simplified navigation links
   const navLinks = [
