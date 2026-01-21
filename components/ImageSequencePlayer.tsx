@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
  * ImageSequencePlayer Component
@@ -20,6 +20,8 @@ interface ImageSequencePlayerProps {
   frameFormat?: string;
   preloadCount?: number;
   className?: string;
+  onPreloadProgress?: (completed: number, total: number) => void;
+  onPreloadComplete?: () => void;
 }
 
 export function ImageSequencePlayer({
@@ -29,6 +31,8 @@ export function ImageSequencePlayer({
   frameFormat = "%04d.png",
   preloadCount = 30,
   className = "",
+  onPreloadProgress,
+  onPreloadComplete,
 }: ImageSequencePlayerProps) {
   const [currentFrameIndex, setCurrentFrameIndex] = useState(1);
   const [loadedFrames, setLoadedFrames] = useState<Set<number>>(new Set());
@@ -57,60 +61,90 @@ export function ImageSequencePlayer({
     return fullPath;
   };
 
-  // Calculate frame index from progress - optimized for maximum smoothness
+  // Calculate target frame index from progress
   // progress 0.0 → frame 1, progress 1.0 → frame frameCount
-  const frameUpdateRef = useRef<number | null>(null);
-  const lastFrameRef = useRef<number>(1);
-  
+  // NOTE: We intentionally "step" one frame at a time to avoid skipping frames.
+  const targetFrameRef = useRef<number>(1);
+  const animRafRef = useRef<number | null>(null);
+  const currentFrameRef = useRef<number>(1);
+
+  useEffect(() => {
+    currentFrameRef.current = currentFrameIndex;
+  }, [currentFrameIndex]);
+
+  const ensureAnimating = useCallback(() => {
+    if (animRafRef.current !== null) return;
+
+    const step = () => {
+      animRafRef.current = null;
+
+      const current = currentFrameRef.current;
+      const target = targetFrameRef.current;
+      if (current === target) return;
+
+      const next = current < target ? current + 1 : current - 1;
+      currentFrameRef.current = next;
+      setCurrentFrameIndex(next);
+
+      animRafRef.current = requestAnimationFrame(step);
+    };
+
+    animRafRef.current = requestAnimationFrame(step);
+  }, []);
+
   useEffect(() => {
     const clamped = Math.max(0, Math.min(1, progress));
-    // Use Math.round for smoother interpolation between frames
-    // This provides better frame accuracy for smooth animation
-    const exactFrame = clamped * (frameCount - 1) + 1;
-    const frameIndex = Math.round(exactFrame);
+    const frameIndex = Math.floor(clamped * (frameCount - 1)) + 1;
     const finalIndex = Math.max(1, Math.min(frameCount, frameIndex));
-    
-    // Only update if frame actually changed (reduces unnecessary re-renders)
-    if (finalIndex === lastFrameRef.current) {
-      return;
-    }
-    
-    // Cancel any pending frame update
-    if (frameUpdateRef.current !== null) {
-      cancelAnimationFrame(frameUpdateRef.current);
-    }
-    
-    // Use requestAnimationFrame for smooth, synchronized frame updates
-    frameUpdateRef.current = requestAnimationFrame(() => {
-      lastFrameRef.current = finalIndex;
-      setCurrentFrameIndex(finalIndex);
-      frameUpdateRef.current = null;
-    });
-    
+    targetFrameRef.current = finalIndex;
+    ensureAnimating();
+  }, [progress, frameCount, ensureAnimating]);
+
+  useEffect(() => {
     return () => {
-      if (frameUpdateRef.current !== null) {
-        cancelAnimationFrame(frameUpdateRef.current);
-        frameUpdateRef.current = null;
+      if (animRafRef.current !== null) {
+        cancelAnimationFrame(animRafRef.current);
+        animRafRef.current = null;
       }
     };
-  }, [progress, frameCount]);
+  }, []);
 
   // Preload initial frames (load in parallel for faster initial load)
   useEffect(() => {
+    let cancelled = false;
+    let rafId: number | null = null;
+
     const preloadImages = async () => {
       const count = Math.min(preloadCount, frameCount);
       const loaded = new Set<number>();
       const loadPromises: Promise<void>[] = [];
+      const total = count;
+      let completed = 0;
+
+      const scheduleProgress = () => {
+        if (!onPreloadProgress) return;
+        if (cancelled) return;
+        if (rafId !== null) return;
+        rafId = requestAnimationFrame(() => {
+          rafId = null;
+          if (cancelled) return;
+          onPreloadProgress(completed, total);
+        });
+      };
 
       for (let i = 1; i <= count; i++) {
         const promise = new Promise<void>((resolve) => {
           const img = new Image();
           img.onload = () => {
+            completed += 1;
             loaded.add(i);
+            scheduleProgress();
             resolve();
           };
           img.onerror = () => {
             console.error(`Failed to load frame ${i}: ${getFramePath(i)}`);
+            completed += 1;
+            scheduleProgress();
             resolve();
           };
           img.src = getFramePath(i);
@@ -120,11 +154,23 @@ export function ImageSequencePlayer({
 
       // Load frames in parallel instead of sequentially
       await Promise.all(loadPromises);
+      if (cancelled) return;
       setLoadedFrames(loaded);
+      // Final progress + ready signal (even if some frames failed)
+      if (onPreloadProgress) onPreloadProgress(completed, total);
+      onPreloadComplete?.();
     };
 
     preloadImages();
-  }, [frameCount, preloadCount, basePath, frameFormat]);
+
+    return () => {
+      cancelled = true;
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    };
+  }, [frameCount, preloadCount, basePath, frameFormat, onPreloadComplete, onPreloadProgress]);
 
   // Lazy load frames as we approach them (preload more frames for smoother playback)
   useEffect(() => {

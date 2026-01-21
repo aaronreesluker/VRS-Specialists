@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { ImageSequencePlayer } from "./ImageSequencePlayer";
+import { VrsDrawLoader } from "./VrsDrawLoader";
 
 interface ScrollCarHeroProps {
   frameCount?: number;
@@ -29,6 +30,28 @@ export function ScrollCarHero({
   const [reducedMotion, setReducedMotion] = useState(false);
   const [currentProgress, setCurrentProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [framesReady, setFramesReady] = useState(false);
+  const [hideLoader, setHideLoader] = useState(false);
+  const [preloadStats, setPreloadStats] = useState<{ completed: number; total: number }>({
+    completed: 0,
+    total: frameCount,
+  });
+  const hideLoaderTimeoutRef = useRef<number | null>(null);
+
+  const handlePreloadProgress = useCallback((completed: number, total: number) => {
+    setPreloadStats({ completed, total });
+  }, []);
+
+  const handlePreloadComplete = useCallback(() => {
+    setFramesReady(true);
+    if (hideLoaderTimeoutRef.current !== null) {
+      window.clearTimeout(hideLoaderTimeoutRef.current);
+    }
+    hideLoaderTimeoutRef.current = window.setTimeout(() => {
+      setHideLoader(true);
+      hideLoaderTimeoutRef.current = null;
+    }, 550);
+  }, []);
 
   // Check for reduced motion and mobile device
   useEffect(() => {
@@ -50,6 +73,15 @@ export function ScrollCarHero({
     return () => {
       motionQuery.removeEventListener("change", handleMotionChange);
       window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (hideLoaderTimeoutRef.current !== null) {
+        window.clearTimeout(hideLoaderTimeoutRef.current);
+        hideLoaderTimeoutRef.current = null;
+      }
     };
   }, []);
 
@@ -106,26 +138,14 @@ export function ScrollCarHero({
   
   // Ultra-smooth progress updates synchronized with browser paint cycles
   const progressUpdateRef = useRef<number | null>(null);
-  const lastProgressRef = useRef<number>(0);
-  
+  const pendingProgressRef = useRef<number>(0);
+
   useMotionValueEvent(effectiveProgress, "change", (latest) => {
-    // Only update if progress changed significantly (reduces micro-updates)
-    if (Math.abs(latest - lastProgressRef.current) < 0.001) {
-      return;
-    }
-    
-    // Cancel any pending update
-    if (progressUpdateRef.current !== null) {
-      cancelAnimationFrame(progressUpdateRef.current);
-    }
-    
-    // Use double requestAnimationFrame for ultra-smooth rendering (next paint cycle)
+    pendingProgressRef.current = latest;
+    if (progressUpdateRef.current !== null) return;
     progressUpdateRef.current = requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        lastProgressRef.current = latest;
-        setCurrentProgress(latest);
-        progressUpdateRef.current = null;
-      });
+      setCurrentProgress(pendingProgressRef.current);
+      progressUpdateRef.current = null;
     });
   });
 
@@ -138,35 +158,51 @@ export function ScrollCarHero({
       className={`relative ${backgroundColor}`}
       style={{ height: `${adjustedHeroHeight}vh` }}
     >
-      <div className="sticky top-0 h-screen w-full" style={{ overflow: "hidden" }}>
-        {/* Title */}
-        <motion.div
-          className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4"
-          style={{ opacity: titleOpacity }}
-        >
-          <h1 
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-white mb-3 md:mb-6 text-center"
-            style={{
-              fontFamily: "var(--font-space-grotesk), sans-serif",
-              fontWeight: 700,
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
-            }}
+      <div className="sticky top-0 h-screen w-full relative" style={{ overflow: "hidden" }}>
+        {/* VRS loader overlay (shown until frames are ready) */}
+        {!hideLoader && (
+          <VrsDrawLoader
+            title={titleMain}
+            subtitle={titleSub}
+            progress={
+              preloadStats.total > 0 ? preloadStats.completed / preloadStats.total : undefined
+            }
+            className={`transition-opacity duration-500 ${
+              framesReady ? "opacity-0" : "opacity-100"
+            }`}
+          />
+        )}
+
+        {/* Title (after preloading) */}
+        {framesReady && (
+          <motion.div
+            className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4"
+            style={{ opacity: titleOpacity }}
           >
-            {titleMain}
-          </h1>
-          <p 
-            className="text-base sm:text-lg md:text-xl lg:text-3xl text-white/80 text-center px-4"
-            style={{
-              fontFamily: "var(--font-outfit), sans-serif",
-              fontWeight: 300,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-            }}
-          >
-            {titleSub}
-          </p>
-        </motion.div>
+            <h1
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-white mb-3 md:mb-6 text-center"
+              style={{
+                fontFamily: "var(--font-space-grotesk), sans-serif",
+                fontWeight: 700,
+                letterSpacing: "0.05em",
+                textTransform: "uppercase",
+              }}
+            >
+              {titleMain}
+            </h1>
+            <p
+              className="text-base sm:text-lg md:text-xl lg:text-3xl text-white/80 text-center px-4"
+              style={{
+                fontFamily: "var(--font-outfit), sans-serif",
+                fontWeight: 300,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+              }}
+            >
+              {titleSub}
+            </p>
+          </motion.div>
+        )}
 
         {/* Car Animation */}
         <div
@@ -182,7 +218,7 @@ export function ScrollCarHero({
         >
           <motion.div
             style={{
-              opacity: carOpacity,
+              opacity: framesReady ? carOpacity : 0,
               x: carX,
               scale: carScale,
               transformOrigin: "center center",
@@ -199,7 +235,9 @@ export function ScrollCarHero({
               frameCount={frameCount}
               basePath={frameBasePath}
               frameFormat={frameFormat}
-              preloadCount={30}
+              preloadCount={frameCount}
+              onPreloadProgress={handlePreloadProgress}
+              onPreloadComplete={handlePreloadComplete}
               className=""
             />
           </motion.div>
