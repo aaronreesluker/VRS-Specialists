@@ -27,6 +27,12 @@ export const metadata: Metadata = {
 // Car brand logos for LogoLoop component
 const carBrandLogos: LogoItem[] = [
   {
+    src: "/logos/brands/porsche.png",
+    alt: "Porsche",
+    title: "Porsche",
+    height: 100,
+  },
+  {
     src: "/logos/brands/ferrari.png",
     alt: "Ferrari",
     title: "Ferrari",

@@ -19,6 +19,7 @@ const CAR_BRANDS = [
   "Land Rover",
   "McLaren",
   "Mercedes",
+  "Porsche",
   "Range Rover",
   "Rolls Royce",
   "Rolls-Royce",
