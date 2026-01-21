@@ -7,7 +7,6 @@ import TestimonialsPreview from "@/components/home/TestimonialsPreview";
 import CoverageArea from "@/components/home/CoverageArea";
 import FAQPreview from "@/components/home/FAQPreview";
 // import BlogSection from "@/components/BlogSection"; // Removed - Blog pages not ready yet
-import { ScrollCarHero } from "@/components/ScrollCarHero";
 import { ScrollNav } from "@/components/ScrollNav";
 import { InstagramGallery } from "@/components/InstagramGallery";
 import { LogoLoop, type LogoItem } from "@/components/LogoLoop";
@@ -97,30 +96,9 @@ export default function Home() {
       {/* Scroll-aware navigation menu */}
       <ScrollNav />
       
-      {/* Scroll-driven cinematic car hero section */}
-      {/* 
-        SETUP INSTRUCTIONS:
-        1. Place your PNG frames in: /public/car/frames/
-        2. Naming: 0001.png, 0002.png, ..., 0161.png
-        3. Adjust frameCount to match your total frames
-        4. Set flashColor to match the background color of the next section
-      */}
-      <ScrollCarHero
-        frameCount={161}
-        heroHeight={300} // Adjusted for mobile in component (max 200vh on mobile)
-        titleMain="V.R.S"
-        titleSub="Vehicle Rejuvenation Specialists"
-        flashColor="#FFFFFF" // Matches next section background (pure white)
-        backgroundColor="bg-black"
-        frameBasePath="/car/frames"
-        frameFormat="%04d.png"
-      />
-      
-      {/* Next section - revealed through flash transition */}
-      {/* IMPORTANT: Background color should match flashColor prop above */}
+      {/* Hero section */}
       <section 
-        className="relative w-full min-h-screen pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-24 flex items-center justify-center"
-        style={{ backgroundColor: "#FFFFFF" }} // Matches last frame of car animation (pure white)
+        className="relative w-full min-h-screen pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-24 flex items-center justify-center bg-white"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
