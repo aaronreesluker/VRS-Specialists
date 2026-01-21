@@ -105,25 +105,25 @@ export default function Home() {
       
       {/* Hero section */}
       <section 
-        className="relative w-full min-h-screen pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-24 flex flex-col items-center justify-center bg-black"
+        className="relative w-full min-h-screen pt-8 sm:pt-12 md:pt-16 pb-12 sm:pb-16 md:pb-24 flex flex-col items-center justify-center bg-black"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
             {/* Logo */}
-            <div className="mb-6 sm:mb-8">
+            <div className="mb-3 sm:mb-4">
               <Image 
                 src="/assets/vrs4.png" 
                 alt="VRS Vehicle Rejuvenation Specialists" 
                 width={1200}
                 height={320}
-                className="h-32 sm:h-40 md:h-52 lg:h-64 xl:h-72 w-auto mx-auto"
+                className="h-40 sm:h-52 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto"
                 priority
               />
             </div>
             
             {/* Smaller subtitle */}
             <h2 
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mb-8 sm:mb-10 md:mb-12 text-balance leading-tight"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mb-4 sm:mb-5 md:mb-6 text-balance leading-tight"
               style={{ 
                 fontFamily: "var(--font-outfit), sans-serif",
                 color: "#ffffff",
@@ -134,7 +134,7 @@ export default function Home() {
               Vehicle Rejuvenation Specialists
             </h2>
             
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center mb-8 sm:mb-10 md:mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center mb-4 sm:mb-5 md:mb-6">
               <a
                 href="tel:08000029083"
                 className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 active:bg-white/20 text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wider min-w-[200px] sm:min-w-[180px] shadow-lg hover:shadow-xl"
@@ -153,7 +153,7 @@ export default function Home() {
               </a>
             </div>
             
-            <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2 mb-4">
               <span 
                 className="inline-flex items-center text-xs sm:text-sm md:text-base uppercase tracking-wider"
                 style={{ 
