@@ -94,16 +94,16 @@ export default function Footer() {
                 onClick={() => setExpandedImage("/assets/UPPF.png")}
               />
               <img
-                src="/assets/rupes.png"
+                src="/assets/Rupes.png"
                 alt="Rupes Certification"
                 className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
-                onClick={() => setExpandedImage("/assets/rupes.png")}
+                onClick={() => setExpandedImage("/assets/Rupes.png")}
               />
               <img
-                src="/assets/gtechniq.png"
+                src="/assets/Gtechniq.png"
                 alt="Gtechniq Certification"
                 className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
-                onClick={() => setExpandedImage("/assets/gtechniq.png")}
+                onClick={() => setExpandedImage("/assets/Gtechniq.png")}
               />
             </div>
           </div>

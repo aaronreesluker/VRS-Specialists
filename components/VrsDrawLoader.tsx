@@ -41,7 +41,7 @@ export function VrsDrawLoader({
           {/* Stroke (draw-on) layer */}
           <text
             x="50%"
-            y="48%"
+            y="44%"
             textAnchor="middle"
             dominantBaseline="middle"
             className="vrs-stroke"
@@ -57,7 +57,7 @@ export function VrsDrawLoader({
           {/* Fill layer */}
           <text
             x="50%"
-            y="48%"
+            y="44%"
             textAnchor="middle"
             dominantBaseline="middle"
             className="vrs-fill"
@@ -73,7 +73,7 @@ export function VrsDrawLoader({
           {/* Subtitle */}
           <text
             x="50%"
-            y="78%"
+            y="74%"
             textAnchor="middle"
             dominantBaseline="middle"
             className="vrs-subtitle"
@@ -104,6 +104,7 @@ export function VrsDrawLoader({
 
       <style jsx>{`
         .vrs-stroke {
+          font-size: clamp(120px, 18vw, 260px);
           fill: transparent;
           stroke: rgba(255, 255, 255, 0.98);
           stroke-width: 10;
@@ -116,6 +117,7 @@ export function VrsDrawLoader({
         }
 
         .vrs-fill {
+          font-size: clamp(120px, 18vw, 260px);
           fill: rgba(255, 255, 255, 0.98);
           opacity: 0;
           animation: vrs-fill 0.6s ease forwards, vrs-glow 2.2s ease-in-out 0.8s
@@ -124,6 +126,7 @@ export function VrsDrawLoader({
         }
 
         .vrs-subtitle {
+          font-size: clamp(14px, 2.4vw, 34px);
           fill: rgba(255, 255, 255, 0.7);
           opacity: 0;
           animation: vrs-sub 0.7s ease forwards;
