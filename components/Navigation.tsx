@@ -92,94 +92,19 @@ export default function Navigation() {
           }
         }
       } else {
-        // Default to matching page context
-        if (isServicesPage) {
+        // Default based on page context
+        if (isHomePage) {
+          // Homepage - default to black (hero section background)
+          setBackgroundColor("rgb(0, 0, 0)");
+          setTextColor("#ffffff");
+        } else if (isServicesPage) {
           setBackgroundColor("rgb(255, 255, 255)");
           setTextColor("#1f2937");
         } else {
-        // Other pages: scroll-aware behavior (hide on scroll down, show on scroll up)
-        const scrollDifference = Math.abs(currentScrollY - lastScrollY);
-        
-        if (currentScrollY <= 50) {
-          // Near top - always show navigation
-          setIsVisible(true);
-        } else if (scrollDifference > 5) {
-          // Only update if scroll difference is significant (prevents flickering)
-          if (currentScrollY > lastScrollY) {
-            // Scrolling down - hide navigation
-            setIsVisible(false);
-          } else if (currentScrollY < lastScrollY) {
-            // Scrolling up - show navigation
-            setIsVisible(true);
-          }
+          setBackgroundColor("rgb(255, 255, 255)");
+          setTextColor("#1f2937");
         }
-        // If scroll position hasn't changed much, keep current visibility state
-        
-        // Match section background
-        const sections = document.querySelectorAll("section");
-        let currentSection: Element | null = null;
-        
-        sections.forEach((section) => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section;
-          }
-        });
-        
-        if (currentSection) {
-          const computedStyle = window.getComputedStyle(currentSection);
-          let bgColor = computedStyle.backgroundColor;
-          
-          // Handle rgba/rgb color values
-          if (bgColor === "rgba(0, 0, 0, 0)" || bgColor === "transparent") {
-            // If transparent, check inline style
-            const htmlElement = currentSection as HTMLElement;
-            const inlineBg = htmlElement.getAttribute("style");
-            if (inlineBg && inlineBg.includes("backgroundColor")) {
-              const match = inlineBg.match(/backgroundColor["']?\s*[:=]\s*["']?([^;"']+)/);
-              if (match) {
-                bgColor = match[1].trim();
-                // Convert hex to rgb if needed
-                if (bgColor.startsWith("#")) {
-                  const hex = bgColor.replace("#", "");
-                  const r = parseInt(hex.substring(0, 2), 16);
-                  const g = parseInt(hex.substring(2, 4), 16);
-                  const b = parseInt(hex.substring(4, 6), 16);
-                  bgColor = `rgb(${r}, ${g}, ${b})`;
-                }
-              }
-            }
-          }
-          
-          // Force white background on services page
-          if (isServicesPage) {
-            setBackgroundColor("rgb(255, 255, 255)");
-            setTextColor("#1f2937");
-          } else {
-            setBackgroundColor(bgColor);
-            
-            const rgb = bgColor.match(/\d+/g);
-            if (rgb && rgb.length >= 3) {
-              const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-              setTextColor(brightness > 128 ? "#1f2937" : "#ffffff");
-            } else {
-              setTextColor("#1f2937");
-            }
-          }
-        } else {
-          // Default based on page context
-          if (isHomePage) {
-            // Homepage - default to black (hero section background)
-            setBackgroundColor("rgb(0, 0, 0)");
-            setTextColor("#ffffff");
-          } else if (isServicesPage) {
-            setBackgroundColor("rgb(255, 255, 255)");
-            setTextColor("#1f2937");
-          } else {
-            setBackgroundColor("rgb(255, 255, 255)");
-            setTextColor("#1f2937");
-          }
-        }
+      }
       
       lastScrollYRef.current = currentScrollY;
     };
