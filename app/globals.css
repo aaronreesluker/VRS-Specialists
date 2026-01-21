@@ -80,6 +80,25 @@
   }
 }
 
+@keyframes scroll-mouse {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-scroll-mouse {
+  animation: scroll-mouse 2s ease-in-out infinite;
+}
+
 .shiny-text {
   background-clip: text;
   -webkit-background-clip: text;

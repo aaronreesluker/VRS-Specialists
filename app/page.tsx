@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import ServiceOverview from "@/components/home/ServiceOverview";
 import ProofStrip from "@/components/home/ProofStrip";
 import ProcessSection from "@/components/home/ProcessSection";
@@ -104,49 +105,34 @@ export default function Home() {
       
       {/* Hero section */}
       <section 
-        className="relative w-full min-h-screen pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-24 flex items-center justify-center bg-black"
+        className="relative w-full min-h-screen pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-24 flex flex-col items-center justify-center bg-black"
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
-          <h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 md:mb-10 text-balance leading-tight"
-              style={{ 
-                fontFamily: "var(--font-space-grotesk), sans-serif",
-                color: "#ffffff",
-                textShadow: "0 2px 8px rgba(0, 0, 0, 0.3)"
-              }}
-          >
-            Vehicle Rejuvenation
-              <br className="hidden sm:block" />
-              <span className="block sm:inline">
-                <span 
-                  className="shiny-text text-brand-red inline-block mt-2 sm:mt-0"
-                  style={{ 
-                    textShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
-                    background: "linear-gradient(90deg, #E11C22 0%, #ff4444 25%, #E11C22 50%, #ff4444 75%, #E11C22 100%)",
-                    backgroundSize: "200% auto",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    animation: "shiny-text 3s linear infinite"
-                  }}
-                >
-                  Specialists
-                </span>
-              </span>
-          </h1>
+            {/* Logo */}
+            <div className="mb-6 sm:mb-8">
+              <Image 
+                src="/assets/vrs1.png" 
+                alt="VRS Vehicle Rejuvenation Specialists" 
+                width={300}
+                height={80}
+                className="h-16 sm:h-20 md:h-24 w-auto mx-auto"
+                priority
+              />
+            </div>
             
-            <p 
-              className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed"
+            {/* Smaller subtitle */}
+            <h2 
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mb-8 sm:mb-10 md:mb-12 text-balance leading-tight"
               style={{ 
-                color: "#ffffff",
                 fontFamily: "var(--font-outfit), sans-serif",
-                textShadow: "0 1px 4px rgba(0, 0, 0, 0.3)"
+                color: "#ffffff",
+                textShadow: "0 1px 4px rgba(0, 0, 0, 0.3)",
+                letterSpacing: "0.1em"
               }}
             >
-            Meticulous detailing, paint correction, and protection services in
-            Brighton and across Sussex. Studio workshop or mobile service.
-          </p>
+              Vehicle Rejuvenation Specialists
+            </h2>
             
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center mb-8 sm:mb-10 md:mb-12">
               <a
@@ -198,6 +184,21 @@ export default function Home() {
               >
                 <span className="mr-2 text-green-600">✓</span> Premium Products
               </span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Animated Scroll Mouse Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+          <div className="flex flex-col items-center">
+            <span 
+              className="text-white/70 text-xs uppercase tracking-widest mb-2"
+              style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+            >
+              Scroll
+            </span>
+            <div className="w-6 h-10 border-2 border-white/70 rounded-full flex justify-center p-2">
+              <div className="w-1.5 h-1.5 bg-white/70 rounded-full animate-scroll-mouse"></div>
             </div>
           </div>
         </div>
