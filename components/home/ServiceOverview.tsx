@@ -40,14 +40,14 @@ export default function ServiceOverview() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 md:py-28 bg-gray-50">
+    <section className="py-20 md:py-28 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12" ref={ref}>
           <motion.h2
             initial={{ opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
             animate={isInView ? { opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" } : { opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-dark-900"
+            className="text-4xl md:text-5xl font-bold mb-6 text-white"
             style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
           >
             Our Services
@@ -56,7 +56,7 @@ export default function ServiceOverview() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-lg text-dark-700 max-w-2xl mx-auto"
+            className="text-lg text-gray-300 max-w-2xl mx-auto"
             style={{ fontFamily: "var(--font-outfit), sans-serif" }}
           >
             Comprehensive vehicle rejuvenation services, from meticulous
@@ -69,30 +69,30 @@ export default function ServiceOverview() {
             <Link
               key={service.id}
               href={service.href}
-              className="group bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-primary-500 transition-all duration-300 hover:shadow-lg"
+              className="group bg-gray-900 border-2 border-gray-700 rounded-lg p-6 hover:border-primary-500 transition-all duration-300 hover:shadow-lg"
             >
               <div className="mb-4">
                 <h3 
-                  className="text-xl font-bold mb-2 text-dark-900 group-hover:text-primary-600 transition-colors"
+                  className="text-xl font-bold mb-2 text-white group-hover:text-primary-500 transition-colors"
                   style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
                 >
                   {service.name}
                 </h3>
                 <p 
-                  className="text-2xl font-bold text-primary-600 mb-3"
+                  className="text-2xl font-bold text-primary-500 mb-3"
                   style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
                 >
                   {service.price}
                 </p>
               </div>
               <p 
-                className="text-dark-700 mb-4"
+                className="text-gray-300 mb-4"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 {service.description}
               </p>
               <span 
-                className="text-primary-600 font-semibold group-hover:underline"
+                className="text-primary-500 font-semibold group-hover:underline"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 Learn more →
@@ -104,7 +104,7 @@ export default function ServiceOverview() {
         <div className="text-center mt-12">
           <Link 
             href="/services" 
-            className="border-2 border-dark-900 text-dark-900 px-6 py-3 rounded-full font-semibold text-center hover:bg-dark-900 hover:text-white transition-colors uppercase tracking-wider inline-block"
+            className="border-2 border-white text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-white hover:text-black transition-colors uppercase tracking-wider inline-block"
             style={{ fontFamily: "var(--font-outfit), sans-serif" }}
           >
             View All Services
