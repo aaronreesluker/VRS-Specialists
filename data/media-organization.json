@@ -10,7 +10,8 @@
         "project-1767918439874",
         "project-1767918716762",
         "project-1768000344853-lvu1uqi4l",
-        "project-1768000344854-pkd9gcx6w"
+        "project-1768000344854-pkd9gcx6w",
+        "project-1767919044339"
       ],
       "projects": [
         {
@@ -518,21 +519,10 @@
             }
           ],
           "location": "BRIGHTON & SUSSEX"
-        }
-      ]
-    },
-    {
-      "id": "ppf",
-      "name": "PPF Protection",
-      "projectIds": [
-        "project-1767919044339",
-        "project-1768000344854-dbbi3gmd2",
-        "project-1768169832091-x6sblxv81"
-      ],
-      "projects": [
+        },
         {
           "id": "project-1767919044339",
-          "name": "Porsche GT3 RS Track-Ready PPF Protection",
+          "name": "Porsche GT3 RS Track-Ready Detail",
           "mediaIds": [
             "gt3rs1",
             "gt3rs2",
@@ -546,48 +536,58 @@
             {
               "id": "gt3rs1",
               "src": "/videos/instagram/gt3rs1.jpg",
-              "alt": "Porsche GT3 RS Track-Ready PPF Protection in BRIGHTON & SUSSEX - Premium PPF protection service (Image 1 of 7)",
+              "alt": "Porsche GT3 RS Track-Ready Detail in BRIGHTON & SUSSEX - Premium car detailing service (Image 1 of 7)",
               "type": "image"
             },
             {
               "id": "gt3rs2",
               "src": "/videos/instagram/gt3rs2.jpg",
-              "alt": "Porsche GT3 RS Track-Ready PPF Protection in BRIGHTON & SUSSEX - Premium PPF protection service (Image 2 of 7)",
+              "alt": "Porsche GT3 RS Track-Ready Detail in BRIGHTON & SUSSEX - Premium car detailing service (Image 2 of 7)",
               "type": "image"
             },
             {
               "id": "gt3rs3",
               "src": "/videos/instagram/gt3rs3.jpg",
-              "alt": "Porsche GT3 RS Track-Ready PPF Protection in BRIGHTON & SUSSEX - Premium PPF protection service (Image 3 of 7)",
+              "alt": "Porsche GT3 RS Track-Ready Detail in BRIGHTON & SUSSEX - Premium car detailing service (Image 3 of 7)",
               "type": "image"
             },
             {
               "id": "gt3rs4",
               "src": "/videos/instagram/gt3rs4.jpg",
-              "alt": "Porsche GT3 RS Track-Ready PPF Protection in BRIGHTON & SUSSEX - Premium PPF protection service (Image 4 of 7)",
+              "alt": "Porsche GT3 RS Track-Ready Detail in BRIGHTON & SUSSEX - Premium car detailing service (Image 4 of 7)",
               "type": "image"
             },
             {
               "id": "gt3rs5",
               "src": "/videos/instagram/gt3rs5.jpg",
-              "alt": "Porsche GT3 RS Track-Ready PPF Protection in BRIGHTON & SUSSEX - Premium PPF protection service (Image 5 of 7)",
+              "alt": "Porsche GT3 RS Track-Ready Detail in BRIGHTON & SUSSEX - Premium car detailing service (Image 5 of 7)",
               "type": "image"
             },
             {
               "id": "gt3rs6",
               "src": "/videos/instagram/gt3rs6.jpg",
-              "alt": "Porsche GT3 RS Track-Ready PPF Protection in BRIGHTON & SUSSEX - Premium PPF protection service (Image 6 of 7)",
+              "alt": "Porsche GT3 RS Track-Ready Detail in BRIGHTON & SUSSEX - Premium car detailing service (Image 6 of 7)",
               "type": "image"
             },
             {
               "id": "gt3rs7",
               "src": "/videos/instagram/gt3rs7.jpg",
-              "alt": "Porsche GT3 RS Track-Ready PPF Protection in BRIGHTON & SUSSEX - Premium PPF protection service (Image 7 of 7)",
+              "alt": "Porsche GT3 RS Track-Ready Detail in BRIGHTON & SUSSEX - Premium car detailing service (Image 7 of 7)",
               "type": "image"
             }
           ],
           "location": "BRIGHTON & SUSSEX"
-        },
+        }
+      ]
+    },
+    {
+      "id": "ppf",
+      "name": "PPF Protection",
+      "projectIds": [
+        "project-1768000344854-dbbi3gmd2",
+        "project-1768169832091-x6sblxv81"
+      ],
+      "projects": [
         {
           "id": "project-1768000344854-dbbi3gmd2",
           "name": "BMW Z4 140i PPF Protection",
