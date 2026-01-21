@@ -34,6 +34,11 @@ export const metadata: Metadata = {
   description: "Premium car detailing, paint correction, ceramic coating and PPF services in Brighton and across Sussex. Studio workshop and mobile detailing. Insured and certified.",
   keywords: ["car detailing Brighton", "paint correction", "ceramic coating", "PPF", "mobile car detailing", "vehicle detailing Sussex"],
   authors: [{ name: "VRS Specialists" }],
+  icons: {
+    icon: [{ url: "/assets/vrs1.png", type: "image/png" }],
+    shortcut: ["/assets/vrs1.png"],
+    apple: [{ url: "/assets/vrs1.png", type: "image/png" }],
+  },
   viewport: {
     width: "device-width",
     initialScale: 1,
