@@ -12,7 +12,7 @@ export default function Navigation() {
   const isServicesPage = pathname === "/services";
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Start visible at top
   const lastScrollYRef = useRef(0);
   const [backgroundColor, setBackgroundColor] = useState("rgba(0, 0, 0, 1)");
   const [textColor, setTextColor] = useState("#ffffff");
@@ -26,8 +26,8 @@ export default function Navigation() {
       // Scroll-aware behavior for all pages (hide on scroll down, show on scroll up)
       const scrollDifference = Math.abs(currentScrollY - lastScrollY);
       
-      if (currentScrollY <= 50) {
-        // Near top - always show navigation
+      if (currentScrollY <= 100) {
+        // Near top (within 100px) - always show navigation
         setIsVisible(true);
       } else if (scrollDifference > 5) {
         // Only update if scroll difference is significant (prevents flickering)
@@ -185,7 +185,7 @@ export default function Navigation() {
     };
     
     // Set initial visibility based on scroll position
-    const initialScrollY = window.scrollY;
+    const initialScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
     if (initialScrollY <= 50) {
       setIsVisible(true);
     } else {
