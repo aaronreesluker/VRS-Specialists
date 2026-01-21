@@ -114,9 +114,9 @@ export default function Home() {
               <Image 
                 src="/assets/vrs1.png" 
                 alt="VRS Vehicle Rejuvenation Specialists" 
-                width={300}
-                height={80}
-                className="h-16 sm:h-20 md:h-24 w-auto mx-auto"
+                width={500}
+                height={133}
+                className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto mx-auto"
                 priority
               />
             </div>
