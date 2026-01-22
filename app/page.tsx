@@ -111,9 +111,12 @@ export default function Home() {
           loop
           muted
           playsInline
+          preload="auto"
           className="w-full h-full object-cover"
+          style={{ display: 'block' }}
         >
           <source src="/assets/v1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
       </section>
       
