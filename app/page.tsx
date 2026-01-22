@@ -8,6 +8,7 @@ import TestimonialsPreview from "@/components/home/TestimonialsPreview";
 import CoverageArea from "@/components/home/CoverageArea";
 import FAQPreview from "@/components/home/FAQPreview";
 import ProductsSection from "@/components/home/ProductsSection";
+import VideoHero from "@/components/home/VideoHero";
 // import BlogSection from "@/components/BlogSection"; // Removed - Blog pages not ready yet
 import { ScrollNav } from "@/components/ScrollNav";
 import { InstagramGallery } from "@/components/InstagramGallery";
@@ -105,20 +106,7 @@ export default function Home() {
       <ScrollNav />
       
       {/* Video Section */}
-      <section className="relative w-full h-screen overflow-hidden bg-black">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="w-full h-full object-cover"
-          style={{ display: 'block' }}
-        >
-          <source src="/assets/v1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </section>
+      <VideoHero />
       
       {/* Hero section */}
       <section 
