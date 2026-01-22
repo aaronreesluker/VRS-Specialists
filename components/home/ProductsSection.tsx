@@ -17,16 +17,19 @@ export default function ProductsSection() {
       name: "Foam White pH7 Snow Foam",
       description: "Premium snow foam - 700ml",
       price: "£19.00",
+      image: "/videos/instagram/F8F6.jpg",
     },
     {
       name: "Car Shampoo Conditioner",
       description: "Premium car shampoo - 770ml",
       price: "£10.00",
+      image: "/videos/instagram/F8F7.jpg",
     },
     {
       name: "Quick Shine",
       description: "Quick detailing spray - 600ml",
       price: "£12.00",
+      image: "/videos/instagram/RangeRAB4.jpg",
     },
   ];
 
@@ -64,17 +67,22 @@ export default function ProductsSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group bg-gray-900 border-2 border-gray-700 rounded-lg overflow-hidden hover:border-primary-500 transition-all duration-300 hover:shadow-lg"
             >
-              {product.image && (
-                <div className="relative aspect-square w-full overflow-hidden bg-gray-800">
+              <div className="relative aspect-square w-full overflow-hidden bg-gray-800">
+                {product.image ? (
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    unoptimized
                   />
-                </div>
-              )}
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-800">
+                    <span className="text-gray-600 text-sm">No image</span>
+                  </div>
+                )}
+              </div>
               <div className="p-6">
                 <h3
                   className="text-xl font-bold mb-2 text-white group-hover:text-primary-500 transition-colors"
