@@ -14,7 +14,7 @@
         "project-1767919044339",
         "project-lamborghini-huracan-orange",
         "project-ferrari-f8-tributo",
-        "project-facility-showcase",
+        "project-mercedes-amg-gt",
         "project-sick-coating-product"
       ],
       "projects": [
@@ -2674,17 +2674,17 @@
           "location": "BRIGHTON & SUSSEX"
         },
         {
-          "id": "project-facility-showcase",
-          "name": "VRS Facility Showcase",
-          "description": "Our professional detailing facility in Brighton, equipped with modern garage bays and premium equipment for luxury vehicle care.",
+          "id": "project-mercedes-amg-gt",
+          "name": "Mercedes-AMG GT Premium Detail",
+          "description": "Premium detailing service for this sleek Mercedes-AMG GT, showcasing our professional facility and expertise with high-performance luxury vehicles.",
           "mediaIds": [
-            "facility-1"
+            "mercedes-amg-gt-1"
           ],
           "media": [
             {
-              "id": "facility-1",
+              "id": "mercedes-amg-gt-1",
               "src": "/videos/instagram/IMG_6922.png",
-              "alt": "VRS Facility Showcase in BRIGHTON & SUSSEX - Professional detailing facility equipped with modern garage bays and premium equipment for luxury vehicle care",
+              "alt": "Mercedes-AMG GT Premium Detail in BRIGHTON & SUSSEX - Premium detailing service showcasing our professional facility and expertise with high-performance luxury vehicles",
               "type": "image"
             }
           ],

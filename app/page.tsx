@@ -7,6 +7,7 @@ import ProcessSection from "@/components/home/ProcessSection";
 import TestimonialsPreview from "@/components/home/TestimonialsPreview";
 import CoverageArea from "@/components/home/CoverageArea";
 import FAQPreview from "@/components/home/FAQPreview";
+import ProductsSection from "@/components/home/ProductsSection";
 // import BlogSection from "@/components/BlogSection"; // Removed - Blog pages not ready yet
 import { ScrollNav } from "@/components/ScrollNav";
 import { InstagramGallery } from "@/components/InstagramGallery";
@@ -228,6 +229,8 @@ export default function Home() {
       
       <ProcessSection />
       <TestimonialsPreview />
+      
+      <ProductsSection />
       
           {/* Instagram Gallery - Showcasing Each Service */}
       <InstagramGallery
