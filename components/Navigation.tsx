@@ -14,8 +14,9 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true); // Start visible at top
   const lastScrollYRef = useRef(0);
-  const [backgroundColor, setBackgroundColor] = useState("rgba(0, 0, 0, 1)");
+  const [backgroundColor, setBackgroundColor] = useState("transparent");
   const [textColor, setTextColor] = useState("#ffffff");
+  const [isAtTop, setIsAtTop] = useState(true); // Track if at very top for transparency
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,9 @@ export default function Navigation() {
       
       // Scroll-aware behavior for all pages (hide on scroll down, show on scroll up)
       const scrollDifference = Math.abs(currentScrollY - lastScrollY);
+      
+      // Track if at the very top for transparent header
+      setIsAtTop(currentScrollY <= 50);
       
       if (currentScrollY <= 100) {
         // Near top (within 100px) - always show navigation
@@ -144,6 +148,11 @@ export default function Navigation() {
 
   // Get RGB values from backgroundColor
   const getBackgroundStyle = () => {
+    // Transparent at the very top (video section)
+    if (isAtTop && isHomePage) {
+      return "transparent";
+    }
+    
     const rgb = backgroundColor.match(/\d+/g);
     if (rgb && rgb.length >= 3) {
       const r = parseInt(rgb[0]);
