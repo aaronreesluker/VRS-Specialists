@@ -110,7 +110,7 @@ export default function Home() {
       
       {/* Hero section */}
       <section 
-        className="relative w-full min-h-screen pt-8 sm:pt-12 md:pt-16 pb-12 sm:pb-16 md:pb-24 flex flex-col items-center justify-center bg-black"
+        className="relative w-full min-h-screen pt-2 sm:pt-12 md:pt-16 pb-12 sm:pb-16 md:pb-24 flex flex-col items-center justify-center bg-black"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
