@@ -115,7 +115,7 @@ export default function TestimonialsPreview() {
                 className="text-4xl font-bold text-white"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
-                4.7
+                4.8
               </span>
               <div className="flex">
                 {[...Array(5)].map((_, i) => {
@@ -143,8 +143,8 @@ export default function TestimonialsPreview() {
                         <defs>
                           <linearGradient id="partialFill">
                             <stop offset="0%" stopColor="currentColor" />
-                            <stop offset="70%" stopColor="currentColor" />
-                            <stop offset="70%" stopColor="transparent" />
+                            <stop offset="80%" stopColor="currentColor" />
+                            <stop offset="80%" stopColor="transparent" />
                             <stop offset="100%" stopColor="transparent" />
                           </linearGradient>
                         </defs>
@@ -171,7 +171,7 @@ export default function TestimonialsPreview() {
                 className="text-lg font-semibold text-white"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
-                105 Google Reviews
+                104 Google Reviews
               </p>
             </div>
           </div>
