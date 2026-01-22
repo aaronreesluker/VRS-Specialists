@@ -8,13 +8,29 @@ export default function VideoHero() {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
+      console.log("Video element found, attempting to play");
       // Force play
       const playPromise = video.play();
       if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.error("Video play error:", error);
-        });
+        playPromise
+          .then(() => {
+            console.log("Video playing successfully");
+          })
+          .catch((error) => {
+            console.error("Video play error:", error);
+          });
       }
+      
+      // Log video events for debugging
+      video.addEventListener('loadstart', () => console.log('Video: loadstart'));
+      video.addEventListener('loadedmetadata', () => console.log('Video: loadedmetadata'));
+      video.addEventListener('loadeddata', () => console.log('Video: loadeddata'));
+      video.addEventListener('canplay', () => console.log('Video: canplay'));
+      video.addEventListener('error', (e) => {
+        console.error('Video error event:', e);
+        console.error('Video error code:', video.error?.code);
+        console.error('Video error message:', video.error?.message);
+      });
     }
   }, []);
 
@@ -34,7 +50,8 @@ export default function VideoHero() {
           left: 0,
           width: '100%',
           height: '100%',
-          zIndex: 1
+          zIndex: 1,
+          backgroundColor: '#000'
         }}
       >
         <source src="/assets/v1.mp4" type="video/mp4" />
