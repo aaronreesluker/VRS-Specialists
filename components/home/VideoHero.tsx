@@ -1,41 +1,43 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export default function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      console.log("Video element found, attempting to play");
-      // Force play
+      const handleCanPlay = () => {
+        setIsLoaded(true);
+        video.play().catch((error) => {
+          console.error("Video play error:", error);
+        });
+      };
+
+      video.addEventListener('canplay', handleCanPlay);
+      video.addEventListener('loadeddata', () => {
+        setIsLoaded(true);
+        video.play().catch(() => {});
+      });
+
+      // Try to play immediately
       const playPromise = video.play();
       if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            console.log("Video playing successfully");
-          })
-          .catch((error) => {
-            console.error("Video play error:", error);
-          });
+        playPromise.catch((error) => {
+          console.error("Initial play error:", error);
+        });
       }
-      
-      // Log video events for debugging
-      video.addEventListener('loadstart', () => console.log('Video: loadstart'));
-      video.addEventListener('loadedmetadata', () => console.log('Video: loadedmetadata'));
-      video.addEventListener('loadeddata', () => console.log('Video: loadeddata'));
-      video.addEventListener('canplay', () => console.log('Video: canplay'));
-      video.addEventListener('error', (e) => {
-        console.error('Video error event:', e);
-        console.error('Video error code:', video.error?.code);
-        console.error('Video error message:', video.error?.message);
-      });
+
+      return () => {
+        video.removeEventListener('canplay', handleCanPlay);
+      };
     }
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black">
+    <section className="relative w-screen h-screen overflow-hidden bg-black" style={{ width: '100vw', height: '100vh' }}>
       <video
         ref={videoRef}
         autoPlay
@@ -43,15 +45,16 @@ export default function VideoHero() {
         muted
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
+        className={`w-full h-full object-cover ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
+          width: '100vw',
+          height: '100vh',
+          objectFit: 'cover',
           position: 'absolute',
           top: 0,
           left: 0,
-          width: '100%',
-          height: '100%',
           zIndex: 1,
-          backgroundColor: '#000'
+          transition: 'opacity 0.5s ease-in'
         }}
       >
         <source src="/assets/v1.mp4" type="video/mp4" />
