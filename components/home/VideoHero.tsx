@@ -16,11 +16,19 @@ export default function VideoHero() {
         });
       };
 
+      const handleTimeUpdate = () => {
+        // Stop video 1 second before the end
+        if (video.duration && video.currentTime >= video.duration - 1) {
+          video.pause();
+        }
+      };
+
       video.addEventListener('canplay', handleCanPlay);
       video.addEventListener('loadeddata', () => {
         setIsLoaded(true);
         video.play().catch(() => {});
       });
+      video.addEventListener('timeupdate', handleTimeUpdate);
 
       // Try to play immediately
       const playPromise = video.play();
@@ -32,6 +40,7 @@ export default function VideoHero() {
 
       return () => {
         video.removeEventListener('canplay', handleCanPlay);
+        video.removeEventListener('timeupdate', handleTimeUpdate);
       };
     }
   }, []);
