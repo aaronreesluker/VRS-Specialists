@@ -37,7 +37,7 @@ export default function ProductsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {productImages.map((image, index) => (
             <motion.div
               key={index}
@@ -45,14 +45,14 @@ export default function ProductsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative aspect-square w-full overflow-hidden rounded-lg bg-gray-800 hover:scale-105 transition-transform duration-300 cursor-pointer"
+              className="group relative aspect-square w-full max-w-[200px] sm:max-w-[220px] md:max-w-[240px] overflow-hidden rounded-lg bg-gray-800 hover:scale-105 transition-transform duration-300 cursor-pointer"
             >
               <Image
                 src={image}
                 alt={`Premium detailing product ${index + 1}`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 16vw"
+                sizes="(max-width: 768px) 200px, (max-width: 1200px) 220px, 240px"
                 unoptimized
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
