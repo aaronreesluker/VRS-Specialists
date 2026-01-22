@@ -176,6 +176,7 @@ export default function Navigation() {
               className="h-16 w-auto"
               style={{ filter: textColor === "#ffffff" ? "brightness(0) invert(1)" : "none" }}
               priority
+              unoptimized
             />
           </Link>
 

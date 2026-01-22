@@ -36,6 +36,7 @@ export default function Footer() {
               height={48}
               className="h-12 w-auto mb-4"
               loading="lazy"
+              unoptimized
             />
             <p 
               className="text-dark-700 mb-3"

@@ -118,6 +118,7 @@ export default function Home() {
                 height={320}
                 className="h-40 sm:h-52 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto"
                 priority
+                unoptimized
               />
             </div>
             
