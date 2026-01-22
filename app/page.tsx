@@ -104,26 +104,24 @@ export default function Home() {
       {/* Scroll-aware navigation menu */}
       <ScrollNav />
       
+      {/* Video Section */}
+      <section className="relative w-full h-screen overflow-hidden bg-black">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/assets/v1.mp4" type="video/mp4" />
+        </video>
+      </section>
+      
       {/* Hero section */}
       <section 
-        className="relative w-full min-h-screen pt-8 sm:pt-12 md:pt-16 pb-12 sm:pb-16 md:pb-24 flex flex-col items-center justify-center bg-black overflow-hidden"
+        className="relative w-full min-h-screen pt-8 sm:pt-12 md:pt-16 pb-12 sm:pb-16 md:pb-24 flex flex-col items-center justify-center bg-black"
       >
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src="/assets/v1.mp4" type="video/mp4" />
-          </video>
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col items-center justify-center relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
             {/* Logo */}
             <div className="mb-1 sm:mb-2">
