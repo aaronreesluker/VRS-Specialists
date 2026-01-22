@@ -84,7 +84,7 @@ export default function ProofStrip() {
               </div>
               <h3 
                 className="text-xl font-bold mb-1.5 text-white"
-                style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 {point.title}
               </h3>

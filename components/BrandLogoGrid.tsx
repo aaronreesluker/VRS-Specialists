@@ -41,7 +41,7 @@ function SpecialBadgeWithShine({ brandName }: { brandName: string }) {
             ? 'brand-logo-shine-special-text' 
             : 'text-white opacity-70 group-hover:opacity-100'
         }`}
-        style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+        style={{ fontFamily: "var(--font-outfit), sans-serif" }}
       >
         +
       </span>
@@ -324,7 +324,7 @@ export function BrandLogoGrid({
         <div className="text-center mb-8">
           <h2 
             className="text-4xl md:text-5xl font-bold mb-4 text-white"
-            style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+            style={{ fontFamily: "var(--font-outfit), sans-serif" }}
           >
             {title}
           </h2>
@@ -359,7 +359,7 @@ export function BrandLogoGrid({
                   ) : (
                     <span
                       className="text-white text-lg font-semibold opacity-70 group-hover:opacity-100 transition-opacity"
-                      style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                      style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                     >
                       {brand.brandName}
                     </span>

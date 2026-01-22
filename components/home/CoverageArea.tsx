@@ -30,7 +30,7 @@ export default function CoverageArea() {
             }
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl md:text-5xl font-bold mb-6 text-white"
-            style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+            style={{ fontFamily: "var(--font-outfit), sans-serif" }}
           >
             Coverage Area
           </motion.h2>
@@ -58,7 +58,7 @@ export default function CoverageArea() {
                 <div className="coverage-card-inner bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-4 relative z-10 group-hover:border-transparent transition-colors duration-300">
                   <h3
                     className="font-bold text-white mb-1"
-                    style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                   >
                     {area.name}
                   </h3>
@@ -77,7 +77,7 @@ export default function CoverageArea() {
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center">
             <p
               className="text-white font-semibold mb-2"
-              style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+              style={{ fontFamily: "var(--font-outfit), sans-serif" }}
             >
               Not sure if we cover your area?
             </p>

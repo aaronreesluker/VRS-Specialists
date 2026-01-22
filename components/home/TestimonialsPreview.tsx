@@ -113,7 +113,7 @@ export default function TestimonialsPreview() {
             <div className="flex items-center gap-2">
               <span 
                 className="text-4xl font-bold text-white"
-                style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 4.7
               </span>
@@ -180,7 +180,7 @@ export default function TestimonialsPreview() {
             animate={isInView ? { opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" } : { opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl md:text-5xl font-bold mb-6 text-white"
-            style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+            style={{ fontFamily: "var(--font-outfit), sans-serif" }}
           >
             Client Reviews
           </motion.h2>
@@ -224,7 +224,7 @@ export default function TestimonialsPreview() {
                 <div className="border-t border-white/20 pt-4">
                   <p 
                     className="font-semibold text-white"
-                    style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                   >
                     {testimonial.name}
                   </p>

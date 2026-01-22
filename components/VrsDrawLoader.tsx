@@ -46,7 +46,7 @@ export function VrsDrawLoader({
             dominantBaseline="middle"
             className="vrs-stroke"
             style={{
-              fontFamily: "var(--font-space-grotesk), sans-serif",
+              fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 700,
               letterSpacing: "0.15em",
             }}
@@ -62,7 +62,7 @@ export function VrsDrawLoader({
             dominantBaseline="middle"
             className="vrs-fill"
             style={{
-              fontFamily: "var(--font-space-grotesk), sans-serif",
+              fontFamily: "var(--font-outfit), sans-serif",
               fontWeight: 700,
               letterSpacing: "0.15em",
             }}

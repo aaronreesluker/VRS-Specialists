@@ -55,7 +55,7 @@ export default function FAQPreview() {
             animate={isInView ? { opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" } : { opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl md:text-5xl font-bold mb-6 text-white"
-            style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+            style={{ fontFamily: "var(--font-outfit), sans-serif" }}
           >
             Frequently Asked Questions
           </motion.h2>
@@ -86,7 +86,7 @@ export default function FAQPreview() {
             >
                     <h3 
                       className="text-lg font-bold text-white pr-4 flex-1"
-                      style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                      style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                     >
                 {faq.question}
               </h3>

@@ -47,7 +47,7 @@ function AnimatedSectionHeader({
         animate={isInView ? { opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" } : { opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`text-4xl md:text-5xl font-bold mb-6 ${textColor}`}
-        style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+        style={{ fontFamily: "var(--font-outfit), sans-serif" }}
       >
         {title}
       </motion.h2>
@@ -708,7 +708,7 @@ export function BrandGallery({
             <div className="flex items-start justify-between mb-3 gap-3">
               <h3 
                 className="text-xl md:text-2xl lg:text-2xl font-bold text-black leading-tight"
-                style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 {currentPost?.title || "Project"}
               </h3>
@@ -746,7 +746,7 @@ export function BrandGallery({
             {currentPost?.description && (
               <p 
                 className="text-black mb-3 text-sm font-medium leading-relaxed"
-                style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 {currentPost.description}
               </p>
@@ -767,7 +767,7 @@ export function BrandGallery({
                   <div>
                     <h4 
                       className="text-black text-xs font-semibold uppercase tracking-wider mb-2"
-                      style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                      style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                     >
                       Techniques Used
                     </h4>
@@ -793,7 +793,7 @@ export function BrandGallery({
                   <div>
                     <h4 
                       className="text-black text-xs font-semibold uppercase tracking-wider mb-2"
-                      style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                      style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                     >
                       Results Achieved
                     </h4>

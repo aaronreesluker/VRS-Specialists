@@ -112,7 +112,7 @@ export default function Footer() {
           <div>
             <h4 
               className="text-lg font-semibold mb-3 text-dark-900"
-              style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+              style={{ fontFamily: "var(--font-outfit), sans-serif" }}
             >
               Services
             </h4>
@@ -135,7 +135,7 @@ export default function Footer() {
           <div>
             <h4 
               className="text-lg font-semibold mb-3 text-dark-900"
-              style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+              style={{ fontFamily: "var(--font-outfit), sans-serif" }}
             >
               Quick Links
             </h4>
@@ -158,7 +158,7 @@ export default function Footer() {
           <div>
             <h4 
               className="text-lg font-semibold mb-3 text-dark-900"
-              style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+              style={{ fontFamily: "var(--font-outfit), sans-serif" }}
             >
               Contact
             </h4>

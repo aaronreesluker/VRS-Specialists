@@ -18,10 +18,12 @@
   
   body {
     @apply bg-white text-dark-900 antialiased;
+    font-family: var(--font-outfit), sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
+    font-family: var(--font-outfit), sans-serif;
   }
   
   h1 {
@@ -38,6 +40,10 @@
   
   h4 {
     @apply text-xl md:text-2xl;
+  }
+  
+  p, span, a, li, div {
+    font-family: var(--font-outfit), sans-serif;
   }
 }
 
@@ -283,7 +289,7 @@
   animation: brandLogoShine 1.5s linear infinite;
   
   /* Match the + symbol font properties exactly */
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-outfit), sans-serif;
   font-size: 3rem; /* text-5xl = 48px */
   font-weight: 300; /* font-light */
   line-height: 1;

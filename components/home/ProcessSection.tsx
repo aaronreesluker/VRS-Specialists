@@ -155,7 +155,7 @@ function ProcessStep({ step, index }: { step: (typeof steps)[0]; index: number }
       >
         <h3 
           className="text-lg md:text-xl font-bold mb-2 text-white"
-          style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+          style={{ fontFamily: "var(--font-outfit), sans-serif" }}
         >
           {step.title}
         </h3>
@@ -184,7 +184,7 @@ export default function ProcessSection() {
             animate={isInView ? { opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" } : { opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl md:text-5xl font-bold mb-6 text-white"
-            style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+            style={{ fontFamily: "var(--font-outfit), sans-serif" }}
           >
             Our Process
           </motion.h2>

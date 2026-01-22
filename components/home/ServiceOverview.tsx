@@ -48,7 +48,7 @@ export default function ServiceOverview() {
             animate={isInView ? { opacity: 1, y: 0, clipPath: "inset(0 0% 0 0)" } : { opacity: 0, y: 30, clipPath: "inset(0 100% 0 0)" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl md:text-5xl font-bold mb-6 text-white"
-            style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+            style={{ fontFamily: "var(--font-outfit), sans-serif" }}
           >
             Our Services
           </motion.h2>
@@ -74,13 +74,13 @@ export default function ServiceOverview() {
               <div className="mb-4">
                 <h3 
                   className="text-xl font-bold mb-2 text-white group-hover:text-primary-500 transition-colors"
-                  style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                  style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                 >
                   {service.name}
                 </h3>
                 <p 
                   className="text-2xl font-bold text-primary-500 mb-3"
-                  style={{ fontFamily: "var(--font-space-grotesk), sans-serif" }}
+                  style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                 >
                   {service.price}
                 </p>

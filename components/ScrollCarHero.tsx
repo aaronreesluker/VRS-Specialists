@@ -182,7 +182,7 @@ export function ScrollCarHero({
             <h1
               className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-white mb-3 md:mb-6 text-center"
               style={{
-                fontFamily: "var(--font-space-grotesk), sans-serif",
+                fontFamily: "var(--font-outfit), sans-serif",
                 fontWeight: 700,
                 letterSpacing: "0.05em",
                 textTransform: "uppercase",
