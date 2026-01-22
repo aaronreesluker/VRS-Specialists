@@ -114,9 +114,9 @@ export default function Home() {
               <Image 
                 src="/assets/VRS_logo_transparent.png" 
                 alt="VRS Vehicle Rejuvenation Specialists" 
-                width={1200}
-                height={320}
-                className="h-40 sm:h-52 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto"
+                width={800}
+                height={213}
+                className="h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56 w-auto mx-auto"
                 priority
                 unoptimized
               />
