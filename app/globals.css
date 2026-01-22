@@ -105,6 +105,17 @@
   animation: scroll-mouse 2s ease-in-out infinite;
 }
 
+/* Hero button hover shine effects */
+.hero-btn-call-now:hover {
+  box-shadow: 0 0 20px rgba(225, 28, 34, 0.6), 0 0 40px rgba(225, 28, 34, 0.4), 0 0 60px rgba(225, 28, 34, 0.2);
+  border-color: rgba(225, 28, 34, 0.8);
+}
+
+.hero-btn-whatsapp:hover {
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.6), 0 0 40px rgba(37, 211, 102, 0.4), 0 0 60px rgba(37, 211, 102, 0.2);
+  border-color: rgba(37, 211, 102, 0.8);
+}
+
 .shiny-text {
   background-clip: text;
   -webkit-background-clip: text;

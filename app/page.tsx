@@ -114,9 +114,9 @@ export default function Home() {
               <Image 
                 src="/assets/VRS_logo_transparent.png" 
                 alt="VRS Vehicle Rejuvenation Specialists" 
-                width={800}
-                height={213}
-                className="h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56 w-auto mx-auto"
+                width={900}
+                height={240}
+                className="h-28 sm:h-36 md:h-44 lg:h-52 xl:h-60 w-auto mx-auto"
                 priority
                 unoptimized
               />
@@ -124,7 +124,7 @@ export default function Home() {
             
             {/* Smaller subtitle */}
             <h2 
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mb-4 sm:mb-5 md:mb-6 text-balance leading-tight"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-4 sm:mb-5 md:mb-6 text-balance leading-tight"
               style={{ 
                 fontFamily: "var(--font-outfit), sans-serif",
                 color: "#ffffff",
@@ -138,7 +138,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center mb-4 sm:mb-5 md:mb-6">
               <a
                 href="tel:08000029083"
-                className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 active:bg-white/20 text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wider min-w-[200px] sm:min-w-[180px] shadow-lg hover:shadow-xl"
+                className="hero-btn-call-now inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 active:bg-white/20 text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wider min-w-[200px] sm:min-w-[180px] shadow-lg"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 Call Now
@@ -147,7 +147,7 @@ export default function Home() {
                 href="https://wa.me/447926136965"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 active:bg-white/20 text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wider min-w-[200px] sm:min-w-[180px] shadow-lg hover:shadow-xl"
+                className="hero-btn-whatsapp inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 active:bg-white/20 text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wider min-w-[200px] sm:min-w-[180px] shadow-lg"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 WhatsApp
