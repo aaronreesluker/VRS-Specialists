@@ -1,27 +1,42 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function VideoHero() {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Try to play the video programmatically to handle autoplay restrictions
+    if (videoRef.current) {
+      videoRef.current.play().catch((error) => {
+        console.error("Autoplay prevented:", error);
+      });
+    }
+  }, []);
 
   return (
     <section className="relative w-full h-screen overflow-hidden bg-black">
       {!hasError ? (
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className={`w-full h-full object-cover transition-opacity duration-1000 ${
-            isVideoLoaded ? "opacity-100" : "opacity-0"
-          }`}
-          onLoadedData={() => setIsVideoLoaded(true)}
-          onError={() => {
-            console.error("Video failed to load");
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            console.error("Video failed to load:", e);
             setHasError(true);
+          }}
+          onCanPlay={() => {
+            // Ensure video plays when ready
+            if (videoRef.current) {
+              videoRef.current.play().catch(() => {
+                // Ignore play errors
+              });
+            }
           }}
         >
           <source src="/assets/v1.mp4" type="video/mp4" />
