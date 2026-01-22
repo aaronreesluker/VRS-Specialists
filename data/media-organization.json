@@ -11,7 +11,11 @@
         "project-1767918716762",
         "project-1768000344853-lvu1uqi4l",
         "project-1768000344854-pkd9gcx6w",
-        "project-1767919044339"
+        "project-1767919044339",
+        "project-lamborghini-huracan-orange",
+        "project-ferrari-f8-tributo",
+        "project-facility-showcase",
+        "project-sick-coating-product"
       ],
       "projects": [
         {
@@ -2619,6 +2623,88 @@
             }
           ],
           "description": "Premium vehicle rejuvenation service tailored to your specific requirements.",
+          "location": "BRIGHTON & SUSSEX"
+        },
+        {
+          "id": "project-lamborghini-huracan-orange",
+          "name": "Lamborghini Huracán Orange Detail",
+          "description": "Premium detailing service for this stunning orange Lamborghini Huracán, showcasing our expertise with high-performance supercars.",
+          "mediaIds": [
+            "lamborghini-orange-1",
+            "lamborghini-orange-2",
+            "lamborghini-orange-3"
+          ],
+          "media": [
+            {
+              "id": "lamborghini-orange-1",
+              "src": "/videos/instagram/e10c2638-e226-4457-925e-68d5098d6661.jpeg",
+              "alt": "Lamborghini Huracán Orange Detail in BRIGHTON & SUSSEX - Premium detailing service showcasing our expertise with high-performance supercars (Image 1 of 3)",
+              "type": "image"
+            },
+            {
+              "id": "lamborghini-orange-2",
+              "src": "/videos/instagram/8b1cd9d0-ad43-4efa-9535-d2151aa5d862.jpeg",
+              "alt": "Lamborghini Huracán Orange Detail in BRIGHTON & SUSSEX - Premium detailing service showcasing our expertise with high-performance supercars (Image 2 of 3)",
+              "type": "image"
+            },
+            {
+              "id": "lamborghini-orange-3",
+              "src": "/videos/instagram/45a19e1c-e81f-4230-b692-6e9921d345e7.jpeg",
+              "alt": "Lamborghini Huracán Orange Detail in BRIGHTON & SUSSEX - Premium detailing service showcasing our expertise with high-performance supercars (Image 3 of 3)",
+              "type": "image"
+            }
+          ],
+          "location": "BRIGHTON & SUSSEX"
+        },
+        {
+          "id": "project-ferrari-f8-tributo",
+          "name": "Ferrari F8 Tributo Premium Detail",
+          "description": "Comprehensive detailing service for this brilliant red Ferrari F8 Tributo, featuring our state-of-the-art facility and premium techniques.",
+          "mediaIds": [
+            "ferrari-f8-1"
+          ],
+          "media": [
+            {
+              "id": "ferrari-f8-1",
+              "src": "/videos/instagram/IMG_4329.jpeg",
+              "alt": "Ferrari F8 Tributo Premium Detail in BRIGHTON & SUSSEX - Comprehensive detailing service featuring our state-of-the-art facility and premium techniques",
+              "type": "image"
+            }
+          ],
+          "location": "BRIGHTON & SUSSEX"
+        },
+        {
+          "id": "project-facility-showcase",
+          "name": "VRS Facility Showcase",
+          "description": "Our professional detailing facility in Brighton, equipped with modern garage bays and premium equipment for luxury vehicle care.",
+          "mediaIds": [
+            "facility-1"
+          ],
+          "media": [
+            {
+              "id": "facility-1",
+              "src": "/videos/instagram/IMG_6922.png",
+              "alt": "VRS Facility Showcase in BRIGHTON & SUSSEX - Professional detailing facility equipped with modern garage bays and premium equipment for luxury vehicle care",
+              "type": "image"
+            }
+          ],
+          "location": "BRIGHTON & SUSSEX"
+        },
+        {
+          "id": "project-sick-coating-product",
+          "name": "SICK Silicon Carbide Coating",
+          "description": "Premium SICK Silicon Carbide Coating product from VRS - advanced protection technology for ultimate vehicle finish.",
+          "mediaIds": [
+            "sick-product-1"
+          ],
+          "media": [
+            {
+              "id": "sick-product-1",
+              "src": "/videos/instagram/IMG_9466.jpeg",
+              "alt": "SICK Silicon Carbide Coating product from VRS in BRIGHTON & SUSSEX - Advanced protection technology for ultimate vehicle finish",
+              "type": "image"
+            }
+          ],
           "location": "BRIGHTON & SUSSEX"
         }
       ]
