@@ -17,6 +17,12 @@ export default function Navigation() {
   const [backgroundColor, setBackgroundColor] = useState("transparent");
   const [textColor, setTextColor] = useState("#ffffff");
   const [isAtTop, setIsAtTop] = useState(true); // Track if at very top for transparency
+  const [mounted, setMounted] = useState(false); // Prevent flash on initial load
+
+  // Prevent flash on initial load
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -141,8 +147,8 @@ export default function Navigation() {
     link: link.href,
   }));
 
-  // Don't render if not visible (scroll-aware for all pages)
-  if (!isVisible) {
+  // Don't render until mounted (prevents flash) or if not visible (scroll-aware for all pages)
+  if (!mounted || !isVisible) {
     return null;
   }
 
