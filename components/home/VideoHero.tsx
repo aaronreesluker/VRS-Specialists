@@ -37,7 +37,7 @@ export default function VideoHero() {
   }, []);
 
   return (
-    <section className="relative w-screen h-screen overflow-hidden bg-black" style={{ width: '100vw', height: '100vh' }}>
+    <section className="relative w-full h-screen overflow-hidden bg-black">
       <video
         ref={videoRef}
         autoPlay
@@ -45,15 +45,9 @@ export default function VideoHero() {
         muted
         playsInline
         preload="auto"
-        className={`w-full h-full object-cover ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 w-full h-full object-cover ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{ 
-          width: '100vw',
-          height: '100vh',
           objectFit: 'cover',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          zIndex: 1,
           transition: 'opacity 0.5s ease-in'
         }}
       >
