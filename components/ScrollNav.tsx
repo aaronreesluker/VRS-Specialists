@@ -106,7 +106,7 @@ export function ScrollNav({
               {/* Logo/Brand */}
               <div className="flex items-center">
                 <Image 
-                  src="/assets/vrs4.png" 
+                  src="/assets/VRS_logo_transparent.png" 
                   alt="VRS Vehicle Rejuvenation Specialists" 
                   width={120}
                   height={24}

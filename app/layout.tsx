@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   keywords: ["car detailing Brighton", "paint correction", "ceramic coating", "PPF", "mobile car detailing", "vehicle detailing Sussex"],
   authors: [{ name: "VRS Specialists" }],
   icons: {
-    icon: [{ url: "/assets/vrs1.png", type: "image/png" }],
-    shortcut: ["/assets/vrs1.png"],
-    apple: [{ url: "/assets/vrs1.png", type: "image/png" }],
+    icon: [{ url: "/assets/VRS_logo_transparent.png", type: "image/png" }],
+    shortcut: ["/assets/VRS_logo_transparent.png"],
+    apple: [{ url: "/assets/VRS_logo_transparent.png", type: "image/png" }],
   },
   viewport: {
     width: "device-width",

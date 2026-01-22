@@ -112,7 +112,7 @@ export default function Home() {
             {/* Logo */}
             <div className="mb-1 sm:mb-2">
               <Image 
-                src="/assets/vrs4.png" 
+                src="/assets/VRS_logo_transparent.png" 
                 alt="VRS Vehicle Rejuvenation Specialists" 
                 width={1200}
                 height={320}

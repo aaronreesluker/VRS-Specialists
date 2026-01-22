@@ -30,7 +30,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <Image 
-              src="/assets/vrs1.png" 
+              src="/assets/VRS_logo_transparent.png" 
               alt="VRS Vehicle Rejuvenation Specialists" 
               width={180}
               height={48}

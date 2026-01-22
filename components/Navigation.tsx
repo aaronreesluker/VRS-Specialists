@@ -169,7 +169,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center">
             <Image 
-              src="/assets/vrs4.png" 
+              src="/assets/VRS_logo_transparent.png" 
               alt="VRS Vehicle Rejuvenation Specialists" 
               width={240}
               height={64}
@@ -187,7 +187,7 @@ export default function Navigation() {
               colors={["#ffffff", "#f9fafb"]}
               displaySocials={false}
               displayItemNumbering={true}
-              logoUrl="/assets/vrs4.png"
+              logoUrl="/assets/VRS_logo_transparent.png"
               menuButtonColor={textColor}
               openMenuButtonColor="#E11C22"
               accentColor="#E11C22"

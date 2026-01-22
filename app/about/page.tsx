@@ -17,7 +17,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <div className="mb-6 flex justify-center">
               <img 
-                src="/assets/vrs3.png" 
+                src="/assets/VRS_logo_transparent.png" 
                 alt="VRS Vehicle Rejuvenation Specialists" 
                 className="h-16 md:h-20 w-auto"
               />
