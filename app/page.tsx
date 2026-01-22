@@ -114,20 +114,7 @@ export default function Home() {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col items-center justify-center">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Logo */}
-            <div className="mb-1 sm:mb-2">
-              <Image 
-                src="/assets/VRS_logo_transparent.png" 
-                alt="VRS Vehicle Rejuvenation Specialists" 
-                width={900}
-                height={240}
-                className="h-28 sm:h-36 md:h-44 lg:h-52 xl:h-60 w-auto mx-auto"
-                priority
-                unoptimized
-              />
-            </div>
-            
-            {/* Smaller subtitle */}
+            {/* Subtitle */}
             <h2 
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-4 sm:mb-5 md:mb-6 text-balance leading-tight"
               style={{ 
