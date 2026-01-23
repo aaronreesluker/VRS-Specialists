@@ -10,7 +10,6 @@ const brandLogoMap: Record<string, string> = {
   Audi: "/logos/brands/Audi.png",
   BMW: "/logos/brands/bmw.png",
   Ferrari: "/logos/brands/ferrari.png",
-  "Land Rover": "/logos/brands/Land Rover.png",
   McLaren: "/logos/brands/mclaren.png",
   Porsche: "/logos/brands/porsche.png",
   "Range Rover": "/logos/brands/range rover.png",
