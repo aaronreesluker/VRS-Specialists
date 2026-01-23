@@ -8,8 +8,8 @@ export default function ProductsSection() {
   const productImages = [
     "/videos/instagram/RangeRAB4.jpg",
     "/videos/instagram/RangeRAB6.jpg",
-    "/videos/instagram/Product.jpg",
-    "/videos/instagram/STCK.jpeg",
+    "/videos/instagram/Gtechniq.jpg",
+    "/videos/instagram/Nanolex.jpg",
     "/videos/instagram/kamikaze.jpg",
   ];
 
