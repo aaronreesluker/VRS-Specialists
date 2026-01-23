@@ -85,41 +85,82 @@ export default function ServiceOverview() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service) => (
-            <Link
-              key={service.id}
-              href={service.href}
-              className="group bg-gray-900 border-2 border-gray-700 rounded-lg p-6 hover:border-primary-500 transition-all duration-300 hover:shadow-lg"
-            >
-              <div className="mb-4">
-                <h3 
-                  className="text-xl font-bold mb-2 text-white group-hover:text-primary-500 transition-colors"
-                  style={{ fontFamily: "var(--font-outfit), sans-serif" }}
-                >
-                  {service.name}
-                </h3>
+        <div>
+          {/* First 4 services in a grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            {services.slice(0, 4).map((service) => (
+              <Link
+                key={service.id}
+                href={service.href}
+                className="group bg-gray-900 border-2 border-gray-700 rounded-lg p-6 hover:border-primary-500 transition-all duration-300 hover:shadow-lg"
+              >
+                <div className="mb-4">
+                  <h3 
+                    className="text-xl font-bold mb-2 text-white group-hover:text-primary-500 transition-colors"
+                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                  >
+                    {service.name}
+                  </h3>
+                  <p 
+                    className="text-2xl font-bold text-primary-500 mb-3"
+                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                  >
+                    {service.price}
+                  </p>
+                </div>
                 <p 
-                  className="text-2xl font-bold text-primary-500 mb-3"
+                  className="text-gray-300 mb-4"
                   style={{ fontFamily: "var(--font-outfit), sans-serif" }}
                 >
-                  {service.price}
+                  {service.description}
                 </p>
-              </div>
-              <p 
-                className="text-gray-300 mb-4"
-                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                <span 
+                  className="text-primary-500 font-semibold group-hover:underline"
+                  style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                >
+                  Learn more →
+                </span>
+              </Link>
+            ))}
+          </div>
+          
+          {/* Last 3 services centered */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {services.slice(4).map((service) => (
+              <Link
+                key={service.id}
+                href={service.href}
+                className="group bg-gray-900 border-2 border-gray-700 rounded-lg p-6 hover:border-primary-500 transition-all duration-300 hover:shadow-lg w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.5rem)] max-w-sm"
               >
-                {service.description}
-              </p>
-              <span 
-                className="text-primary-500 font-semibold group-hover:underline"
-                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
-              >
-                Learn more →
-              </span>
-            </Link>
-          ))}
+                <div className="mb-4">
+                  <h3 
+                    className="text-xl font-bold mb-2 text-white group-hover:text-primary-500 transition-colors"
+                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                  >
+                    {service.name}
+                  </h3>
+                  <p 
+                    className="text-2xl font-bold text-primary-500 mb-3"
+                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                  >
+                    {service.price}
+                  </p>
+                </div>
+                <p 
+                  className="text-gray-300 mb-4"
+                  style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                >
+                  {service.description}
+                </p>
+                <span 
+                  className="text-primary-500 font-semibold group-hover:underline"
+                  style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+                >
+                  Learn more →
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="text-center mt-12">
