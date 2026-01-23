@@ -287,6 +287,8 @@ export function BrandLogoGrid({
     const seen = new Set<string>();
     let logos = Array.from(brandMap.values())
       .filter((b) => {
+        // Exclude Mercedes from the grid
+        if (b.brandName === "Mercedes") return false;
         if (seen.has(b.brandName)) return false;
         seen.add(b.brandName);
         return true;
