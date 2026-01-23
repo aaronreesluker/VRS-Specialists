@@ -6,12 +6,10 @@ import Image from "next/image";
 
 export default function ProductsSection() {
   const productImages = [
-    "/videos/instagram/F8F6.jpg",
-    "/videos/instagram/F8F7.jpg",
     "/videos/instagram/RangeRAB4.jpg",
     "/videos/instagram/RangeRAB6.jpg",
     "/videos/instagram/Product.jpg",
-    "/videos/instagram/stck.jpeg",
+    "/videos/instagram/STCK.jpeg",
     "/videos/instagram/kamikaze.jpg",
   ];
 
