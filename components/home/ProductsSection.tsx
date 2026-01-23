@@ -10,7 +10,9 @@ export default function ProductsSection() {
     "/videos/instagram/F8F7.jpg",
     "/videos/instagram/RangeRAB4.jpg",
     "/videos/instagram/RangeRAB6.jpg",
-    "/videos/instagram/RangeRAB9.jpg",
+    "/videos/instagram/Product.jpg",
+    "/videos/instagram/stck.jpeg",
+    "/videos/instagram/kamikaze.jpg",
   ];
 
   return (

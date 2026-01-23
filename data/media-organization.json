@@ -245,7 +245,9 @@
       "projectIds": [
         "project-1767916673370",
         "project-1767918803657",
-        "project-1767918875898"
+        "project-1767918875898",
+        "project-mazda-mx-paint-correction",
+        "project-rupes-paint-correction"
       ],
       "projects": [
         {
@@ -368,6 +370,54 @@
               "id": "audi8",
               "src": "/videos/instagram/Audi8.jpg",
               "alt": "Audi Q3 New Car Prep & Protection Package in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service (Image 8 of 8)",
+              "type": "image"
+            }
+          ],
+          "location": "BRIGHTON & SUSSEX"
+        },
+        {
+          "id": "project-mazda-mx-paint-correction",
+          "name": "Mazda MX-5 Paint Correction",
+          "description": "Professional paint correction service for Mazda MX-5, restoring depth, gloss and clarity to the vehicle's finish.",
+          "mediaIds": [
+            "mx-1",
+            "mx-2"
+          ],
+          "media": [
+            {
+              "id": "mx-1",
+              "src": "/videos/instagram/mx.jpg",
+              "alt": "Mazda MX-5 Paint Correction in BRIGHTON & SUSSEX - Professional paint correction service restoring depth, gloss and clarity (Image 1 of 2)",
+              "type": "image"
+            },
+            {
+              "id": "mx-2",
+              "src": "/videos/instagram/mx2.jpg",
+              "alt": "Mazda MX-5 Paint Correction in BRIGHTON & SUSSEX - Professional paint correction service restoring depth, gloss and clarity (Image 2 of 2)",
+              "type": "image"
+            }
+          ],
+          "location": "BRIGHTON & SUSSEX"
+        },
+        {
+          "id": "project-rupes-paint-correction",
+          "name": "Rupes Paint Correction",
+          "description": "Premium paint correction using Rupes polishing equipment, showcasing professional swirl mark removal and surface refinement.",
+          "mediaIds": [
+            "rupes-1",
+            "rupes-2"
+          ],
+          "media": [
+            {
+              "id": "rupes-1",
+              "src": "/videos/instagram/rupes.jpg",
+              "alt": "Rupes Paint Correction in BRIGHTON & SUSSEX - Premium paint correction using Rupes polishing equipment showcasing professional swirl mark removal (Image 1 of 2)",
+              "type": "image"
+            },
+            {
+              "id": "rupes-2",
+              "src": "/videos/instagram/rupes1.jpg",
+              "alt": "Rupes Paint Correction in BRIGHTON & SUSSEX - Premium paint correction using Rupes polishing equipment showcasing professional surface refinement (Image 2 of 2)",
               "type": "image"
             }
           ],
