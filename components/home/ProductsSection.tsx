@@ -34,7 +34,7 @@ export default function ProductsSection() {
             className="text-lg text-gray-300 max-w-2xl mx-auto"
             style={{ fontFamily: "var(--font-outfit), sans-serif" }}
           >
-            High-quality detailing products from Tenzi UK, perfect for maintaining your ceramic coated or waxed vehicle between professional visits.
+            High-quality detailing products perfect for maintaining your ceramic coated or waxed vehicle between professional visits.
           </p>
         </motion.div>
 
