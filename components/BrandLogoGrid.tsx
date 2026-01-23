@@ -7,6 +7,7 @@ import { useMemo, useLayoutEffect, useRef, useState } from "react";
 
 const brandLogoMap: Record<string, string> = {
   "Aston Martin": "/logos/brands/Aston Martin.png",
+  Audi: "/logos/brands/Audi.png",
   BMW: "/logos/brands/bmw.png",
   Ferrari: "/logos/brands/ferrari.png",
   "Land Rover": "/logos/brands/Land Rover.png",
