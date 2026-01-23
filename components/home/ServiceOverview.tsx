@@ -33,6 +33,27 @@ const services = [
     description: "Front end paint protection film with self-healing technology",
     href: "/services#ppf",
   },
+  {
+    id: "dry-ice",
+    name: "Dry Ice Blasting",
+    price: "from £950",
+    description: "Underbody decontamination using advanced dry ice technology",
+    href: "/services#dry-ice",
+  },
+  {
+    id: "maintenance-club",
+    name: "Maintenance Club",
+    price: "from £60",
+    description: "Safe maintenance wash to keep your vehicle pristine",
+    href: "/services#maintenance-club",
+  },
+  {
+    id: "interior-valeting",
+    name: "Interior Valeting",
+    price: "from £150",
+    description: "Complete interior cleaning and protection service",
+    href: "/services#interior-valeting",
+  },
 ];
 
 export default function ServiceOverview() {

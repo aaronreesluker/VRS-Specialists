@@ -45,6 +45,12 @@ export default function Footer() {
               Premium vehicle rejuvenation services in Brighton and across
               Sussex. Studio workshop and mobile detailing.
             </p>
+            <p 
+              className="text-dark-700 mb-3 text-sm"
+              style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+            >
+              Studio: 85 Preston Rd, Brighton and Hove, Brighton BN1 4QG
+            </p>
             <div className="flex space-x-4">
               <a
                 href="https://www.instagram.com/vrs_vehicle_rejuvenation/"

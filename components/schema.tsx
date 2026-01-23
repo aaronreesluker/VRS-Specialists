@@ -10,7 +10,9 @@ export function LocalBusinessSchema() {
     "email": "info@vrsspecialists.com",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "85 Preston Rd, Brighton and Hove",
       "addressLocality": "Brighton",
+      "postalCode": "BN1 4QG",
       "addressRegion": "East Sussex",
       "addressCountry": "GB",
     },

@@ -72,6 +72,12 @@ const carBrandLogos: LogoItem[] = [
     height: 100,
   },
   {
+    src: "/logos/brands/Mercedes.png",
+    alt: "Mercedes",
+    title: "Mercedes",
+    height: 100,
+  },
+  {
     src: "/logos/brands/Land Rover.png",
     alt: "Land Rover",
     title: "Land Rover",

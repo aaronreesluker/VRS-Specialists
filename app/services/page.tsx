@@ -131,6 +131,94 @@ const services = [
       "Ceramic coating over PPF",
     ],
   },
+  {
+    id: "dry-ice",
+    name: "Dry Ice Blasting",
+    subtitle: "Underbody Decontamination",
+    price: "from £950",
+    description:
+      "Advanced dry ice blasting technology for thorough underbody decontamination and restoration.",
+    includes: [
+      "Complete underbody inspection",
+      "Dry ice blasting treatment",
+      "Removal of road grime, salt, and contaminants",
+      "Rust prevention treatment",
+      "Protective coating application",
+      "Final inspection and documentation",
+    ],
+    who: "Ideal for vehicles with heavy underbody contamination, classic car restoration, or preparing for long-term storage.",
+    outcomes: [
+      "Complete underbody decontamination",
+      "Rust prevention and protection",
+      "Restored underbody appearance",
+      "Extended vehicle longevity",
+    ],
+    addOns: [
+      "Engine bay dry ice treatment",
+      "Extended warranty options",
+      "Additional protective coatings",
+    ],
+  },
+  {
+    id: "maintenance-club",
+    name: "Maintenance Club",
+    subtitle: "Safe Maintenance Wash",
+    price: "from £60",
+    description:
+      "Regular maintenance washing service to keep your vehicle in pristine condition between full details.",
+    includes: [
+      "Safe two-bucket method wash",
+      "Premium pH-neutral shampoo",
+      "Wheel and tire cleaning",
+      "Hand drying with premium microfibres",
+      "Quick interior vacuum",
+      "Tire dressing",
+      "Light protection top-up",
+    ],
+    who: "Perfect for vehicle owners who want to maintain their vehicle's appearance between full detailing services.",
+    outcomes: [
+      "Maintained vehicle appearance",
+      "Extended protection between details",
+      "Regular care and attention",
+      "Cost-effective maintenance solution",
+    ],
+    addOns: [
+      "Interior wipe-down",
+      "Glass cleaning",
+      "Additional protection layers",
+    ],
+  },
+  {
+    id: "interior-valeting",
+    name: "Interior Valeting",
+    subtitle: "Complete Interior Care",
+    price: "from £150",
+    description:
+      "Comprehensive interior cleaning and protection service for all vehicle surfaces.",
+    includes: [
+      "Complete vacuum and air dusting",
+      "Upholstery deep cleaning",
+      "Leather cleaning and conditioning",
+      "Dashboard and trim cleaning",
+      "Carpet and mat cleaning",
+      "Glass cleaning",
+      "Interior protection application",
+      "Odor elimination",
+    ],
+    who: "Essential for maintaining a clean, fresh, and protected interior environment in your vehicle.",
+    outcomes: [
+      "Spotless interior surfaces",
+      "Protected and conditioned materials",
+      "Fresh, clean environment",
+      "Extended interior longevity",
+    ],
+    addOns: [
+      "Fabric protection treatment",
+      "Leather protection coating",
+      "Headliner cleaning",
+      "Air vent deep cleaning",
+    ],
+  },
 ];
 
 export default function ServicesPage() {

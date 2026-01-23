@@ -91,7 +91,7 @@ export function ImageSequencePlayer({
 
     animRafRef.current = requestAnimationFrame(step);
   }, []);
-
+  
   useEffect(() => {
     const clamped = Math.max(0, Math.min(1, progress));
     const frameIndex = Math.floor(clamped * (frameCount - 1)) + 1;

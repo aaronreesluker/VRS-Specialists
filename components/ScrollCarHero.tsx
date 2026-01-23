@@ -139,13 +139,13 @@ export function ScrollCarHero({
   // Ultra-smooth progress updates synchronized with browser paint cycles
   const progressUpdateRef = useRef<number | null>(null);
   const pendingProgressRef = useRef<number>(0);
-
+  
   useMotionValueEvent(effectiveProgress, "change", (latest) => {
     pendingProgressRef.current = latest;
     if (progressUpdateRef.current !== null) return;
     progressUpdateRef.current = requestAnimationFrame(() => {
       setCurrentProgress(pendingProgressRef.current);
-      progressUpdateRef.current = null;
+        progressUpdateRef.current = null;
     });
   });
 
@@ -175,33 +175,33 @@ export function ScrollCarHero({
 
         {/* Title (after preloading) */}
         {framesReady && (
-          <motion.div
-            className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4"
-            style={{ opacity: titleOpacity }}
+        <motion.div
+          className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4"
+          style={{ opacity: titleOpacity }}
+        >
+          <h1 
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-white mb-3 md:mb-6 text-center"
+            style={{
+                fontFamily: "var(--font-outfit), sans-serif",
+              fontWeight: 700,
+              letterSpacing: "0.05em",
+              textTransform: "uppercase",
+            }}
           >
-            <h1
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-white mb-3 md:mb-6 text-center"
-              style={{
-                fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 700,
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-              }}
-            >
-              {titleMain}
-            </h1>
-            <p
-              className="text-base sm:text-lg md:text-xl lg:text-3xl text-white/80 text-center px-4"
-              style={{
-                fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 300,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-              }}
-            >
-              {titleSub}
-            </p>
-          </motion.div>
+            {titleMain}
+          </h1>
+          <p 
+            className="text-base sm:text-lg md:text-xl lg:text-3xl text-white/80 text-center px-4"
+            style={{
+              fontFamily: "var(--font-outfit), sans-serif",
+              fontWeight: 300,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+            }}
+          >
+            {titleSub}
+          </p>
+        </motion.div>
         )}
 
         {/* Car Animation */}

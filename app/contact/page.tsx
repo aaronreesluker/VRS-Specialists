@@ -55,6 +55,13 @@ export default function ContactPage() {
                 </div>
 
                 <div>
+                  <h3 className="font-semibold text-dark-900 mb-2">Studio Address</h3>
+                  <p className="text-dark-700">
+                    85 Preston Rd, Brighton and Hove, Brighton BN1 4QG
+                  </p>
+                </div>
+
+                <div>
                   <h3 className="font-semibold text-dark-900 mb-2">
                     Service Areas
                   </h3>
