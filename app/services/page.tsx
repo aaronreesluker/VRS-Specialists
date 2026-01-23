@@ -236,29 +236,58 @@ export default function ServicesPage() {
           </div>
 
           {/* Service Category Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                className="bg-gray-50 border-2 border-gray-200 rounded-lg p-6 hover:border-primary-500 transition-all"
-              >
-                <h2 className="text-xl font-bold mb-2 text-dark-900">
-                  {service.name}
-                </h2>
-                <p className="text-2xl font-bold text-primary-600 mb-3">
-                  {service.price}
-                </p>
-                <p className="text-dark-700 mb-4 text-sm">
-                  {service.subtitle}
-                </p>
-                <a
-                  href={`#${service.id}`}
-                  className="text-primary-600 font-semibold hover:underline"
+          <div>
+            {/* First 4 services in a grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+              {services.slice(0, 4).map((service) => (
+                <div
+                  key={service.id}
+                  className="bg-gray-50 border-2 border-gray-200 rounded-lg p-6 hover:border-primary-500 transition-all"
                 >
-                  View details ↓
-                </a>
-              </div>
-            ))}
+                  <h2 className="text-xl font-bold mb-2 text-dark-900">
+                    {service.name}
+                  </h2>
+                  <p className="text-2xl font-bold text-primary-600 mb-3">
+                    {service.price}
+                  </p>
+                  <p className="text-dark-700 mb-4 text-sm">
+                    {service.subtitle}
+                  </p>
+                  <a
+                    href={`#${service.id}`}
+                    className="text-primary-600 font-semibold hover:underline"
+                  >
+                    View details ↓
+                  </a>
+                </div>
+              ))}
+            </div>
+            
+            {/* Last 3 services centered */}
+            <div className="flex flex-wrap justify-center gap-6 mb-16">
+              {services.slice(4).map((service) => (
+                <div
+                  key={service.id}
+                  className="bg-gray-50 border-2 border-gray-200 rounded-lg p-6 hover:border-primary-500 transition-all w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.5rem)] max-w-sm"
+                >
+                  <h2 className="text-xl font-bold mb-2 text-dark-900">
+                    {service.name}
+                  </h2>
+                  <p className="text-2xl font-bold text-primary-600 mb-3">
+                    {service.price}
+                  </p>
+                  <p className="text-dark-700 mb-4 text-sm">
+                    {service.subtitle}
+                  </p>
+                  <a
+                    href={`#${service.id}`}
+                    className="text-primary-600 font-semibold hover:underline"
+                  >
+                    View details ↓
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Individual Service Sections */}
