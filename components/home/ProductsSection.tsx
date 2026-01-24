@@ -7,10 +7,10 @@ import Image from "next/image";
 export default function ProductsSection() {
   const productImages = [
     "/videos/instagram/kamikaze.jpg",
-    "/assets/Gtechniq.png",
-    "/videos/instagram/IMG_9466.jpeg",
-    "/assets/Rupes.png",
-    "/assets/UPPF.png",
+    "/batch1/fceddf41-b1f6-444f-bbea-56b44911ec1a.jpeg",
+    "/videos/instagram/RangeRAB4.jpg",
+    "/videos/instagram/RangeRAB6.jpg",
+    "/batch1/8e944fb6-0859-484d-bd8d-635dc62924d5.jpeg",
   ];
 
   return (
