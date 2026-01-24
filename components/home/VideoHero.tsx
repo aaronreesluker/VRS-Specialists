@@ -32,7 +32,6 @@ export default function VideoHero() {
         muted
         playsInline
         preload="auto"
-        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectFit: "cover" }}
       >
