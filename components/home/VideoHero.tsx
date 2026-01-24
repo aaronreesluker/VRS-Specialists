@@ -4,45 +4,24 @@ import { useRef, useEffect, useState } from "react";
 
 export default function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      const handleCanPlay = () => {
-        setIsLoaded(true);
-        video.play().catch((error) => {
-          console.error("Video play error:", error);
-        });
-      };
+    if (!video) return;
 
-      const handleTimeUpdate = () => {
-        // Stop video 1 second before the end
-        if (video.duration && video.currentTime >= video.duration - 1) {
-          video.pause();
-        }
-      };
-
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('loadeddata', () => {
-        setIsLoaded(true);
-        video.play().catch(() => {});
-      });
-      video.addEventListener('timeupdate', handleTimeUpdate);
-
-      // Try to play immediately
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.error("Initial play error:", error);
-        });
+    const handleTimeUpdate = () => {
+      if (video.duration && video.currentTime >= video.duration - 1) {
+        video.pause();
       }
+    };
 
-      return () => {
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('timeupdate', handleTimeUpdate);
-      };
-    }
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    video.play().catch(() => {});
+
+    return () => {
+      video.removeEventListener("timeupdate", handleTimeUpdate);
+    };
   }, []);
 
   return (
@@ -53,11 +32,9 @@ export default function VideoHero() {
         muted
         playsInline
         preload="auto"
-        className={`absolute inset-0 w-full h-full object-cover ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-        style={{ 
-          objectFit: 'cover',
-          transition: 'opacity 0.5s ease-in'
-        }}
+        fetchPriority="high"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ objectFit: "cover" }}
       >
         <source src="/assets/v1.mp4" type="video/mp4" />
         Your browser does not support the video tag.

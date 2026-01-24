@@ -110,13 +110,13 @@ export default function Home() {
       
       {/* Hero section */}
       <section 
-        className="relative w-full min-h-screen pt-2 sm:pt-12 md:pt-16 pb-12 sm:pb-16 md:pb-24 flex flex-col items-center justify-center bg-black"
+        className="relative w-full min-h-screen pt-4 sm:pt-8 md:pt-12 pb-4 sm:pb-12 md:pb-24 flex flex-col items-center justify-start sm:justify-center bg-black"
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col items-center justify-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col items-center justify-start sm:justify-center pt-2 sm:pt-0">
           <div className="max-w-4xl mx-auto text-center">
             {/* Subtitle */}
             <h2 
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-4 sm:mb-5 md:mb-6 text-balance leading-tight"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-2 sm:mb-3 md:mb-5 text-balance leading-tight"
               style={{ 
                 fontFamily: "var(--font-outfit), sans-serif",
                 color: "#ffffff",
@@ -127,10 +127,10 @@ export default function Home() {
               Vehicle Rejuvenation Specialists
             </h2>
             
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-stretch sm:items-center mb-4 sm:mb-5 md:mb-6">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 md:gap-6 justify-center items-stretch sm:items-center mb-2 sm:mb-3 md:mb-5">
               <a
                 href="tel:08000029083"
-                className="hero-btn-call-now inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 active:bg-white/20 text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wider min-w-[200px] sm:min-w-[180px] shadow-lg"
+                className="hero-btn-call-now inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 active:bg-white/20 text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 py-2.5 sm:py-3 md:py-5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wider min-w-[200px] sm:min-w-[180px] shadow-lg"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 Call Now
@@ -139,14 +139,14 @@ export default function Home() {
                 href="https://wa.me/447926136965"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hero-btn-whatsapp inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 active:bg-white/20 text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wider min-w-[200px] sm:min-w-[180px] shadow-lg"
+                className="hero-btn-whatsapp inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 active:bg-white/20 text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 py-2.5 sm:py-3 md:py-5 rounded-full font-semibold transition-all duration-200 uppercase tracking-wider min-w-[200px] sm:min-w-[180px] shadow-lg"
                 style={{ fontFamily: "var(--font-outfit), sans-serif" }}
               >
                 WhatsApp
               </a>
             </div>
             
-            <div className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-2 mb-4">
+            <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-5 md:gap-x-8 lg:gap-x-10 gap-y-1 sm:gap-y-2 mb-2 sm:mb-4">
               <span 
                 className="inline-flex items-center text-xs sm:text-sm md:text-base uppercase tracking-wider"
                 style={{ 
@@ -182,16 +182,16 @@ export default function Home() {
         </div>
         
         {/* Animated Scroll Mouse Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="absolute bottom-1 sm:bottom-5 md:bottom-8 left-1/2 transform -translate-x-1/2 z-10">
           <div className="flex flex-col items-center">
             <span 
-              className="text-white/70 text-xs uppercase tracking-widest mb-2"
+              className="text-white/70 text-xs uppercase tracking-widest mb-1 sm:mb-2"
               style={{ fontFamily: "var(--font-outfit), sans-serif" }}
             >
               Scroll
             </span>
-            <div className="w-6 h-10 border-2 border-white/70 rounded-full flex justify-center p-2">
-              <div className="w-1.5 h-1.5 bg-white/70 rounded-full animate-scroll-mouse"></div>
+            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/70 rounded-full flex justify-center p-1.5 sm:p-2">
+              <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full animate-scroll-mouse"></div>
             </div>
           </div>
         </div>

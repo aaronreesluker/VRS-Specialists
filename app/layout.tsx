@@ -73,6 +73,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${outfit.variable}`}>
       <head>
         <LocalBusinessSchema />
+        <link rel="preload" href="/assets/v1.mp4" as="video" type="video/mp4" />
       </head>
       <body>
         <ConditionalNavigation />
