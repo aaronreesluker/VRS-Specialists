@@ -15,7 +15,8 @@
         "project-lamborghini-huracan-orange",
         "project-ferrari-f8-tributo",
         "project-mercedes-amg-gt",
-        "project-sick-coating-product"
+        "project-sick-coating-product",
+        "project-batch1-latest-work"
       ],
       "projects": [
         {
@@ -2836,6 +2837,39 @@
               "alt": "SICK Silicon Carbide Coating product from VRS in BRIGHTON & SUSSEX - Advanced protection technology for ultimate vehicle finish",
               "type": "image"
             }
+          ],
+          "location": "BRIGHTON & SUSSEX"
+        },
+        {
+          "id": "project-batch1-latest-work",
+          "name": "VRS Latest Work",
+          "mediaIds": [
+            "batch1-1",
+            "batch1-2",
+            "batch1-3",
+            "batch1-4",
+            "batch1-5",
+            "batch1-6",
+            "batch1-7",
+            "batch1-8",
+            "batch1-9",
+            "batch1-10",
+            "batch1-11",
+            "batch1-12"
+          ],
+          "media": [
+            { "id": "batch1-1", "src": "/batch1/18e40c0a-bb27-4b78-b114-abe7edbe9e3e.jpeg", "alt": "VRS detailing work in Brighton & Sussex (1 of 12)", "type": "image" },
+            { "id": "batch1-2", "src": "/batch1/81ebc876-1f0a-4db5-b7ee-7b8713944e50.jpeg", "alt": "VRS detailing work in Brighton & Sussex (2 of 12)", "type": "image" },
+            { "id": "batch1-3", "src": "/batch1/506cdf67-138a-4b76-9400-57f181bcb38f.jpeg", "alt": "VRS detailing work in Brighton & Sussex (3 of 12)", "type": "image" },
+            { "id": "batch1-4", "src": "/batch1/923e2af4-a6e7-4fe6-8208-89a81c2b60d6.jpeg", "alt": "VRS detailing work in Brighton & Sussex (4 of 12)", "type": "image" },
+            { "id": "batch1-5", "src": "/batch1/8653a52b-16c3-45c4-8de6-4ab0c1b13efd.jpeg", "alt": "VRS detailing work in Brighton & Sussex (5 of 12)", "type": "image" },
+            { "id": "batch1-6", "src": "/batch1/ad046933-d5d6-4449-9b90-d50dfdd04bea.jpeg", "alt": "VRS detailing work in Brighton & Sussex (6 of 12)", "type": "image" },
+            { "id": "batch1-7", "src": "/batch1/b54d51c7-289e-4194-ba85-c296d306ed66.jpeg", "alt": "VRS detailing work in Brighton & Sussex (7 of 12)", "type": "image" },
+            { "id": "batch1-8", "src": "/batch1/be07a1db-c68f-49b7-8f71-9c8a73d39f02.jpeg", "alt": "VRS detailing work in Brighton & Sussex (8 of 12)", "type": "image" },
+            { "id": "batch1-9", "src": "/batch1/db3246bc-7f21-4b14-8145-7ed4c14ac7e6.jpeg", "alt": "VRS detailing work in Brighton & Sussex (9 of 12)", "type": "image" },
+            { "id": "batch1-10", "src": "/batch1/f8e2cf2a-e796-4e42-afc8-b92cd05b4d5a.jpeg", "alt": "VRS detailing work in Brighton & Sussex (10 of 12)", "type": "image" },
+            { "id": "batch1-11", "src": "/batch1/f122847e-c8af-476f-b43a-cc2f791b1103.jpeg", "alt": "VRS detailing work in Brighton & Sussex (11 of 12)", "type": "image" },
+            { "id": "batch1-12", "src": "/batch1/f538234c-e2f7-4583-97f2-55609f95bcc7.jpeg", "alt": "VRS detailing work in Brighton & Sussex (12 of 12)", "type": "image" }
           ],
           "location": "BRIGHTON & SUSSEX"
         }
