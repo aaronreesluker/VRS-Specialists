@@ -61,11 +61,12 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070"
+                src="/videos/instagram/IMG_6922.png"
                 alt="VRS Specialists workshop"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                unoptimized
               />
             </div>
           </div>
