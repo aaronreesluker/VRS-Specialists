@@ -110,9 +110,9 @@ export default function Home() {
       
       {/* Hero section */}
       <section 
-        className="relative w-full min-h-screen pt-4 sm:pt-8 md:pt-12 pb-2 sm:pb-4 md:pb-6 flex flex-col items-center justify-start sm:justify-center bg-black"
+        className="relative w-full min-h-0 sm:min-h-screen pt-4 sm:pt-8 md:pt-12 pb-2 sm:pb-4 md:pb-6 flex flex-col items-center justify-start sm:justify-center bg-black"
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col items-center justify-start sm:justify-center pt-2 sm:pt-0">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 sm:flex-1 flex flex-col items-center justify-start sm:justify-center pt-2 sm:pt-0">
           <div className="max-w-4xl mx-auto text-center">
             {/* Subtitle */}
             <h2 
