@@ -166,6 +166,27 @@ function generateServiceDetails(serviceName: string, projectName: string): {
       ]
     };
   }
+
+  // Dry Ice Blasting service
+  if (serviceName === "Dry Ice Blasting") {
+    return {
+      description: "Advanced dry ice blasting for thorough underbody decontamination and restoration.",
+      detailedDescription: `This ${projectName} used advanced dry ice blasting technology to remove road grime, salt, and contaminants from the underbody. Our process included a complete underbody inspection, dry ice blasting treatment, rust prevention, and protective coating application. The result was a fully decontaminated underbody with extended vehicle longevity.`,
+      duration: "1 day",
+      techniques: [
+        "Complete underbody inspection",
+        "Dry ice blasting treatment",
+        "Rust prevention",
+        "Protective coating application"
+      ],
+      results: [
+        "Complete underbody decontamination",
+        "Rust prevention and protection",
+        "Restored underbody appearance",
+        "Extended vehicle longevity"
+      ]
+    };
+  }
   
   // Specials service (default)
   return {

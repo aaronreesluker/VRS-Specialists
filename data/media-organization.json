@@ -728,6 +728,88 @@
       ]
     },
     {
+      "id": "dry-ice",
+      "name": "Dry Ice Blasting",
+      "projectIds": [
+        "project-dry-ice-blasting"
+      ],
+      "projects": [
+        {
+          "id": "project-dry-ice-blasting",
+          "name": "Dry Ice Blasting – Underbody Decontamination",
+          "description": "Advanced dry ice blasting for thorough underbody decontamination and restoration.",
+          "mediaIds": [
+            "di-1",
+            "di-2",
+            "di-3",
+            "di-4",
+            "di-5",
+            "di-6",
+            "di-7",
+            "di-8",
+            "di-9"
+          ],
+          "media": [
+            {
+              "id": "di-1",
+              "src": "/dry ice/5771d6d8-1719-4dc3-9f18-6bf1795a449a.jpeg",
+              "alt": "Dry Ice Blasting in BRIGHTON & SUSSEX - Underbody decontamination (Image 1 of 9)",
+              "type": "image"
+            },
+            {
+              "id": "di-2",
+              "src": "/dry ice/35da7370-c983-4168-a423-e82cde2bb89e.jpeg",
+              "alt": "Dry Ice Blasting in BRIGHTON & SUSSEX - Underbody decontamination (Image 2 of 9)",
+              "type": "image"
+            },
+            {
+              "id": "di-3",
+              "src": "/dry ice/551cb279-938a-4648-86ce-63355977c679.jpeg",
+              "alt": "Dry Ice Blasting in BRIGHTON & SUSSEX - Underbody decontamination (Image 3 of 9)",
+              "type": "image"
+            },
+            {
+              "id": "di-4",
+              "src": "/dry ice/d1454151-98b6-4e52-aebc-6ed5d1fa1900.mp4",
+              "alt": "Dry Ice Blasting in BRIGHTON & SUSSEX - Underbody decontamination - Professional car detailing video",
+              "type": "video"
+            },
+            {
+              "id": "di-5",
+              "src": "/dry ice/723ed366-39ef-428f-b059-afa127bdf17c.mp4",
+              "alt": "Dry Ice Blasting in BRIGHTON & SUSSEX - Underbody decontamination - Professional car detailing video",
+              "type": "video"
+            },
+            {
+              "id": "di-6",
+              "src": "/dry ice/746796c6-b1ba-48fd-9113-132c1512d4b7.mp4",
+              "alt": "Dry Ice Blasting in BRIGHTON & SUSSEX - Underbody decontamination - Professional car detailing video",
+              "type": "video"
+            },
+            {
+              "id": "di-7",
+              "src": "/dry ice/d7dfbd7b-5902-4f7b-87e9-6ec8336de342.jpeg",
+              "alt": "Dry Ice Blasting in BRIGHTON & SUSSEX - Underbody decontamination (Image 7 of 9)",
+              "type": "image"
+            },
+            {
+              "id": "di-8",
+              "src": "/dry ice/14d6866b-3ada-4b46-8c7b-5d6a7b64356b.jpeg",
+              "alt": "Dry Ice Blasting in BRIGHTON & SUSSEX - Underbody decontamination (Image 8 of 9)",
+              "type": "image"
+            },
+            {
+              "id": "di-9",
+              "src": "/dry ice/8c53e141-4214-4bff-b159-29f88a11cb8d.jpeg",
+              "alt": "Dry Ice Blasting in BRIGHTON & SUSSEX - Underbody decontamination (Image 9 of 9)",
+              "type": "image"
+            }
+          ],
+          "location": "BRIGHTON & SUSSEX"
+        }
+      ]
+    },
+    {
       "id": "specials",
       "name": "Specials",
       "projectIds": [
