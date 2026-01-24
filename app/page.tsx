@@ -146,7 +146,7 @@ export default function Home() {
               </a>
             </div>
             
-            <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-5 md:gap-x-8 lg:gap-x-10 gap-y-1 sm:gap-y-2 mb-2 sm:mb-4">
+            <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-5 md:gap-x-8 lg:gap-x-10 gap-y-1 sm:gap-y-2 mb-0 sm:mb-4">
               <span 
                 className="inline-flex items-center text-xs sm:text-sm md:text-base uppercase tracking-wider"
                 style={{ 
@@ -179,19 +179,19 @@ export default function Home() {
               </span>
             </div>
           </div>
-        </div>
-        
-        {/* Animated Scroll Mouse Indicator */}
-        <div className="absolute bottom-1 sm:bottom-5 md:bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="flex flex-col items-center">
-            <span 
-              className="text-white/70 text-xs uppercase tracking-widest mb-1 sm:mb-2"
-              style={{ fontFamily: "var(--font-outfit), sans-serif" }}
-            >
-              Scroll
-            </span>
-            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/70 rounded-full flex justify-center p-1.5 sm:p-2">
-              <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full animate-scroll-mouse"></div>
+
+          {/* Animated Scroll Mouse Indicator: in-flow on mobile (tight gap), absolute on sm+ */}
+          <div className="mt-2 sm:mt-0 sm:absolute sm:bottom-5 md:bottom-8 sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10">
+            <div className="flex flex-col items-center">
+              <span 
+                className="text-white/70 text-xs uppercase tracking-widest mb-1 sm:mb-2"
+                style={{ fontFamily: "var(--font-outfit), sans-serif" }}
+              >
+                Scroll
+              </span>
+              <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/70 rounded-full flex justify-center p-1.5 sm:p-2">
+                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full animate-scroll-mouse"></div>
+              </div>
             </div>
           </div>
         </div>
