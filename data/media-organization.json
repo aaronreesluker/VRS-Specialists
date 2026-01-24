@@ -585,7 +585,9 @@
             "gt3rs4",
             "gt3rs5",
             "gt3rs6",
-            "gt3rs7"
+            "gt3rs7",
+            "porsche-batch1-1",
+            "porsche-batch1-2"
           ],
           "media": [
             {
@@ -628,6 +630,18 @@
               "id": "gt3rs7",
               "src": "/videos/instagram/gt3rs7.jpg",
               "alt": "Porsche GT3 RS Track-Ready Detail in BRIGHTON & SUSSEX - Premium car detailing service (Image 7 of 7)",
+              "type": "image"
+            },
+            {
+              "id": "porsche-batch1-1",
+              "src": "/batch1/f538234c-e2f7-4583-97f2-55609f95bcc7.jpeg",
+              "alt": "Porsche GT3 RS Track-Ready Detail in BRIGHTON & SUSSEX - Premium car detailing service",
+              "type": "image"
+            },
+            {
+              "id": "porsche-batch1-2",
+              "src": "/batch1/8653a52b-16c3-45c4-8de6-4ab0c1b13efd.jpeg",
+              "alt": "Porsche GT3 RS Track-Ready Detail in BRIGHTON & SUSSEX - Premium car detailing service",
               "type": "image"
             }
           ],
@@ -2176,7 +2190,8 @@
             "R8S1",
             "R8S3",
             "R8S4",
-            "R8S5"
+            "R8S5",
+            "audi-r8-batch1-1"
           ],
           "media": [
             {
@@ -2201,6 +2216,12 @@
               "id": "R8S5",
               "src": "/videos/instagram/R8S5.jpg",
               "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service tailored to your specific requirements. (Image 3 of 3)",
+              "type": "image"
+            },
+            {
+              "id": "audi-r8-batch1-1",
+              "src": "/batch1/4be57e34-beae-4b18-8d6a-d1ad8f601461.jpeg",
+              "alt": "Audi R8 Spyder in BRIGHTON & SUSSEX - Premium vehicle rejuvenation service",
               "type": "image"
             }
           ],
@@ -2794,13 +2815,34 @@
           "name": "Ferrari F8 Tributo Premium Detail",
           "description": "Comprehensive detailing service for this brilliant red Ferrari F8 Tributo, featuring our state-of-the-art facility and premium techniques.",
           "mediaIds": [
-            "ferrari-f8-1"
+            "ferrari-f8-1",
+            "ferrari-batch1-1",
+            "ferrari-batch1-2",
+            "ferrari-batch1-3"
           ],
           "media": [
             {
               "id": "ferrari-f8-1",
               "src": "/videos/instagram/IMG_4329.jpeg",
               "alt": "Ferrari F8 Tributo Premium Detail in BRIGHTON & SUSSEX - Comprehensive detailing service featuring our state-of-the-art facility and premium techniques",
+              "type": "image"
+            },
+            {
+              "id": "ferrari-batch1-1",
+              "src": "/batch1/f8e2cf2a-e796-4e42-afc8-b92cd05b4d5a.jpeg",
+              "alt": "Ferrari F8 Tributo Premium Detail in BRIGHTON & SUSSEX - Comprehensive detailing service",
+              "type": "image"
+            },
+            {
+              "id": "ferrari-batch1-2",
+              "src": "/batch1/0fd46fca-5beb-42c1-9a2c-9eecf8c3d34b.jpeg",
+              "alt": "Ferrari F8 Tributo Premium Detail in BRIGHTON & SUSSEX - Comprehensive detailing service",
+              "type": "image"
+            },
+            {
+              "id": "ferrari-batch1-3",
+              "src": "/batch1/5c2a7e07-c73b-4b0b-94ae-f99cb227814f.jpeg",
+              "alt": "Ferrari F8 Tributo Premium Detail in BRIGHTON & SUSSEX - Comprehensive detailing service",
               "type": "image"
             }
           ],
@@ -2848,28 +2890,22 @@
             "batch1-2",
             "batch1-3",
             "batch1-4",
-            "batch1-5",
             "batch1-6",
             "batch1-7",
             "batch1-8",
             "batch1-9",
-            "batch1-10",
-            "batch1-11",
-            "batch1-12"
+            "batch1-11"
           ],
           "media": [
-            { "id": "batch1-1", "src": "/batch1/18e40c0a-bb27-4b78-b114-abe7edbe9e3e.jpeg", "alt": "VRS detailing work in Brighton & Sussex (1 of 12)", "type": "image" },
-            { "id": "batch1-2", "src": "/batch1/81ebc876-1f0a-4db5-b7ee-7b8713944e50.jpeg", "alt": "VRS detailing work in Brighton & Sussex (2 of 12)", "type": "image" },
-            { "id": "batch1-3", "src": "/batch1/506cdf67-138a-4b76-9400-57f181bcb38f.jpeg", "alt": "VRS detailing work in Brighton & Sussex (3 of 12)", "type": "image" },
-            { "id": "batch1-4", "src": "/batch1/923e2af4-a6e7-4fe6-8208-89a81c2b60d6.jpeg", "alt": "VRS detailing work in Brighton & Sussex (4 of 12)", "type": "image" },
-            { "id": "batch1-5", "src": "/batch1/8653a52b-16c3-45c4-8de6-4ab0c1b13efd.jpeg", "alt": "VRS detailing work in Brighton & Sussex (5 of 12)", "type": "image" },
-            { "id": "batch1-6", "src": "/batch1/ad046933-d5d6-4449-9b90-d50dfdd04bea.jpeg", "alt": "VRS detailing work in Brighton & Sussex (6 of 12)", "type": "image" },
-            { "id": "batch1-7", "src": "/batch1/b54d51c7-289e-4194-ba85-c296d306ed66.jpeg", "alt": "VRS detailing work in Brighton & Sussex (7 of 12)", "type": "image" },
-            { "id": "batch1-8", "src": "/batch1/be07a1db-c68f-49b7-8f71-9c8a73d39f02.jpeg", "alt": "VRS detailing work in Brighton & Sussex (8 of 12)", "type": "image" },
-            { "id": "batch1-9", "src": "/batch1/db3246bc-7f21-4b14-8145-7ed4c14ac7e6.jpeg", "alt": "VRS detailing work in Brighton & Sussex (9 of 12)", "type": "image" },
-            { "id": "batch1-10", "src": "/batch1/f8e2cf2a-e796-4e42-afc8-b92cd05b4d5a.jpeg", "alt": "VRS detailing work in Brighton & Sussex (10 of 12)", "type": "image" },
-            { "id": "batch1-11", "src": "/batch1/f122847e-c8af-476f-b43a-cc2f791b1103.jpeg", "alt": "VRS detailing work in Brighton & Sussex (11 of 12)", "type": "image" },
-            { "id": "batch1-12", "src": "/batch1/f538234c-e2f7-4583-97f2-55609f95bcc7.jpeg", "alt": "VRS detailing work in Brighton & Sussex (12 of 12)", "type": "image" }
+            { "id": "batch1-1", "src": "/batch1/18e40c0a-bb27-4b78-b114-abe7edbe9e3e.jpeg", "alt": "VRS detailing work in Brighton & Sussex (1 of 9)", "type": "image" },
+            { "id": "batch1-2", "src": "/batch1/81ebc876-1f0a-4db5-b7ee-7b8713944e50.jpeg", "alt": "VRS detailing work in Brighton & Sussex (2 of 9)", "type": "image" },
+            { "id": "batch1-3", "src": "/batch1/506cdf67-138a-4b76-9400-57f181bcb38f.jpeg", "alt": "VRS detailing work in Brighton & Sussex (3 of 9)", "type": "image" },
+            { "id": "batch1-4", "src": "/batch1/923e2af4-a6e7-4fe6-8208-89a81c2b60d6.jpeg", "alt": "VRS detailing work in Brighton & Sussex (4 of 9)", "type": "image" },
+            { "id": "batch1-6", "src": "/batch1/ad046933-d5d6-4449-9b90-d50dfdd04bea.jpeg", "alt": "VRS detailing work in Brighton & Sussex (5 of 9)", "type": "image" },
+            { "id": "batch1-7", "src": "/batch1/b54d51c7-289e-4194-ba85-c296d306ed66.jpeg", "alt": "VRS detailing work in Brighton & Sussex (6 of 9)", "type": "image" },
+            { "id": "batch1-8", "src": "/batch1/be07a1db-c68f-49b7-8f71-9c8a73d39f02.jpeg", "alt": "VRS detailing work in Brighton & Sussex (7 of 9)", "type": "image" },
+            { "id": "batch1-9", "src": "/batch1/db3246bc-7f21-4b14-8145-7ed4c14ac7e6.jpeg", "alt": "VRS detailing work in Brighton & Sussex (8 of 9)", "type": "image" },
+            { "id": "batch1-11", "src": "/batch1/f122847e-c8af-476f-b43a-cc2f791b1103.jpeg", "alt": "VRS detailing work in Brighton & Sussex (9 of 9)", "type": "image" }
           ],
           "location": "BRIGHTON & SUSSEX"
         }
