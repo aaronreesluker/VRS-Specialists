@@ -9,6 +9,8 @@ export default function ProductsSection() {
     "/videos/instagram/RangeRAB4.jpg",
     "/videos/instagram/RangeRAB6.jpg",
     "/videos/instagram/kamikaze.jpg",
+    "/batch1/8e944fb6-0859-484d-bd8d-635dc62924d5.jpeg",
+    "/batch1/fceddf41-b1f6-444f-bbea-56b44911ec1a.jpeg",
     // Temporarily hidden until images are added:
     // "/videos/instagram/Gtechniq.jpg",
     // "/videos/instagram/Nanolex.jpg",
