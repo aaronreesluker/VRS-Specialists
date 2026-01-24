@@ -6,23 +6,11 @@ import Image from "next/image";
 
 export default function ProductsSection() {
   const productImages = [
-    "/videos/instagram/RangeRAB4.jpg",
-    "/videos/instagram/RangeRAB6.jpg",
     "/videos/instagram/kamikaze.jpg",
-    "/batch1/8e944fb6-0859-484d-bd8d-635dc62924d5.jpeg",
-    "/batch1/fceddf41-b1f6-444f-bbea-56b44911ec1a.jpeg",
-    "/batch1/18e40c0a-bb27-4b78-b114-abe7edbe9e3e.jpeg",
-    "/batch1/81ebc876-1f0a-4db5-b7ee-7b8713944e50.jpeg",
-    "/batch1/506cdf67-138a-4b76-9400-57f181bcb38f.jpeg",
-    "/batch1/923e2af4-a6e7-4fe6-8208-89a81c2b60d6.jpeg",
-    "/batch1/8653a52b-16c3-45c4-8de6-4ab0c1b13efd.jpeg",
-    "/batch1/ad046933-d5d6-4449-9b90-d50dfdd04bea.jpeg",
-    "/batch1/b54d51c7-289e-4194-ba85-c296d306ed66.jpeg",
-    "/batch1/be07a1db-c68f-49b7-8f71-9c8a73d39f02.jpeg",
-    "/batch1/db3246bc-7f21-4b14-8145-7ed4c14ac7e6.jpeg",
-    "/batch1/f8e2cf2a-e796-4e42-afc8-b92cd05b4d5a.jpeg",
-    "/batch1/f122847e-c8af-476f-b43a-cc2f791b1103.jpeg",
-    "/batch1/f538234c-e2f7-4583-97f2-55609f95bcc7.jpeg",
+    "/assets/Gtechniq.png",
+    "/videos/instagram/IMG_9466.jpeg",
+    "/assets/Rupes.png",
+    "/assets/UPPF.png",
   ];
 
   return (
