@@ -73,7 +73,10 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${outfit.variable}`}>
       <head>
         <LocalBusinessSchema />
-        {/* Video preload handled by VideoHero component */}
+        {/* Preload hero video for faster initial load */}
+        <link rel="preload" href="/assets/v1.mp4" as="video" type="video/mp4" />
+        {/* Preload poster image */}
+        <link rel="preload" href="/assets/VRS_logo_transparent.png" as="image" />
       </head>
       <body>
         <ConditionalNavigation />
